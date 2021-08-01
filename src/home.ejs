@@ -1,17 +1,19 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <script async src="https://kit.fontawesome.com/1a5afcdf38.js" crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 
+    <link type="text/css" href="https://s3.amazonaws.com/glowscript/css/ide.css" rel="stylesheet" />
+
     <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png" />
 
-    <title>
-        <%= title %>
-    </title>
+    <title><%= title %></title>
 </head>
 
 <body>
@@ -129,16 +131,16 @@
             <div class="title"
                 style="text-align: center; width: 100%; border-top: 3px solid #47cf72; padding-top: 20px;"
                 id="mecanica-classica">
-                Mecânica Clássica:
+                <%= mcTitle %>
             </div>
         </section>
         <section id="content-section">
             <div class="col">
                 <div class="title">
-                    Cinemática Escalar
+                    <%= mcSubTitle1 %>
                 </div>
                 <div class="content">
-                    A cinemática escalar 
+                    <%= mcContent %>
                 </div>
                 <!-- <button id="mudar"> Mudar </button> -->
             </div>
@@ -193,15 +195,25 @@
 
     <canvas id="canvas2"></canvas>
 
-    <!-- <h1>
-        <%= mcTitle %>
-    </h1>
-
-    <h3>
-        <%= mcContent %>
-    </h3> -->
-
     <script src="/js/main.js"></script>
+    <script src="/js/sendEmail.js"></script>
+    <script src="/js/login.js"></script>
+
+    <!-- Importando o VPython -->
+    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+
+    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/glow.3.0.min.js"></script>
+
+    <script src="js/vpython.js"></script>
+
+    <!-- Importando o MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="js/escreverInstrucoes.js"></script>
 </body>
 
 </html>

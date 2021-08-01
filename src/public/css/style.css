@@ -324,6 +324,7 @@ hr.iniciar {
     z-index: 1;
     top: 0;
     left: 0;
+    background-color: #121b25;
 }
 
 #formula-section {
