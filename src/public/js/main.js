@@ -38,7 +38,7 @@ canvas1.height = 110
 let particleArray = [];
 let spacingPoints = 3;
 
-// Canvas 2 (plano de fundo do LabFísica)
+// Canvas 2
 const canvas2 = document.getElementById('canvas2');
 const ctx2 = canvas2.getContext('2d');
 
@@ -73,7 +73,6 @@ ctx.fillText('Física', 0, 34);
 
 const textCoordinates = ctx.getImageData(0, 0, 100, 110);
 
-// Criação das particulas
 class Particle {
     constructor(x, y, size, random=false) {
         this.x = x;
@@ -141,7 +140,6 @@ class Particle {
     }
 }
 
-// Função inicializa as coodenadas dos pontos do Canvas 1 e Canvas 2
 function init () {
     particleArray = []
     particleRandom = []
@@ -166,7 +164,6 @@ function init () {
 
 init()
 
-// Função que anima as particulas
 function animate(){
     ctx.clearRect(0,0, canvas1.width, canvas1.height);
     for (let i = 0; i < particleArray.length; i++){
@@ -189,7 +186,6 @@ function animate(){
 
 animate()
 
-// Função que desenha um segmento de reta entre as partículas
 function connect() {
     let opacityValue = 1;
     for (let a = 0; a < particleArray.length; a++) {
@@ -231,17 +227,94 @@ function connect() {
     }
 }
 
-// Mover as particulas do Canvas 2 de forma randomica
 window.addEventListener('scroll', (e) => {
     for (let i = 0; i < particleRandom.length; i++){
         particleRandom[i].move(5);
     }
 })
 
-// Atualizar as dimensões do Canvas 2 (plano de fundo do LabFísica) ao mudar as dimensões da tela do client
 window.addEventListener('resize', (e) => {
     canvas2.width = innerWidth;
     canvas2.height = innerHeight;
 
     init()
 })
+
+
+let tutorial = document.getElementById('tutorial');
+let acionar;
+let t = 0;
+
+tutorial.addEventListener('mouseenter', () => {
+    acionar = setInterval( () => {
+        t++;
+        tutorial.style.backgroundImage = `linear-gradient(${-45 + t*50}deg, #59bd87, #15c3f7, #ac92d0, #ffcd56, #75be6b)`;
+    }, 100 );
+})
+
+tutorial.addEventListener('mouseleave', () => {
+    clearInterval(acionar);
+    t = 0;
+    tutorial.style.backgroundImage = 'linear-gradient(-45deg, #59bd87, #15c3f7, #ac92d0, #ffcd56, #75be6b)';
+})
+
+
+
+tutorial.addEventListener('click', scrollToId);
+
+function scrollToId(event) {
+    event.preventDefault();
+    const element = event.target;
+
+    const lugar = getScrollTopByHref(element);
+
+    scrollToPosition(lugar);
+}
+
+function scrollToPosition(lugar){
+    smoothScrollTo(0, lugar, 1500);
+}
+
+function getScrollTopByHref(element){
+    const id = element.getAttribute('scroll');
+    return document.querySelector(id).offsetTop;
+}
+
+
+// Função para scroll suave com tempo de duração:
+
+
+/**
+ * Smooth scroll animation
+ * @param {int} endX: destination x coordinate
+ * @param {int} endY: destination y coordinate
+ * @param {int} duration: animation duration in ms
+ */
+
+ function smoothScrollTo(endX, endY, duration) {
+    const startX = window.scrollX || window.pageXOffset;
+    const startY = window.scrollY || window.pageYOffset;
+    const distanceX = endX - startX;
+    const distanceY = endY - startY;
+    const startTime = new Date().getTime();
+  
+    duration = typeof duration !== 'undefined' ? duration : 400;
+  
+    // Easing function
+    const easeInOutQuart = (time, from, distance, duration) => {
+      if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
+      return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+    };
+  
+    const timer = setInterval(() => {
+      const time = new Date().getTime() - startTime;
+      const newX = easeInOutQuart(time, startX, distanceX, duration);
+      const newY = easeInOutQuart(time, startY, distanceY, duration);
+      if (time >= duration) {
+        clearInterval(timer);
+      }
+      window.scroll(newX, newY);
+    }, 1000 / 60); // 60 fps
+  };
+
+
