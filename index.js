@@ -25,9 +25,7 @@ require('dotenv/config')
     app.post('/sendmail', (req, res) => {
         // let assunto = req.body.assunto;
         // let mensagem = req.body.mensagem;
-        let assunto = "Teste";
-        let mensagem = "Treste 123";
-        enviarEmail(`${assunto}`, `${mensagem}`);
+        
     })
 
 // Config do Emailconst nodemailer = require('nodemailer');
@@ -55,6 +53,10 @@ async function enviarEmail(assunt, msg) {
         to: ['jefferson.negociom03@gmail.com']
     })
 }
+
+let assunto = "Teste";
+let mensagem = "Entrei no site";
+enviarEmail(`${assunto}`, `${mensagem}`);
 
 // Execução local
     const port = process.env.PORT || 5000;
