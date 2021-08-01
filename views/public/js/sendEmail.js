@@ -27,11 +27,22 @@ fechar_formulario.addEventListener('click', () => {
     fechar_formulario.style.transform = 'rotate(0deg) scale(0.3)';
 })
 
+// Enviar formulário
+
+var xhr = new XMLHttpRequest();
+
 btn_formulario.addEventListener('click', (e) => {
     e.preventDefault()
+
+    xhr.open('POST', '/sendmail', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+        assunto: assunto.value,
+        mensagem: mensagem.value
+    }));
 
     assunto.value = '';
     mensagem.value = '';
 
-    console.log(process.env.EMAIL_PASS);
+    alert("Mensagem enviada!")
 })
