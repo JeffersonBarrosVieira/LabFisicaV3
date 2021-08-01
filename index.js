@@ -5,13 +5,13 @@ const path = require('path');
 const app = express();
 const lang = require('./lang/pt-Br.json');
 
-app.set('views', path.join(__dirname, 'src'));
+app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', ejs.renderFile);
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/src/public'));
+app.use(express.static(__dirname + '/views/public'));
 
 app.get('/', (req, res) => {
-    res.render(path.join(__dirname + '/src/home.ejs'), lang)
+    res.render(path.join(__dirname + '/views/home.ejs'), lang)
 })
 
 const port = process.env.PORT || 5000;
