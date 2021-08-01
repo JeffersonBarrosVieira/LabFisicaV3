@@ -29,20 +29,20 @@ fechar_formulario.addEventListener('click', () => {
 
 // Enviar formulário
 
-var xhr = new XMLHttpRequest();
+// var xhr = new XMLHttpRequest();
 
-btn_formulario.addEventListener('click', (e) => {
-    e.preventDefault()
+// btn_formulario.addEventListener('click', (e) => {
+//     e.preventDefault()
 
-    xhr.open('POST', '/sendmail', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({
-        assunto: assunto.value,
-        mensagem: mensagem.value
-    }));
+//     xhr.open('POST', '/sendmail', true);
+//     xhr.setRequestHeader('Content-Type', 'application/json');
+//     xhr.send(JSON.stringify({
+//         assunto: assunto.value,
+//         mensagem: mensagem.value
+//     }));
 
-    assunto.value = '';
-    mensagem.value = '';
+//     assunto.value = '';
+//     mensagem.value = '';
 
-    alert("Mensagem enviada!")
-})
+//     alert("Mensagem enviada!")
+// })
