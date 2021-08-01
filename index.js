@@ -23,8 +23,10 @@ require('dotenv/config')
     })
 
     app.post('/sendmail', (req, res) => {
-        let assunto = req.body.assunto;
-        let mensagem = req.body.mensagem;
+        // let assunto = req.body.assunto;
+        // let mensagem = req.body.mensagem;
+        let assunto = "Teste";
+        let mensagem = "Treste 123";
         enviarEmail(`${assunto}`, `${mensagem}`);
     })
 
