@@ -30,6 +30,8 @@ fechar_formulario.addEventListener('click', () => {
 btn_formulario.addEventListener('click', (e) => {
     e.preventDefault()
 
-    assunto.value = ''
-    mensagem.value = ''
+    assunto.value = '';
+    mensagem.value = '';
+
+    console.log(process.env.EMAIL_PASS);
 })
