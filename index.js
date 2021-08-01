@@ -7,6 +7,8 @@ const app = express();
 
 require('dotenv/config')
 
+const sendMessage = require('./views/public/api/sendMessage')
+
 // Configs
     // Ejs
         app.set('views', path.join(__dirname, 'views'));
@@ -22,37 +24,10 @@ require('dotenv/config')
         res.render(path.join(__dirname + '/views/home.ejs'), lang)
     })
 
-    app.post('/sendmail', (req, res) => {
-        let assunto = req.body.assunto;
-        let mensagem = req.body.mensagem;
-        enviarEmail(`${assunto}`, `${mensagem}`);
+    app.post('/sendmessage', (req, res) => {
+        sendMessage(req, res);
     })
 
-// Config do Emailconst nodemailer = require('nodemailer');
-const nodemailer = require('nodemailer');
-const SMTP_CONFIG = require('./config/smtp');
-
-const transport = nodemailer.createTransport({
-    host: SMTP_CONFIG.host,
-    port: SMTP_CONFIG.port,
-    secure: false,
-    auth: {
-        user: SMTP_CONFIG.user,
-        pass: SMTP_CONFIG.pass
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-})
-
-async function enviarEmail(assunt, msg) {
-    await transport.sendMail({
-        text: `${msg}`,
-        subject: `${assunt}`,
-        from: `Lab Física <${SMTP_CONFIG.user}>`,
-        to: ['jefferson.negociom03@gmail.com']
-    })
-}
 
 // Execução local
     const port = process.env.PORT || 5000;
