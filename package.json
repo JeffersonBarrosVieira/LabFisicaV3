@@ -2,10 +2,10 @@
   "name": "labfisicav3",
   "version": "1.0.0",
   "description": "Laboratório de Física Virtual desenvolvido em Node.js com a view engine EJs juntamente com o uso do MongoDB para gestão de dados",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
