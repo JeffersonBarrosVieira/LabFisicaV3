@@ -24,8 +24,8 @@ const sendMessage = require('./views/public/api/sendMessage')
         res.render(path.join(__dirname + '/views/home.ejs'), lang)
     })
 
-    app.post('/sendmessage', (req, res) => {
-        sendMessage(req, res);
+    app.post('/send', (req, res) => {
+        res.render(path.join(__dirname + '/views/home.ejs'), lang)
     })
 
 
