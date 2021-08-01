@@ -1,0 +1,28 @@
+{
+  "name": "labfisicav3",
+  "version": "1.0.0",
+  "description": "Laboratório de Física Virtual desenvolvido em Node.js com a view engine EJs juntamente com o uso do MongoDB para gestão de dados",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffersonm03/LabFisicaV3.git"
+  },
+  "keywords": [],
+  "author": "Jefferson Barros Vieira",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/jeffersonm03/LabFisicaV3/issues"
+  },
+  "homepage": "https://github.com/jeffersonm03/LabFisicaV3#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@vercel/node": "^1.11.1"
+  }
+}
