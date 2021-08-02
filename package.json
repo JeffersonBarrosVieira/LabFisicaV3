@@ -23,7 +23,7 @@
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "nodemailer": "^6.6.3"
+    "mongodb": "^4.0.1"
   },
   "devDependencies": {
     "@vercel/node": "^1.11.1"
