@@ -2,7 +2,6 @@ module.exports = async (req, res, MongoClient) => {
   let assunto = req.body.assunto;
   let mensagem = req.body.mensagem;
   let conn = false;
-  console.log({assunto, mensagem});
 
   let uri = process.env.MONGO_URI;
   let client = new MongoClient(uri);
@@ -10,7 +9,7 @@ module.exports = async (req, res, MongoClient) => {
   try {
       // Conectar no mongoDB
       await client.connect();
-      console.log('Conected')
+      // console.log('Conected')
       conn = true;
 
       // Inserir mensagem 
@@ -21,7 +20,7 @@ module.exports = async (req, res, MongoClient) => {
           mensagem: `${mensagem}`,
           data: new Date().toLocaleString("pt-BR")
       });
-      console.log(`Mensagem inserida com id: ${ result.insertedId }`);
+      // console.log(`Mensagem inserida com id: ${ result.insertedId }`);
         
 
   } catch (error) {
@@ -29,8 +28,6 @@ module.exports = async (req, res, MongoClient) => {
   } finally {
       await client.close();
   }
-
-  console.log("Fununciou");
 
   res.json({
     body: req.body,
