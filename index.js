@@ -29,17 +29,6 @@ require('dotenv/config')
         
     })
 
-// Enviar mensagem
-// function listDatabases(client, assunto, mensagem){
-//     const result = await client.db("labfisica")
-//     .collection("mensagens")
-//     .insertOne({
-//         assunto: `${assunto}`,
-//         mensagem: `${mensagem}`,
-//         data: new Date().toLocaleString("pt-BR")
-//     });
-//     console.log(`Mensagem inserida com id: ${ result.insertedId }`);
-// }
 
 // Execução local
     const port = process.env.PORT || 5000;
