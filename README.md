@@ -1,7 +1,7 @@
 # LabFisicaV3
 O Laboratório de Física Virtual está sendo desenvolvido em Node.js com a view engine EJs juntamente com o uso do MongoDB para gestão de dados. Para entrar no LabFísica acesse:
 
-<a href="https://codepen.io/">
+<a href="https://labfisica.vercel.app/">
     <img src="./views/public/img/icon.png" style="width: 50px; height: 50px;"/>
 </a>
 
