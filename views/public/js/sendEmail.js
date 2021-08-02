@@ -34,38 +34,19 @@ btn_formulario.addEventListener('click', (e) => {
     
     if(assunto.value !== '' && mensagem.value !== ''){
 
-        var data = new FormData();
-        data.append('assunto', assunto.value);
-        data.append('mensagem', mensagem.value);
-
         let xhr = new XMLHttpRequest();
         xhr.open('POST', '/send', true);
-        // xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {//Call a function when the state changes.
-            if(xhr.readyState == 4 && xhr.status == 200) {
-                alert(xhr.responseText);
-            }
-        }
-        xhr.setRequestHeader("Content-length", data.length);
-        xhr.setRequestHeader("Connection", "close");
-        
-        xhr.onload = function () {
-            // do something to response
-            console.log(this.responseText);
-        };
-        // xhr.send(JSON.stringify({
-        //     assunto: assunto.value,
-        //     mensagem: mensagem.value
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            assunto: assunto.value,
+            mensagem: mensagem.value
             
-        // }));
-
-        xhr.send(data);
+        }));
     
         assunto.value = '';
         mensagem.value = '';
     
-        // alert("Mensagem enviada!")
+        alert("Mensagem enviada!")
 
     }
     
