@@ -1,6 +1,7 @@
 let state = true;
 
 window.__context = { glowscript_container: $("#glowscript1") }
+
 cubo()
 
 // document.getElementById('mudar').addEventListener('click', () => {
@@ -24,8 +25,9 @@ async function cubo() {
     let scene = canvas()
     scene.range = 2
     let b = box({color:color.cyan})
+    b.rotate({angle:0.5, axis:vec(0,1,1)})
     
-    async function f(obj) {
+    async function rotacionar(obj) {
         let t = clock()
 
         while (true) {
@@ -37,7 +39,10 @@ async function cubo() {
         return 0
     }
 
-    let x = await f(b)
+    window.addEventListener('load', async () => {
+        await new Promise( resolve => setTimeout(resolve, 3000));
+        let x = await rotacionar(b);
+    })
 }
 
 async function cilindro() {
