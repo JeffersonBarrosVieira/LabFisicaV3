@@ -44,12 +44,12 @@ require('dotenv/config')
 //     console.log(`Mensagem inserida com id: ${ result.insertedId }`);
 // }
 
-async function enviarMensagem(assunto, mensagem) {
-    var conn = await MongoClient.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    console.log( await conn.db('labfisica').collection('mensagens').countDocuments({}) );
-}
+// async function enviarMensagem(assunto, mensagem) {
+//     var conn = await MongoClient.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     console.log( await conn.db('labfisica').collection('mensagens').countDocuments({}) );
+// }
 
-async function enviarMensagem1(assunto, mensagem){
+async function enviarMensagem(assunto, mensagem){
 
     const uri = process.env.MONGO_URI;
     
