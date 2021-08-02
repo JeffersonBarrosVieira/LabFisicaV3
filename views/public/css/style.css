@@ -20,11 +20,11 @@ html, body {
     margin: 0;
     padding: 0;
 
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     background: #121b25 !important;
     box-sizing: border-box;
     z-index: 0;
-    min-height: 140vh;
+    min-height: 130vh;
 }
 
 #main-slide-bar {
