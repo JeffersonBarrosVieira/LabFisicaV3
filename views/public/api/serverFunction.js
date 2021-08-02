@@ -1,4 +1,4 @@
-module.exports = async (req, res) => {
+module.exports = async (req, res, MongoClient) => {
   let assunto = req.body.assunto;
   let mensagem = req.body.mensagem;
   let conn = false;
