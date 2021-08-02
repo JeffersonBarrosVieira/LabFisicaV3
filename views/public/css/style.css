@@ -22,7 +22,6 @@ html, body {
     box-sizing: border-box;
 
     /* overflow-x: hidden; */
-    background-color: #0f1418;
     z-index: 0;
 }
 
@@ -164,6 +163,7 @@ hr.iniciar {
     color: white;
     font-size: 30px;
     z-index: 10;
+    background-color: #121e2500;
     transition: all 0.34s ease-out;
 }
 
