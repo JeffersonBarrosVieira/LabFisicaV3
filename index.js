@@ -26,10 +26,11 @@ require('dotenv/config')
     app.post('/send', (req, res) => {
         let assunto = req.body.assunto;
         let mensagem = req.body.mensagem;
-        // console.log({assunto, mensagem});
-        enviarMensagem(assunto, mensagem).catch(function(err) {
-            console.log(err)
-        })
+        console.log({assunto, mensagem});
+        console.log("Fununciou")
+        // enviarMensagem(assunto, mensagem).catch(function(err) {
+        //     console.log(err)
+        // })
     })
 
 // Enviar mensagem
