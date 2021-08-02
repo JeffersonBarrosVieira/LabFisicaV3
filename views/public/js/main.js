@@ -46,7 +46,7 @@ let particleRandom = [];
 let spacingPoints2 = 20;
 
 canvas2.width = innerWidth 
-canvas2.height = innerHeight * 1.3
+canvas2.height = innerHeight
 
 // Mouse
 const mouse = {
@@ -235,7 +235,7 @@ window.addEventListener('scroll', (e) => {
 
 window.addEventListener('resize', (e) => {
     canvas2.width = innerWidth;
-    canvas2.height = innerHeight * 1.3
+    canvas2.height = innerHeight;
 
     init()
 })
