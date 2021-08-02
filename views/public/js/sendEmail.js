@@ -30,23 +30,24 @@ fechar_formulario.addEventListener('click', () => {
 // Enviar formulário
 
 btn_formulario.addEventListener('click', (e) => {
-    // e.preventDefault()
-
-    // if(assunto.value !== '' && mensagem.value !== ''){
-
-    //     let xhr = new XMLHttpRequest();
-    //     xhr.open('POST', '/sendmessage', true);
-    //     xhr.setRequestHeader('Content-Type', 'application/json');
-    //     xhr.send(JSON.stringify({
-    //         assunto: assunto.value,
-    //         mensagem: mensagem.value
-    //     }));
+    e.preventDefault();
     
-    //     assunto.value = '';
-    //     mensagem.value = '';
-    
-    //     alert("Mensagem enviada!")
+    if(assunto.value !== '' && mensagem.value !== ''){
 
-    // }
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/send', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            assunto: assunto.value,
+            mensagem: mensagem.value
+            
+        }));
+    
+        assunto.value = '';
+        mensagem.value = '';
+    
+        alert("Mensagem enviada!")
+
+    }
     
 })

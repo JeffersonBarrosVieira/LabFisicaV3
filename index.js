@@ -25,7 +25,9 @@ const sendMessage = require('./views/public/api/sendMessage')
     })
 
     app.post('/send', (req, res) => {
-        res.render(path.join(__dirname + '/views/home.ejs'), lang)
+        let assunto = req.body.assunto;
+        let mensagem = req.body.mensagem;
+        console.log({assunto, mensagem});
     })
 
 
