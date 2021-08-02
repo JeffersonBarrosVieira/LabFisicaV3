@@ -26,24 +26,7 @@ require('dotenv/config')
 
     app.post('/send', (req, res) => {
         serverFunction(req, res, MongoClient);
-        // async () => {
-        //     let uri = process.env.MONGO_URI;
-        //     let client = new MongoClient(uri);
-
-        //     try {
-        //         await client.connect();
-        //         console.log('Conected')
-        //         // await listDatabases(client, assunto, mensagem);
         
-        //     } catch (error) {
-        //         console.error(error);
-        //     } finally {
-        //         await client.close();
-        //     }
-        // }
-        // enviarMensagem(assunto, mensagem).catch(function(err) {
-        //     console.log(err)
-        // })
     })
 
 // Enviar mensagem
@@ -57,29 +40,6 @@ require('dotenv/config')
 //     });
 //     console.log(`Mensagem inserida com id: ${ result.insertedId }`);
 // }
-
-// async function enviarMensagem(assunto, mensagem) {
-//     var conn = await MongoClient.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//     console.log( await conn.db('labfisica').collection('mensagens').countDocuments({}) );
-// }
-
-async function enviarMensagem(assunto, mensagem){
-
-    const uri = process.env.MONGO_URI;
-    
-    const client = new MongoClient(uri);
-    
-    try {
-        await client.connect();
-        console.log('Conected')
-        // await listDatabases(client, assunto, mensagem);
-
-    } catch (error) {
-        console.error(error);
-    } finally {
-        await client.close();
-    }
-};
 
 // Execução local
     const port = process.env.PORT || 5000;

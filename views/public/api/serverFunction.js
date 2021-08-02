@@ -8,10 +8,21 @@ module.exports = async (req, res, MongoClient) => {
   let client = new MongoClient(uri);
 
   try {
+      // Conectar no mongoDB
       await client.connect();
       console.log('Conected')
       conn = true;
-      // await listDatabases(client, assunto, mensagem);
+
+      // Inserir mensagem 
+      const result = await client.db("labfisica")
+      .collection("mensagens")
+      .insertOne({
+          assunto: `${assunto}`,
+          mensagem: `${mensagem}`,
+          data: new Date().toLocaleString("pt-BR")
+      });
+      console.log(`Mensagem inserida com id: ${ result.insertedId }`);
+        
 
   } catch (error) {
       console.error(error);
