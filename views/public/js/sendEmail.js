@@ -42,6 +42,7 @@ btn_formulario.addEventListener('click', (e) => {
             mensagem: mensagem.value
             
         }));
+        xhr.abort();
     
         assunto.value = '';
         mensagem.value = '';
