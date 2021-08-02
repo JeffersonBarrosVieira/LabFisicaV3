@@ -20,12 +20,11 @@ html, body {
     margin: 0;
     padding: 0;
 
-    /* overflow-x: hidden; */
-    background-color: #121b25;
+    overflow-x: hidden;
+    background: #121b25 !important;
     box-sizing: border-box;
     z-index: 0;
-    background: #121b25 !important;
-
+    min-height: 140vh;
 }
 
 #main-slide-bar {
@@ -33,7 +32,7 @@ html, body {
     top: 0;
     left: 0;
     width: 188px;
-    height: 100vh;
+    height: 140vh;
     border-right: 2px solid #121b25;
     background-color: #171b21;
     padding: 20px;
