@@ -26,9 +26,6 @@ require('dotenv/config')
 
     app.post('/send', (req, res) => {
         serverFunction(req, res);
-        // let assunto = req.body.assunto;
-        // let mensagem = req.body.mensagem;
-        // console.log({assunto, mensagem});
         // async () => {
         //     let uri = process.env.MONGO_URI;
         //     let client = new MongoClient(uri);
