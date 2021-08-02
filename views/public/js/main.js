@@ -45,8 +45,8 @@ const ctx2 = canvas2.getContext('2d');
 let particleRandom = [];
 let spacingPoints2 = 20;
 
-canvas2.width = innerWidth
-canvas2.height = innerHeight
+canvas2.width = innerWidth 
+canvas2.height = innerHeight * 1.2
 
 // Mouse
 const mouse = {
