@@ -22,7 +22,7 @@ html, body {
     box-sizing: border-box;
 
     /* overflow-x: hidden; */
-    background-color: #0f1418;
+    background: #0f1418;
     z-index: 0;
 }
 
