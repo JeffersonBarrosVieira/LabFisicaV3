@@ -26,7 +26,7 @@ require('dotenv/config')
     app.post('/send', (req, res) => {
         let assunto = req.body.assunto;
         let mensagem = req.body.mensagem;
-        console.log({assunto, mensagem});
+        // console.log({assunto, mensagem});
         // enviarMensagem(assunto, mensagem).catch(console.error);;
     })
 
@@ -42,22 +42,23 @@ require('dotenv/config')
 //     console.log(`Mensagem inserida com id: ${ result.insertedId }`);
 // }
 
-// async function enviarMensagem(assunto, mensagem){
+async function enviarMensagem(assunto, mensagem){
 
-//     const uri = process.env.MONGO_URI;
+    const uri = process.env.MONGO_URI;
     
-//     const client = new MongoClient(uri);
+    const client = new MongoClient(uri);
+    
+    try {
+        await client.connect();
+        console.log('Conected')
+        // await listDatabases(client, assunto, mensagem);
 
-//     try {
-//         await client.connect();
-//         await listDatabases(client, assunto, mensagem);
-
-//     } catch (error) {
-//         console.error(error);
-//     } finally {
-//         await client.close();
-//     }
-// };
+    } catch (error) {
+        console.error(error);
+    } finally {
+        await client.close();
+    }
+};
 
 // Execução local
     const port = process.env.PORT || 5000;
