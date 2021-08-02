@@ -43,10 +43,13 @@ btn_formulario.addEventListener('click', (e) => {
         // xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {//Call a function when the state changes.
-            if(xhr.readyState == 4 && http.status == 200) {
+            if(xhr.readyState == 4 && xhr.status == 200) {
                 alert(xhr.responseText);
             }
         }
+        xhr.setRequestHeader("Content-length", data.length);
+        xhr.setRequestHeader("Connection", "close");
+        
         xhr.onload = function () {
             // do something to response
             console.log(this.responseText);
