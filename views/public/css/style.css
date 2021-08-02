@@ -3,7 +3,6 @@
 * {
     font-family: 'Patrick Hand', cursive;
     color: white;
-    background-color: #121b25;
 }
 
 a {
@@ -22,12 +21,12 @@ html, body {
     padding: 0;
 
     /* overflow-x: hidden; */
-    z-index: 0;
     background-color: #121b25;
+    box-sizing: border-box;
+    z-index: 0;
 }
 
 #main-slide-bar {
-    background-color: transparent;
     position: fixed;
     top: 0;
     left: 0;
@@ -60,7 +59,6 @@ html, body {
 }
 
 #tutorial {
-    background-color: transparent;
     margin: 20px 0 15px 0;
     width: 100%;
     height: 50px;
@@ -70,13 +68,11 @@ html, body {
 }
 
 hr.iniciar {
-    background-color: transparent;
     border-top: 2px solid #47cf72;
     border-bottom: 1px solid #47cf72;
 }
 
 #tutorial button {
-    background-color: transparent;
     margin: 3px;
     width: calc(100% - 6px);
     height: calc(100% - 6px);
@@ -90,7 +86,6 @@ hr.iniciar {
 }
 
 #main-slide-bar .topicos{
-    background-color: transparent;
     width: auto;
     height: auto;
     margin-top: 20px;
@@ -104,7 +99,6 @@ hr.iniciar {
 }
 
 #main-topo {
-    background-color: transparent;
     height: 74px;
     width: 100%;
     display: flex;
@@ -113,7 +107,6 @@ hr.iniciar {
 }
 
 #main-topo .pesquisar {
-    background-color: transparent;
     display: flex;
     padding: 0 15px 0 15px;
     align-items: center;
@@ -123,7 +116,6 @@ hr.iniciar {
 }
 
 #text {
-    background-color: transparent;
     height: 60%;
     width: 100%;
     background-color: #252830;
@@ -135,7 +127,6 @@ hr.iniciar {
 }
 
 #main-topo .botoes {
-    background-color: transparent;
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -144,7 +135,6 @@ hr.iniciar {
 }
 
 #main-topo button {
-    background-color: transparent;
     height: 60%;
     width: 90px;
     margin-right: 15px;
@@ -152,7 +142,6 @@ hr.iniciar {
 }
 
 #main-topo button:nth-child(1) {
-    background-color: transparent;
     background-color: #61bd71;
     border: none;
     border-radius: 5px;
@@ -160,7 +149,6 @@ hr.iniciar {
 }
 
 #main-topo button:nth-child(2) {
-    background-color: transparent;
     background-color: #414a56;
     border: none;
     border-radius: 5px;
@@ -169,7 +157,6 @@ hr.iniciar {
 
 
 #main-content {
-    background-color: transparent;
     position: relative;
     margin-left: 238px;
     min-height: 100vh;
@@ -182,7 +169,6 @@ hr.iniciar {
 }
 
 #content-section {
-    background-color: transparent;
     max-width: 1200px;
     width: calc(100% - 30px);
     border-radius: 5px;
@@ -194,7 +180,6 @@ hr.iniciar {
 
 
 #content-section .title {
-    background-color: transparent;
     font-family: 'Concert One', cursive;
     color: #ffffff;
     font-size: 40px;
@@ -203,7 +188,6 @@ hr.iniciar {
 }
 
 #content-section .content {
-    background-color: transparent;
     margin-top: 15px;
     font-size: 22px;
     text-align: justify;
@@ -211,7 +195,6 @@ hr.iniciar {
 }
 
 #content-section .col {
-    background-color: transparent;
     flex: 1;
     min-width: 300px;
     min-height: 330px;
@@ -220,7 +203,6 @@ hr.iniciar {
 }
 
 #content-section .quadro {
-    background-color: transparent;
     background-color: black;
     border-radius: 10px;
     height: 330px;
@@ -230,7 +212,6 @@ hr.iniciar {
 }
 
 #content-section .card {
-    background-color: transparent;
     position: relative;
     background-color: #272e37;
     border-radius: 10px;
@@ -244,14 +225,12 @@ hr.iniciar {
 }
 
 #content-section .card h3 {
-    background-color: transparent;
     color: white;
     font-size: 25px;
     margin: 20px 0;
 }
 
 #content-section .card i {
-    background-color: transparent;
     color: rgb(227, 232, 255);
     background-color: #0b0d0f;
     font-size: 35px;
@@ -264,7 +243,6 @@ hr.iniciar {
 }
 
 #content-section .card p {
-    background-color: transparent;
     flex: 1;
     margin: 0;
     padding: 0;
@@ -272,7 +250,6 @@ hr.iniciar {
 }
 
 #aparelho {
-    background-color: transparent;
     width: 100%;
     display: flex;
     margin-top: 15px;
@@ -284,7 +261,6 @@ hr.iniciar {
 
 #aparelho .celular,
 #aparelho .computador {
-    background-color: transparent;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -303,12 +279,10 @@ hr.iniciar {
 }
 
 #instrucoes {
-    background-color: transparent;
     color: white;
 }
 
 #send-email {
-    background-color: transparent;
     position: absolute;
     top: 0;
     right: 0;
@@ -325,12 +299,10 @@ hr.iniciar {
 }
 
 #send-email:hover{
-    background-color: transparent;
     background-color: #40bb67;
 }
 
 .glowscript {
-    background-color: transparent;
     width: 100%;
     height: 100% !important;
     overflow: hidden;
@@ -357,7 +329,6 @@ hr.iniciar {
 }
 
 #formula-section {
-    background-color: transparent;
     max-width: 1200px;
     width: calc(100% - 30px);
     border-radius: 5px;
@@ -369,7 +340,6 @@ hr.iniciar {
 }
 
 #formula-section h5 {
-    background-color: transparent;
     margin: 15px auto;
     padding: 10px 25px;
     height: auto;
@@ -405,7 +375,6 @@ footer {
 }
 
 #formulario {
-    background-color: transparent;
     position: relative;
     max-width: 300px;
     width: 50vw;
@@ -422,7 +391,6 @@ footer {
 }
 
 #formulario input {
-    background-color: transparent;
     color: black;
     padding: 5px;
     font-size: 20px;
@@ -430,7 +398,6 @@ footer {
 }
 
 #formulario textarea {
-    background-color: transparent;
     color: black;
     padding: 5px;
     font-size: 20px;
@@ -439,7 +406,6 @@ footer {
 }
 
 #formulario i {
-    background-color: transparent;
     position: absolute;
     top: 0;
     right: 0;
