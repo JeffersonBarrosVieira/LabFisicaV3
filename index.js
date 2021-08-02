@@ -27,6 +27,21 @@ require('dotenv/config')
         let assunto = req.body.assunto;
         let mensagem = req.body.mensagem;
         console.log({assunto, mensagem});
+        async () => {
+            let uri = process.env.MONGO_URI;
+            let client = new MongoClient(uri);
+
+            try {
+                await client.connect();
+                console.log('Conected')
+                // await listDatabases(client, assunto, mensagem);
+        
+            } catch (error) {
+                console.error(error);
+            } finally {
+                await client.close();
+            }
+        }
         console.log("Fununciou")
         // enviarMensagem(assunto, mensagem).catch(function(err) {
         //     console.log(err)
