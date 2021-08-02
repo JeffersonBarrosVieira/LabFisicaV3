@@ -24,6 +24,8 @@ html, body {
     background-color: #121b25;
     box-sizing: border-box;
     z-index: 0;
+    background: #121b25 !important;
+
 }
 
 #main-slide-bar {
