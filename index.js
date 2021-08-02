@@ -41,7 +41,6 @@ require('dotenv/config')
         //         await client.close();
         //     }
         // }
-        console.log("Fununciou")
         // enviarMensagem(assunto, mensagem).catch(function(err) {
         //     console.log(err)
         // })

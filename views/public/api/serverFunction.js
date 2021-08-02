@@ -1,10 +1,10 @@
 module.exports = (req, res) => {
-  let assunto = req.body.assunto;
-  let mensagem = req.body.mensagem;
-  let conn = false;
-  console.log({assunto, mensagem});
-
   async () => {
+    let assunto = req.body.assunto;
+    let mensagem = req.body.mensagem;
+    let conn = false;
+    console.log({assunto, mensagem});
+
     let uri = process.env.MONGO_URI;
     let client = new MongoClient(uri);
 
@@ -19,12 +19,15 @@ module.exports = (req, res) => {
     } finally {
         await client.close();
     }
+    
+    console.log("Fununciou");
+  
+    res.json({
+      body: req.body,
+      conected: conn,
+      query: req.query,
+      cookies: req.cookies,
+    });
   }
-
-  res.json({
-    body: req.body,
-    conected: conn,
-    query: req.query,
-    cookies: req.cookies,
-  });
+  
 };
