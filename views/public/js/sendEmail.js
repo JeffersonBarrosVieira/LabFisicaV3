@@ -35,14 +35,19 @@ btn_formulario.addEventListener('click', (e) => {
     if(assunto.value !== '' && mensagem.value !== ''){
 
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', '/send', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            assunto: assunto.value,
-            mensagem: mensagem.value
-            
-        }));
-        xhr.abort();
+        try {
+            xhr.open('POST', '/send', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                assunto: assunto.value,
+                mensagem: mensagem.value
+                
+            }));
+        } catch (error) {
+            console.error(error);
+        } finally {
+            xhr.abort();
+        }
     
         assunto.value = '';
         mensagem.value = '';
