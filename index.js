@@ -28,9 +28,9 @@ require('dotenv/config')
         serverFunction(req, res, MongoClient);
     })
 
-    // app.post('/sendmail', (req, res) => {
-    //     serverFunction(req, res, MongoClient);
-    // })
+    app.post('/sendmail', (req, res) => {
+        serverFunction(req, res, MongoClient);
+    })
 
 
 // Execução local
