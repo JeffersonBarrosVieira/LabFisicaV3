@@ -27,7 +27,7 @@ require('dotenv/config')
         let assunto = req.body.assunto;
         let mensagem = req.body.mensagem;
         // console.log({assunto, mensagem});
-        // enviarMensagem(assunto, mensagem).catch(console.error);;
+        enviarMensagem(assunto, mensagem).catch(console.error);
     })
 
 // Enviar mensagem
