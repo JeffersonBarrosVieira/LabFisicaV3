@@ -3,6 +3,8 @@ const corpo_formulario = document.getElementById('formulario-content');
 const btn_formulario = document.querySelector('#formulario .btn-formulario');
 const formulario = document.getElementById('formulario');
 
+const fechar = document.getElementById('fechar');
+
 const assunto = document.getElementById('assunto');
 const mensagem = document.getElementById('mensagem');
 
@@ -13,7 +15,7 @@ enviar_email.addEventListener('click', (e) => {
     formulario.style.transform = 'scale(1)';
 })
 
-corpo_formulario.addEventListener('click', () => {
+fechar.addEventListener('click', () => {
     corpo_formulario.style.visibility = 'hidden';
     formulario.style.transform = 'scale(0.1)';
 })
