@@ -3,12 +3,6 @@ const path = require('path');
 const ejs = require('ejs');
 const app = express();
 
-const bodyParser = require('body-parser');
-const { MongoClient, ObjectId } = require('mongodb');
-
-const serverFunction = require('./public/api/serverFunction');
-require('dotenv/config')
-
 const langs = require('./public/langs/langs');
 
 // Static Files:
@@ -19,10 +13,6 @@ const langs = require('./public/langs/langs');
     app.engine('ejs', ejs.renderFile);
     app.set('view engine', 'ejs');
 
-// BodyParser:
-    app.use(bodyParser.urlencoded({extended: false}));
-    app.use(bodyParser.json())
-
 // Routes:
     langs.forEach(lang  => {
         app.get(`${lang.route}`, async (req, res) => {
@@ -30,16 +20,7 @@ const langs = require('./public/langs/langs');
         });
     });
 
-// Rotas XXXXXXXXXXXXXXXX Verificar XXXXXXXXXXXXXXXXXXXX
-    app.post('/send', (req, res) => {
-        serverFunction(req, res, MongoClient);
-    })
-
-    app.post('/sendmail', (req, res) => {
-        serverFunction(req, res, MongoClient);
-    })
-
-
+    
 // Running:
     const port = 2000;
 

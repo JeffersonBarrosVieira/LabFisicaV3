@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Patrick+Hand&display=swap');
+
+* {
+    font-family: 'Patrick Hand', cursive;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(5, 7, 7) !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 188px;
+    height: 100vh;
+    border-right: 2px solid #0a3742;
+    background-color: #171b21;
+    padding: 20px;
+    z-index: 100;
+    transition: transform 0.3s ease-out;
+
+
+    &__seta {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        background-image: url('../img/seta.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+        width: 50px;
+        height: 50px;
+        margin-top: 10px;
+        margin-right: -25px;
+        
+        cursor: pointer;
+        z-index: 110;
+
+        transform: rotate(180deg);
+        transition: all 0.3s ease-out;
+    }
+
+    &__hr {
+        border-top: 2px solid #47cf72;
+        border-bottom: 1px solid #47cf72;
+    }
+
+    &__tutorial {
+        margin: 20px 0 15px 0;
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        
+        background: transparent;
+
+        position: relative;
+        overflow: hidden;
+
+        &__button {
+            margin: 3px;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            background-color: black;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Concert One';
+            font-size: large;
+            cursor: pointer;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: calc(-97px + 50%);
+            left: calc(-97px + 50%);
+
+            width: 194px;
+            height: 194px;
+
+            z-index: -1;
+            background-image: linear-gradient(-45deg, #59bd87, #15c3f7, #ac92d0, #ffcd56, #75be6b);
+            
+            animation: rotacionar360 6s linear infinite ;
+            
+        }
+
+    }
+
+    &__topicos {
+        gap: 1px;
+        display: flex;
+        flex-direction: column;
+
+        width: auto;
+        height: auto;
+        margin-top: 20px;
+        padding: 10px 0 15px 0;
+
+        font-weight: bold;
+        font-size: 18px;
+
+        border-top: 3px solid #ffcd56;
+        border-bottom: 3px solid #15c3f7;
+        border-radius: 2px;
+
+        &__topico {
+            padding: 5px 10px;
+            border-radius: 7px;
+            transition: 0.3s all ease-out;
+            text-align: center;
+
+            &:hover{
+                background-color: #000000c7;
+            }
+        }
+    }
+
+    &__langs {
+        position: absolute;
+        top: 91vh;
+        left: 0;
+        border-top: 3px solid #47cf72;
+        width: 188px;
+        height: auto;
+        font-weight: bold;
+        font-size: 18px;
+
+        margin: 0 20px;
+        padding: 10px 0;
+
+        .selec {
+            background-color: #15c3f7;
+            color: #171b21;
+        }
+
+        &__lang {
+            padding: 2px 10px;
+            border-radius: 7px;
+            transition: 0.3s all ease-out;
+            text-align: center;
+
+            &:nth-child(1) {
+                margin-left: 20px;
+            }
+            &:nth-child(2) {
+                margin-left: 10px;
+            }
+
+            &:hover{
+                background-color: #000000c7;
+                color: white;
+            }
+        }
+        
+    }
+}
+
+.main {
+    position: relative;
+    margin-left: 238px;
+    height: 100vh;
+    width: auto;
+
+    font-size: 30px;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.3s ease-out;
+
+    scroll-snap-type: y mandatory; /* sentido do scroll */
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    scroll-behavior: smooth;
+
+    &__topo {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+        scroll-snap-align: start; // alinhar no começo
+
+        &__pesquisar {
+            display: flex;
+            padding: 0 20px 0 15px;
+            align-items: center;
+            flex: 1;
+            height: 74px;
+
+            &__campo {
+                height: 60%;
+                width: 100%;
+                background-color: #252830;
+                border-radius: 5px;
+                font-size: 15px;
+                border: none;
+                padding: 0 20px;
+            }
+        }
+
+        &__botoes {
+            display: flex;
+            align-items: center;
+            width: 180px;
+
+            &__botao {
+                height: 60%;
+                width: 75px;
+                margin-right: 15px;
+                cursor: pointer;
+
+                &:nth-child(1) {
+                    background-color: #61bd71;
+                    border: none;
+                    border-radius: 5px;
+                    color: #0b0d0f;
+
+                    &:hover {
+                        background-color: #54a561;
+                    }
+                }
+
+                &:nth-child(2) {
+                    background-color: #414a56;
+                    border: none;
+                    border-radius: 5px;
+                    color: white;
+
+                    &:hover {
+                        background-color: #4a5461;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.section {
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    border-radius: 5px;
+    padding: 15px; 
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    
+
+    .col {
+        position: relative;
+        flex: 1;
+        min-width: 300px;
+        min-height: 330px;
+        padding: 0 15px;
+        margin: 10px 0;
+        scroll-snap-align: start; // alinhar no começo
+
+        .title {
+            font-family: 'Concert One';
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .content {
+            margin-top: 30px;
+            font-size: 22px;
+            text-align: justify;
+        }
+
+        .quadro {
+            background-color: black;
+            border-radius: 10px;
+            height: 330px;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 255, 0.801);
+        }
+
+        .card {
+            position: relative;
+            background-color: #272e37;
+            border-radius: 10px;
+            
+            min-height: 200px;
+            max-width: 300px;
+            padding: 20px 25px;
+            margin: 25px auto;
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            img {
+                background-color: #0b0d0f;
+                border-radius: 10px;
+                border: 1px solid #15c3f7;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-top: -25px;
+                margin-left: 25px;
+            }
+
+            h3 {
+                font-size: 25px;
+                margin-top: 30px;
+            }
+
+            p {
+                text-align: justify;
+                color: rgb(209, 209, 209);
+                font-size: 18px;
+            }
+
+            button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 50px 25px 0 0;
+                background-color: #47cf72;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                font-size: 15px;
+                font-weight: 700;
+                color: #0b0d0f;
+                cursor: pointer;
+            }
+        }
+
+        .aparelhos {
+            width: 100%;
+            display: flex;
+            margin-top: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            gap: 25px;
+
+            .aparelho {
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                cursor: pointer;
+                border-radius: 7px;
+                padding: 5px 10px;
+                gap: 5px;
+
+                transition: 0.3s all ease-out;
+
+                &:hover{
+                    background-color: #000000c7;
+                }
+
+                button {
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 10px;
+                    background-color: transparent;
+                    border: 2px solid #e5e7e7
+                }
+
+                div::after {
+                    position: absolute;
+                    left: calc((70% - 60px)/4);
+                    top: calc((150px - 60px)/4);
+
+                    font-size: 18px;
+                    color: rgb(209, 209, 209);
+                    text-align: justify;
+                    font-weight: 600;
+                    justify-content: center;
+    
+                    white-space: pre-wrap; // Quebra de texto usando \A no conteudo
+    
+                    border-radius: 10px;
+                    border: 1px solid #15c3f7;
+    
+                    width: calc(70% - 60px);
+                    height: auto;
+                    background-color: #272e37;
+                    padding: 20px;
+    
+                    z-index: 1;
+    
+                    transition: all 1s ease-out;
+                }
+
+                // Intruções na lingua portuguesa
+                &:nth-child(1):active {
+                    div[class="pt-Br"]::after {
+                        content: '-Rotacionar: Arraste um dedo sobre a região animada; \A -Zoom: Aproxime dois dedos entre si ou afaste-os sobre a região.';
+                    }
+
+                    button {
+                        background-color: #15c3f7;
+                    }
+                }
+                &:nth-child(2):active {
+                    div[class="pt-Br"]::after {
+                        content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
+                    }
+
+                    button {
+                        background-color: #15c3f7;
+                    }
+                }
+
+                // Intruções na lingua inglesa
+                &:nth-child(1):active {
+                    div[class="en"]::after {
+                        content: '-Rotate: Drag a finger over the animated region; \A -Zoom: Bring two fingers together or spread them apart over the region.';
+                    }
+
+                    button {
+                        background-color: #15c3f7;
+                    }
+                }
+                &:nth-child(2):active {
+                    div[class="en"]::after {
+                        content: "-Rotate: Hold Ctrl + Left mouse button on the animated region and drag; \A -Zoom: Rotate the mouse's Scroll button (a little ball that rotates).";
+                    }
+
+                    button {
+                        background-color: #15c3f7;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding: 10px 40px;
+    width: 100%;
+    background-color: #1c2027;
+    margin-top: auto;
+    font-size: 16px;
+    scroll-snap-align: start; // alinhar no começo
+}
+
+#wallpaper {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+@keyframes rotacionar360 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

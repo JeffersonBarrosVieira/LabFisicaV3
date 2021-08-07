@@ -1,0 +1,510 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Patrick+Hand&display=swap");
+* {
+  font-family: 'Patrick Hand', cursive;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #050707 !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 188px;
+  height: 100vh;
+  border-right: 2px solid #0a3742;
+  background-color: #171b21;
+  padding: 20px;
+  z-index: 100;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+
+.header__seta {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-image: url("../img/seta.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  margin-right: -25px;
+  cursor: pointer;
+  z-index: 110;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.header__hr {
+  border-top: 2px solid #47cf72;
+  border-bottom: 1px solid #47cf72;
+}
+
+.header__tutorial {
+  margin: 20px 0 15px 0;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.header__tutorial__button {
+  margin: 3px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Concert One';
+  font-size: large;
+  cursor: pointer;
+}
+
+.header__tutorial::before {
+  content: '';
+  position: absolute;
+  top: calc(-97px + 50%);
+  left: calc(-97px + 50%);
+  width: 194px;
+  height: 194px;
+  z-index: -1;
+  background-image: linear-gradient(-45deg, #59bd87, #15c3f7, #ac92d0, #ffcd56, #75be6b);
+  -webkit-animation: rotacionar360 6s linear infinite;
+          animation: rotacionar360 6s linear infinite;
+}
+
+.header__topicos {
+  gap: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+  height: auto;
+  margin-top: 20px;
+  padding: 10px 0 15px 0;
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 3px solid #ffcd56;
+  border-bottom: 3px solid #15c3f7;
+  border-radius: 2px;
+}
+
+.header__topicos__topico {
+  padding: 5px 10px;
+  border-radius: 7px;
+  -webkit-transition: 0.3s all ease-out;
+  transition: 0.3s all ease-out;
+  text-align: center;
+}
+
+.header__topicos__topico:hover {
+  background-color: #000000c7;
+}
+
+.header__langs {
+  position: absolute;
+  top: 91vh;
+  left: 0;
+  border-top: 3px solid #47cf72;
+  width: 188px;
+  height: auto;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 20px;
+  padding: 10px 0;
+}
+
+.header__langs .selec {
+  background-color: #15c3f7;
+  color: #171b21;
+}
+
+.header__langs__lang {
+  padding: 2px 10px;
+  border-radius: 7px;
+  -webkit-transition: 0.3s all ease-out;
+  transition: 0.3s all ease-out;
+  text-align: center;
+}
+
+.header__langs__lang:nth-child(1) {
+  margin-left: 20px;
+}
+
+.header__langs__lang:nth-child(2) {
+  margin-left: 10px;
+}
+
+.header__langs__lang:hover {
+  background-color: #000000c7;
+  color: white;
+}
+
+.main {
+  position: relative;
+  margin-left: 238px;
+  height: 100vh;
+  width: auto;
+  font-size: 30px;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  /* sentido do scroll */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.main__topo {
+  height: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 15px;
+  scroll-snap-align: start;
+}
+
+.main__topo__pesquisar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 20px 0 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 74px;
+}
+
+.main__topo__pesquisar__campo {
+  height: 60%;
+  width: 100%;
+  background-color: #252830;
+  border-radius: 5px;
+  font-size: 15px;
+  border: none;
+  padding: 0 20px;
+}
+
+.main__topo__botoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 180px;
+}
+
+.main__topo__botoes__botao {
+  height: 60%;
+  width: 75px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.main__topo__botoes__botao:nth-child(1) {
+  background-color: #61bd71;
+  border: none;
+  border-radius: 5px;
+  color: #0b0d0f;
+}
+
+.main__topo__botoes__botao:nth-child(1):hover {
+  background-color: #54a561;
+}
+
+.main__topo__botoes__botao:nth-child(2) {
+  background-color: #414a56;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.main__topo__botoes__botao:nth-child(2):hover {
+  background-color: #4a5461;
+}
+
+.section {
+  max-width: 1200px;
+  width: calc(100% - 30px);
+  border-radius: 5px;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.section .col {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 300px;
+  min-height: 330px;
+  padding: 0 15px;
+  margin: 10px 0;
+  scroll-snap-align: start;
+}
+
+.section .col .title {
+  font-family: 'Concert One';
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.section .col .content {
+  margin-top: 30px;
+  font-size: 22px;
+  text-align: justify;
+}
+
+.section .col .quadro {
+  background-color: black;
+  border-radius: 10px;
+  height: 330px;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.801);
+}
+
+.section .col .card {
+  position: relative;
+  background-color: #272e37;
+  border-radius: 10px;
+  min-height: 200px;
+  max-width: 300px;
+  padding: 20px 25px;
+  margin: 25px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+.section .col .card img {
+  background-color: #0b0d0f;
+  border-radius: 10px;
+  border: 1px solid #15c3f7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -25px;
+  margin-left: 25px;
+}
+
+.section .col .card h3 {
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+.section .col .card p {
+  text-align: justify;
+  color: #d1d1d1;
+  font-size: 18px;
+}
+
+.section .col .card button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 50px 25px 0 0;
+  background-color: #47cf72;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b0d0f;
+  cursor: pointer;
+}
+
+.section .col .aparelhos {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 25px;
+}
+
+.section .col .aparelhos .aparelho {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 7px;
+  padding: 5px 10px;
+  gap: 5px;
+  -webkit-transition: 0.3s all ease-out;
+  transition: 0.3s all ease-out;
+}
+
+.section .col .aparelhos .aparelho:hover {
+  background-color: #000000c7;
+}
+
+.section .col .aparelhos .aparelho button {
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 2px solid #e5e7e7;
+}
+
+.section .col .aparelhos .aparelho div::after {
+  position: absolute;
+  left: calc((70% - 60px)/4);
+  top: calc((150px - 60px)/4);
+  font-size: 18px;
+  color: #d1d1d1;
+  text-align: justify;
+  font-weight: 600;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  white-space: pre-wrap;
+  border-radius: 10px;
+  border: 1px solid #15c3f7;
+  width: calc(70% - 60px);
+  height: auto;
+  background-color: #272e37;
+  padding: 20px;
+  z-index: 1;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.section .col .aparelhos .aparelho:nth-child(1):active div[class="pt-Br"]::after {
+  content: '-Rotacionar: Arraste um dedo sobre a região animada; \A -Zoom: Aproxime dois dedos entre si ou afaste-os sobre a região.';
+}
+
+.section .col .aparelhos .aparelho:nth-child(1):active button {
+  background-color: #15c3f7;
+}
+
+.section .col .aparelhos .aparelho:nth-child(2):active div[class="pt-Br"]::after {
+  content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
+}
+
+.section .col .aparelhos .aparelho:nth-child(2):active button {
+  background-color: #15c3f7;
+}
+
+.section .col .aparelhos .aparelho:nth-child(1):active div[class="en"]::after {
+  content: '-Rotate: Drag a finger over the animated region; \A -Zoom: Bring two fingers together or spread them apart over the region.';
+}
+
+.section .col .aparelhos .aparelho:nth-child(1):active button {
+  background-color: #15c3f7;
+}
+
+.section .col .aparelhos .aparelho:nth-child(2):active div[class="en"]::after {
+  content: "-Rotate: Hold Ctrl + Left mouse button on the animated region and drag; \A -Zoom: Rotate the mouse's Scroll button (a little ball that rotates).";
+}
+
+.section .col .aparelhos .aparelho:nth-child(2):active button {
+  background-color: #15c3f7;
+}
+
+footer {
+  padding: 10px 40px;
+  width: 100%;
+  background-color: #1c2027;
+  margin-top: auto;
+  font-size: 16px;
+  scroll-snap-align: start;
+}
+
+#wallpaper {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+@-webkit-keyframes rotacionar360 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotacionar360 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */

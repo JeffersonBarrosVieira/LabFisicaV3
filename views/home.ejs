@@ -2,68 +2,82 @@
 <html lang="en">
 
 <head>
-    <script async src="https://kit.fontawesome.com/1a5afcdf38.js" crossorigin="anonymous"></script>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png" />
-    <link type="text/css" href="https://s3.amazonaws.com/glowscript/css/ide.css" rel="stylesheet" />
-    
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
 
-    <title><%= title %></title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png" />
+
+    <title>
+        <%= title %>
+    </title>
+
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
 <body>
-    <header id="main-slide-bar">
-        <canvas id="canvas1"></canvas>
-        <hr class="iniciar">
-        <div id="tutorial">
-            <button scroll="#glowscript2"> Tutorial </button>
-        </div>
-        <div class="topicos" style="gap: 1px; display: flex; flex-direction: column;">
-            <a href="#mecanica-classica" style="color: white; text-decoration: none;">Mecânica Clássica</a>
-            <a href="#" style="color: white; text-decoration: none;">Oscilações e Ondas</a>
-            <a href="#" style="color: white; text-decoration: none;">Termodinâmica</a>
-            <a href="#" style="color: white; text-decoration: none;">Óptica Geométrica</a>
+    <header id="menu__lateral" class="header">
+        <canvas id="canvas1" width=188></canvas>
+        <hr class="header__hr">
+
+        <a href="#glowscript2">
+            <div class="header__tutorial">
+                <button class="header__tutorial__button">
+                    <%= header__tutorial__button %>
+                </button>
+            </div>
+        </a>   
+
+        <div class="header__topicos">
+            <a href="#mecanica-classica" class="header__topicos__topico">
+                <%= header__topicos__topico1 %>
+            </a>
+            <a href="#" class="header__topicos__topico">
+                <%= header__topicos__topico2 %>
+            </a>
+            <a href="#" class="header__topicos__topico">
+                <%= header__topicos__topico3 %>
+            </a>
+            <a href="#" class="header__topicos__topico">
+                <%= header__topicos__topico4 %>
+            </a>
         </div>
 
-        <div id="seta"></div>
+        <div class="header__langs">
+            Lang:
+            <a class="header__langs__lang <%- lang === 'pt-Br' ? 'selec' : '' %> " href="/">Pt-Br</a>
+            <a class="header__langs__lang <%- lang === 'en' ? 'selec' : '' %> " href="/en">En</a>
+        </div>
+
+        <div id="menu__lateral__seta" class="header__seta"></div>
     </header>
 
-    <div id="formulario-content" style="visibility: hidden;">
-        <form action="/send" id="formulario" method="POST">
-            <i class="fas fa-times"></i>
-            <label for="">Assunto:</label>
-            <input name="assunto" type="text" id="assunto" placeholder="Insira o assunto">
-            <label for="">Mensagem:</label>
-            <textarea name="mensagem" id="mensagem"> </textarea>
-            <input class="btn-formulario" type="submit" value="Enviar">
-        </form>
-    </div>
+    <main id="conteudo" class="main">
 
-    <main id="main-content">
-        <div id="main-topo">
-            <div class="pesquisar">
-                <input id="text" type="text" placeholder="Pesquisar">
+        <section class="main__topo">
+            <div class="main__topo__pesquisar">
+                <input class="main__topo__pesquisar__campo" type="text"
+                    placeholder="<%= main__topo__pesquisar__campo %> ">
             </div>
-            <div class="botoes">
-                <button id="sign-up">Sign Up</button>
-                <button id="log-in">Log In</button>
+            <div class="main__topo__botoes">
+                <button class="main__topo__botoes__botao" id="sign-up">
+                    Sign Up
+                </button>
+                <button class="main__topo__botoes__botao" id="log-in">
+                    Log In
+                </button>
             </div>
-        </div>
+        </section>
 
-        <section id="content-section">
+        <section class="section">
             <div class="col">
                 <div class="title">
-                    Um Laboratório de Física em suas mãos
+                    <%= section1__title %>
                 </div>
                 <div class="content">
-                    LabFísica é um ambiente de desenvolvimento acadêmico para estudantes e professores da área da
-                    Física. Resolva problemas físicos, visualize, interaja com ele e realize uma análise da modelagem
-                    matemática completa que será disponibilizada!!! <br><br> #VamosModelar
+                    <%= section1__content %>
+                        <br><br>
+                        <%= section1__hashtag %>
                 </div>
             </div>
             <div class="col">
@@ -73,38 +87,46 @@
             </div>
         </section>
 
-        <section id="content-section">
+        <section class="section">
             <div class="col">
                 <div class="card">
-                    <i class="fas fa-cubes"></i>
-                    <h3>Simulação Física</h3>
-                    <p> Muitas vezes devido a impossibilidade de testar técnicas e hipóteses de resolução diretamente no
-                        mundo real. Somos impostos a solucionar problemas através de uma analogia com a realidade: a
-                        Simulação.</p>
+                    <img src="/img/cubo.png" alt="">
+                    <h3>
+                        <%= section2__card1__title %>
+                    </h3>
+                    <p>
+                        <%= section2__card1__content %>
+                    </p>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
-                    <i class="fas fa-square-root-alt"></i>
-                    <h3>Modelo Matemático</h3>
-                    <p> Simulações utilizam modelos, em muitos casos, se uma solução analítica for possível. Se estes
-                        conservam características: FÍSICAS e LÓGICAS do SISTEMA REAL imitado, trará resultados próximos
-                        ao da realidade.</p>
+                    <img src="/img/raiz.png" alt="">
+                    <h3>
+                        <%= section2__card2__title %>
+                    </h3>
+                    <p>
+                        <%= section2__card2__content %>
+                    </p>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
-                    <i class="fas fa-comments"></i>
-                    <h3>Envie Sujestões</h3>
-                    <p> Encontrou algum problema? Ou você tem situações físicas em mente que deseja sujerir para serem
-                        simuladas aqui no LabFísica? Que massa!!! Pois envie uma mensagem agora!! Explicando
-                        detalhadamente.</p>
-                    <button id="send-email">Escrever</button>
+                    <img src="/img/balao.png" alt="">
+                    <h3>
+                        <%= section2__card3__title %>
+                    </h3>
+                    <p>
+                        <%= section2__card3__content %>
+                    </p>
+                    <button id="send-email">
+                        <%= section2__card3__button %>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <section id="content-section">
+        <section class="section">
             <div class="col">
                 <div class="quadro">
                     <div id="glowscript2" class="glowscript"> </div>
@@ -112,108 +134,37 @@
             </div>
             <div class="col">
                 <div class="title">
-                    Vamos começar?
+                    <%= section3__title %>
                 </div>
                 <div class="content">
-                    Essas animações são interativas! É possível rotacionar o objeto e dar zoom!!! :0 Muito legal né?! ^^
-                    Então... vamos lá? Para visualizar as instruções selecione o aparelho que está usando:
-                    <div id="aparelho">
-                        <div class="celular"> <button id="celular"></button> Celular</div>
-                        <div class="computador"><button id="computador"></button> Computador</div>
+                    <%= section3__content %>
+                </div>
+                <div class="aparelhos">
+                    <div class="aparelho">
+                        <button id="celular"></button>
+                        <%= section3__aparelho1 %>
+                        <div class="<%= lang %>"></div>
                     </div>
-                    <p id="instrucoes"></p>
+                    <div class="aparelho">
+                        <button id="computador"></button>
+                        <%= section3__aparelho2 %>
+                        <div class="<%= lang %>"></div>
+                    </div>
                 </div>
+                
             </div>
-        </section>
-        <section id="content-section">
-            <div class="title"
-                style="text-align: center; width: 100%; border-top: 3px solid #47cf72; padding-top: 20px;"
-                id="mecanica-classica">
-                <%= mcTitle %>
-            </div>
-        </section>
-        <section id="content-section">
-            <div class="col">
-                <div class="title">
-                    <%= mcSubTitle1 %>
-                </div>
-                <div class="content">
-                    <%= mcContent %>
-                </div>
-                <!-- <button id="mudar"> Mudar </button> -->
-            </div>
-        </section>
-        <section id="content-section">
-            <div class="title"
-                style="text-align: center; width: 100%; border-top: 3px solid #47cf72; padding-top: 20px;">
-                Fórmulas Aleatória para testes:
-            </div>
-        </section>
-        <section id="formula-section">
-            <h5>
-                Raiz de uma Função Quadrática
-                $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-            </h5>
-
-            <h5>
-                Integral de Cauchy
-                $$ f(a) = \frac{1}{2\pi i} \oint\frac{f(z)}{z-a}dz $$
-            </h5>
-
-            <!-- <h5>
-                Cosseno de dois Arcos
-                $$ \cos(\theta+\phi)=\cos(\theta)\cos(\phi)-\sin(\theta)\sin(\phi) $$
-            </h5> -->
-
-            <h5>
-                Teorema da Divergência de Gauss
-                $$ \int_D ({\nabla\cdot} F)dV=\int_{\partial D} F\cdot ndS $$
-            </h5>
-
-            <h5>
-                Desvio Padrão
-                $$\sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2} $$
-            </h5>
-
-            <h5>
-                Rotacional de um Campo Vetorial
-                $$ \vec{\nabla} \times \vec{F} = $$
-                $$ \left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \mathbf{i} $$
-                $$ + \left( \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \right) \mathbf{j} $$
-                $$ + \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) \mathbf{k} $$
-            </h5>
-
         </section>
 
         <footer>
             Copyright © 2021 Jefferson Barros Vieira
         </footer>
+        
     </main>
 
-    <canvas id="canvas2"></canvas>
+    <canvas id="wallpaper"></canvas>
 
-    <script src="/js/main.js"></script>
-    <script src="/js/login.js"></script>
-    <script src="js/click.js"></script>
-    
-    <script src="/js/sendEmail.js"></script>
-
-    <!-- Importando o VPython -->
-    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery.min.js"></script>
-
-    <script type="text/javascript"
-        src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
-
-    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/glow.3.0.min.js"></script>
-
-    <script src="js/vpython.js"></script>
-
-    <!-- Importando o MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <script src="js/escreverInstrucoes.js"></script>
-    
+    <script src="/js/fecharMenu.js"></script>
+    <script src="/js/particleCanvas.js"></script>
 </body>
 
 </html>
