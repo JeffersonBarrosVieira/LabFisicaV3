@@ -30,7 +30,7 @@ const langs = require('./public/langs/langs');
         });
     });
 
-// Rotas XXXXXXXXXXXXXXXX Verificar XXXXXXXXXXXXXXXXXXXX
+// Rotas de envios
     app.post('/send', (req, res) => {
         serverFunction(req, res, MongoClient);
     })

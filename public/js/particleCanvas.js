@@ -200,4 +200,9 @@ function connect() {
     }
 }
 
+window.addEventListener('resize', (e) => {
+    canvas2.width = innerWidth;
+    canvas2.height = innerHeight;
 
+    init()
+})

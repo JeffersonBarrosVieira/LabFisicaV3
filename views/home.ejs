@@ -12,6 +12,7 @@
         <%= title %>
     </title>
 
+    <link type="text/css" href="https://s3.amazonaws.com/glowscript/css/ide.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
@@ -51,6 +52,17 @@
 
         <div id="menu__lateral__seta" class="header__seta"></div>
     </header>
+
+    <div id="formulario-content">
+        <form action="/send" id="formulario" method="POST">
+            <!-- <i class="fas fa-times"></i> -->
+            <label for="">Assunto:</label>
+            <input name="assunto" type="text" id="assunto" placeholder="Insira o assunto">
+            <label for="">Mensagem:</label>
+            <textarea name="mensagem" id="mensagem"> </textarea>
+            <input class="btn-formulario" type="submit" value="Enviar">
+        </form>
+    </div>
 
     <main id="conteudo" class="main">
 
@@ -165,6 +177,20 @@
 
     <script src="/js/fecharMenu.js"></script>
     <script src="/js/particleCanvas.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/sendEmail.js"></script>
+
+    <!-- Importando o VPython -->
+    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/glow.3.0.min.js"></script>
+
+    <script src="js/vpython.js"></script>
+
+    <!-- Importando o MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 
 </html>
