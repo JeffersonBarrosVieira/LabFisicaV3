@@ -129,20 +129,16 @@ li {
 }
 
 .header__langs {
-  position: absolute;
-  top: 91vh;
-  left: 0;
-  border-top: 3px solid #47cf72;
+  border-bottom: 3px solid #15c3f7;
   width: 188px;
   height: auto;
   font-weight: bold;
-  font-size: 18px;
-  margin: 0 20px;
+  font-size: 16px;
   padding: 10px 0;
 }
 
 .header__langs .selec {
-  background-color: #15c3f7;
+  background-color: #47cf72;
   color: #171b21;
 }
 
