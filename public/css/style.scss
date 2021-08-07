@@ -514,31 +514,32 @@ footer {
     flex-direction: column;
     padding: 20px 25px;
     border-radius: 15px;
+
+    input {
+        color: black;
+        padding: 5px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        color: black;
+        padding: 5px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .btn-formulario {
+        background-color: #0f1418;
+        border-radius: 5px;
+        margin-top: 20px;
+        color:rgba(0, 255, 255, 0.801);
+        border: none;
+        cursor: pointer;
+    }
 }
 
-#formulario input {
-    color: black;
-    padding: 5px;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
 
-#formulario textarea {
-    color: black;
-    padding: 5px;
-    font-size: 20px;
-    /* width: 200px; */
-    margin-bottom: 10px;
-}
-
-#formulario .btn-formulario {
-    background-color: #0f1418;
-    border-radius: 5px;
-    margin-top: 20px;
-    color:rgba(0, 255, 255, 0.801);
-    border: none;
-    cursor: pointer;
-}
 
 @keyframes rotacionar360 {
     0% {
