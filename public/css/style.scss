@@ -399,43 +399,42 @@ li {
                     transition: all 1s ease-out;
                 }
 
-                // Intruções na lingua portuguesa
-                &:nth-child(1):active {
-                    div[class="pt-Br"]::after {
-                        content: '-Rotacionar: Arraste um dedo sobre a região animada; \A -Zoom: Aproxime dois dedos entre si ou afaste-os sobre a região.';
-                    }
+                
+                &:nth-child(1) {
+                    &:active,
+                    &:target,
+                    &:hover {
+                        // Intruções na lingua portuguesa
+                        div[class="pt-Br"]::after {
+                            content: '-Rotacionar: Arraste um dedo sobre a região animada; \A -Zoom: Aproxime dois dedos entre si ou afaste-os sobre a região.';
+                        }
+                        // Intruções na lingua inglesa
+                        div[class="en"]::after {
+                            content: '-Rotate: Drag a finger over the animated region; \A -Zoom: Bring two fingers together or spread them apart over the region.';
+                        }
 
-                    button {
-                        background-color: #15c3f7;
+                        button {
+                            background-color: #15c3f7;
+                        }
                     }
                 }
-                &:nth-child(2):active {
-                    div[class="pt-Br"]::after {
-                        content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
-                    }
 
-                    button {
-                        background-color: #15c3f7;
-                    }
-                }
+                &:nth-child(2){
+                    &:active,
+                    &:target,
+                    &:hover {
+                        // Intruções na lingua portuguesa
+                        div[class="pt-Br"]::after {
+                            content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
+                        }
+                        // Intruções na lingua inglesa
+                        div[class="en"]::after {
+                            content: "-Rotate: Hold Ctrl + Left mouse button on the animated region and drag; \A -Zoom: Rotate the mouse's Scroll button (a little ball that rotates).";
+                        }
 
-                // Intruções na lingua inglesa
-                &:nth-child(1):active {
-                    div[class="en"]::after {
-                        content: '-Rotate: Drag a finger over the animated region; \A -Zoom: Bring two fingers together or spread them apart over the region.';
-                    }
-
-                    button {
-                        background-color: #15c3f7;
-                    }
-                }
-                &:nth-child(2):active {
-                    div[class="en"]::after {
-                        content: "-Rotate: Hold Ctrl + Left mouse button on the animated region and drag; \A -Zoom: Rotate the mouse's Scroll button (a little ball that rotates).";
-                    }
-
-                    button {
-                        background-color: #15c3f7;
+                        button {
+                            background-color: #15c3f7;
+                        }
                     }
                 }
             }

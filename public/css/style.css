@@ -435,35 +435,27 @@ li {
   transition: all 1s ease-out;
 }
 
-.section .col .aparelhos .aparelho:nth-child(1):active div[class="pt-Br"]::after {
+.section .col .aparelhos .aparelho:nth-child(1):active div[class="pt-Br"]::after, .section .col .aparelhos .aparelho:nth-child(1):target div[class="pt-Br"]::after, .section .col .aparelhos .aparelho:nth-child(1):hover div[class="pt-Br"]::after {
   content: '-Rotacionar: Arraste um dedo sobre a região animada; \A -Zoom: Aproxime dois dedos entre si ou afaste-os sobre a região.';
 }
 
-.section .col .aparelhos .aparelho:nth-child(1):active button {
-  background-color: #15c3f7;
-}
-
-.section .col .aparelhos .aparelho:nth-child(2):active div[class="pt-Br"]::after {
-  content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
-}
-
-.section .col .aparelhos .aparelho:nth-child(2):active button {
-  background-color: #15c3f7;
-}
-
-.section .col .aparelhos .aparelho:nth-child(1):active div[class="en"]::after {
+.section .col .aparelhos .aparelho:nth-child(1):active div[class="en"]::after, .section .col .aparelhos .aparelho:nth-child(1):target div[class="en"]::after, .section .col .aparelhos .aparelho:nth-child(1):hover div[class="en"]::after {
   content: '-Rotate: Drag a finger over the animated region; \A -Zoom: Bring two fingers together or spread them apart over the region.';
 }
 
-.section .col .aparelhos .aparelho:nth-child(1):active button {
+.section .col .aparelhos .aparelho:nth-child(1):active button, .section .col .aparelhos .aparelho:nth-child(1):target button, .section .col .aparelhos .aparelho:nth-child(1):hover button {
   background-color: #15c3f7;
 }
 
-.section .col .aparelhos .aparelho:nth-child(2):active div[class="en"]::after {
+.section .col .aparelhos .aparelho:nth-child(2):active div[class="pt-Br"]::after, .section .col .aparelhos .aparelho:nth-child(2):target div[class="pt-Br"]::after, .section .col .aparelhos .aparelho:nth-child(2):hover div[class="pt-Br"]::after {
+  content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
+}
+
+.section .col .aparelhos .aparelho:nth-child(2):active div[class="en"]::after, .section .col .aparelhos .aparelho:nth-child(2):target div[class="en"]::after, .section .col .aparelhos .aparelho:nth-child(2):hover div[class="en"]::after {
   content: "-Rotate: Hold Ctrl + Left mouse button on the animated region and drag; \A -Zoom: Rotate the mouse's Scroll button (a little ball that rotates).";
 }
 
-.section .col .aparelhos .aparelho:nth-child(2):active button {
+.section .col .aparelhos .aparelho:nth-child(2):active button, .section .col .aparelhos .aparelho:nth-child(2):target button, .section .col .aparelhos .aparelho:nth-child(2):hover button {
   background-color: #15c3f7;
 }
 
