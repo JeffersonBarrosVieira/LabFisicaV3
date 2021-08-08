@@ -532,6 +532,8 @@ footer {
           flex-direction: column;
   padding: 20px 25px;
   border-radius: 15px;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 #formulario input {
@@ -555,6 +557,38 @@ footer {
   color: rgba(0, 255, 255, 0.801);
   border: none;
   cursor: pointer;
+}
+
+#formulario .fechar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  cursor: pointer;
+}
+
+#formulario .fechar::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  content: '';
+  border-top: 7px solid white;
+  width: 40px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+#formulario .fechar::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: '';
+  border-top: 7px solid white;
+  width: 40px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 @-webkit-keyframes rotacionar360 {

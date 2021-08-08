@@ -15,7 +15,8 @@ enviar_email.addEventListener('click', (e) => {
     formulario.style.transform = 'scale(1)';
 })
 
-fechar.addEventListener('click', () => {
+fechar.addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, 300));
     corpo_formulario.style.visibility = 'hidden';
     formulario.style.transform = 'scale(0.1)';
 })
