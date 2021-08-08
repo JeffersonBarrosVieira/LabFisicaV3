@@ -135,6 +135,7 @@ li {
   font-weight: bold;
   font-size: 16px;
   padding: 10px 0;
+  text-align: center;
 }
 
 .header__langs .selec {
@@ -150,12 +151,8 @@ li {
   text-align: center;
 }
 
-.header__langs__lang:nth-child(1) {
-  margin-left: 20px;
-}
-
 .header__langs__lang:nth-child(2) {
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .header__langs__lang:hover {

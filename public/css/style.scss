@@ -137,6 +137,7 @@ li {
         font-weight: bold;
         font-size: 16px;
         padding: 10px 0;
+        text-align: center;
 
         .selec {
             background-color: #47cf72;
@@ -149,11 +150,8 @@ li {
             transition: 0.3s all ease-out;
             text-align: center;
 
-            &:nth-child(1) {
-                margin-left: 20px;
-            }
             &:nth-child(2) {
-                margin-left: 10px;
+                margin-left: 30px;
             }
 
             &:hover{
