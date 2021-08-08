@@ -2,7 +2,7 @@
 O Laboratório de Física Virtual está sendo desenvolvido em Node.js com a view engine EJs juntamente com o uso do MongoDB para gestão de dados. Para entrar no LabFísica acesse:
 
 <a href="https://labfisica.vercel.app/">
-    <img src="./views/public/img/icon.png" style="width: 50px; height: 50px;"/>
+    <img src="./public/img/icon.png" style="width: 50px; height: 50px;"/>
 </a>
 
 Aplicação virtual de desenvolvimento acadêmico para estudantes e professores da área da Física. Resolva problemas físicos, visualize, interaja com ele e realize uma análise da modelagem matemática completa que será disponibilizada!!!
