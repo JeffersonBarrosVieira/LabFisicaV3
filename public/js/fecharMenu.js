@@ -15,6 +15,12 @@ function fecharMenu() {
 }
 
 window.onload = async () => {
-    await new Promise(r => setTimeout(r, 1500));
+    await new Promise(r => setTimeout(r, 700));
     conteudo.click();
 };
+
+document.getElementById('tutorial').addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, 300));
+    conteudo.click();
+})
+

@@ -404,11 +404,11 @@ li {
                     &:hover {
                         // Intruções na lingua portuguesa
                         div[class="pt-Br"]::after {
-                            content: '-Rotacionar: Arraste um dedo sobre a região animada; \A -Zoom: Aproxime dois dedos entre si ou afaste-os sobre a região.';
+                            content: '-Rotacionar: Arraste um dedo sobre a região animada; \A\A -Zoom: Aproxime dois dedos entre si ou afaste-os sobre a região.';
                         }
                         // Intruções na lingua inglesa
                         div[class="en"]::after {
-                            content: '-Rotate: Drag a finger over the animated region; \A -Zoom: Bring two fingers together or spread them apart over the region.';
+                            content: '-Rotate: Drag a finger over the animated region; \A\A -Zoom: Bring two fingers together or spread them apart over the region.';
                         }
 
                         button {
@@ -423,11 +423,11 @@ li {
                     &:hover {
                         // Intruções na lingua portuguesa
                         div[class="pt-Br"]::after {
-                            content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
+                            content: '-Rotacionar: Segure Ctrl + Botão esquerdo do mouse sobre a região animada e arraste; \A\A -Zoom: Gire botão Scroll do mouse (uma bolinha que gira).';
                         }
                         // Intruções na lingua inglêsa
                         div[class="en"]::after {
-                            content: "-Rotate: Hold Ctrl + Left mouse button on the animated region and drag; \A -Zoom: Rotate the mouse's Scroll button (a little ball that rotates).";
+                            content: "-Rotate: Hold Ctrl + Left mouse button on the animated region and drag; \A\A -Zoom: Rotate the mouse's Scroll button (a little ball that rotates).";
                         }
 
                         button {
