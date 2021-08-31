@@ -41,6 +41,6 @@ const langs = require('./public/langs/langs');
 
 
 // Running:
-    const port = 2000;
+    const port = 3000;
 
     app.listen(port, () => console.log(`Listening on port: ${port}`) );

@@ -1,0 +1,32 @@
+<section class="section">
+    
+    <% cards.forEach( card => { %>
+     
+        <div class="col">
+            <div class="card">
+
+                <%# ÍCONE CARD %>
+                <% if (card.icon) { %>
+                    <img src=<%= card.icon %>  alt="">
+                <% } %>
+
+                <%# TITLE CARD %>
+                <% if (card.title) { %>
+                    <h3> <%= card.title %> </h3>
+                <% } %>
+                
+                <%# CONTENT CARD %>
+                <% if (card.content) { %>
+                    <p> <%= card.content %> </p>
+                <% } %>
+
+                <%# BUTTON CARD %>
+                <% if (card.btn_text) { %>
+                    <button id="send-email"> <%= card.btn_text %> </button>
+                <% } %>
+
+            </div>
+        </div>
+
+    <% }) %> 
+</section>

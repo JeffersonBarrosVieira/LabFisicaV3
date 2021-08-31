@@ -16,12 +16,15 @@ module.exports = {
     section1__content: `LabFísica é um ambiente de desenvolvimento acadêmico para estudantes e professores da área da Física. Resolva problemas físicos, visualize, interaja com ele e realize uma análise da modelagem matemática completa que será disponibilizada!!!`,
     section1__hashtag: `#VamosModelar`,
 
+    section2__card1__icon: `/img/cubo.png`,
     section2__card1__title: `Simulação Física`,
     section2__card1__content: `Muitas vezes devido a impossibilidade de testar técnicas e hipóteses de resolução diretamente no mundo real. Somos impostos a solucionar problemas através de uma analogia com a realidade: a Simulação.`,
 
+    section2__card2__icon: `/img/raiz.png`,
     section2__card2__title: `Modelo Matemático`,
     section2__card2__content: `Simulações utilizam modelos, em muitos casos, se uma solução analítica for possível. Se estes conservam características: FÍSICAS e LÓGICAS do SISTEMA REAL imitado, trará resultados próximos ao da realidade.`,
 
+    section2__card3__icon: `/img/balao.png`,
     section2__card3__title: `Sugestões`,
     section2__card3__content: `Encontrou algum problema? Ou você tem situações físicas em mente que deseja sugerir para serem simuladas aqui no LabFísica? Que massa!!! Pois envie uma mensagem agora!! Explicando detalhadamente.`,
     section2__card3__button: `Escrever`,

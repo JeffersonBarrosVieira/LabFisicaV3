@@ -1,0 +1,34 @@
+<header id="menu__lateral" class="header">
+    <canvas id="canvas1" width=188></canvas>
+    <hr class="header__hr">
+
+    <a href="#glowscript2" id="tutorial">
+        <div class="header__tutorial">
+            <button class="header__tutorial__button">
+                <%= header__tutorial__button %>
+            </button>
+        </div>
+    </a>   
+
+    <div class="header__topicos">
+        <a href="#mecanica-classica" class="header__topicos__topico">
+            <%= header__topicos__topico1 %>
+        </a>
+        <a href="#" class="header__topicos__topico">
+            <%= header__topicos__topico2 %>
+        </a>
+        <a href="#" class="header__topicos__topico">
+            <%= header__topicos__topico3 %>
+        </a>
+        <a href="#" class="header__topicos__topico">
+            <%= header__topicos__topico4 %>
+        </a>
+    </div>
+
+    <div class="header__langs">
+        <a class="header__langs__lang <%- lang === 'pt-Br' ? 'selec' : '' %> " href="/">Pt-Br</a>
+        <a class="header__langs__lang <%- lang === 'en' ? 'selec' : '' %> " href="/en">En</a>
+    </div>
+
+    <div id="menu__lateral__seta" class="header__seta"></div>
+</header>

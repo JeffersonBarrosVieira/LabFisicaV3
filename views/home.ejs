@@ -2,196 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png" />
-
-    <title>
-        <%= title %>
-    </title>
-
-    <link type="text/css" href="https://s3.amazonaws.com/glowscript/css/ide.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <%- include('./components/templates/Head') %> 
 </head>
 
 <body>
-    <header id="menu__lateral" class="header">
-        <canvas id="canvas1" width=188></canvas>
-        <hr class="header__hr">
 
-        <a href="#glowscript2" id="tutorial">
-            <div class="header__tutorial">
-                <button class="header__tutorial__button">
-                    <%= header__tutorial__button %>
-                </button>
-            </div>
-        </a>   
+    <!-- Menu Lateral -->
+    <%- include('./components/templates/MenuLateral', {
+        header__tutorial__button,
+        header__topicos__topico1,
+        header__topicos__topico2,
+        header__topicos__topico3,
+        header__topicos__topico4,
+        lang
+    }) %> 
 
-        <div class="header__topicos">
-            <a href="#mecanica-classica" class="header__topicos__topico">
-                <%= header__topicos__topico1 %>
-            </a>
-            <a href="#" class="header__topicos__topico">
-                <%= header__topicos__topico2 %>
-            </a>
-            <a href="#" class="header__topicos__topico">
-                <%= header__topicos__topico3 %>
-            </a>
-            <a href="#" class="header__topicos__topico">
-                <%= header__topicos__topico4 %>
-            </a>
-        </div>
-
-        <div class="header__langs">
-            <a class="header__langs__lang <%- lang === 'pt-Br' ? 'selec' : '' %> " href="/">Pt-Br</a>
-            <a class="header__langs__lang <%- lang === 'en' ? 'selec' : '' %> " href="/en">En</a>
-        </div>
-
-        <div id="menu__lateral__seta" class="header__seta"></div>
-    </header>
-
-    <div id="formulario-content">
-        <form action="/send" id="formulario" method="POST">
-            <!-- <i class="fas fa-times"></i> -->
-            <label for="">Assunto:</label>
-            <input name="assunto" type="text" id="assunto" placeholder="Insira o assunto">
-            <label for="">Mensagem:</label>
-            <textarea name="mensagem" id="mensagem"> </textarea>
-            <input class="btn-formulario" type="submit" value="Enviar">
-
-            <div class="fechar" id="fechar"></div>
-        </form>
-        
-    </div>
+    <!-- Formulário Mensagem -->
+    <%- include('./components/templates/Formulario') %> 
 
     <main id="conteudo" class="main">
 
-        <section class="main__topo">
-            <div class="main__topo__pesquisar">
-                <input class="main__topo__pesquisar__campo" type="text"
-                    placeholder="<%= main__topo__pesquisar__campo %> ">
-            </div>
-            <div class="main__topo__botoes">
-                <button class="main__topo__botoes__botao" id="sign-up">
-                    Sign Up
-                </button>
-                <button class="main__topo__botoes__botao" id="log-in">
-                    Log In
-                </button>
-            </div>
-        </section>
+        <!-- Topo Pesquisar/Login/Cadastro -->
+        <%- include('./components/templates/Topo', { main__topo__pesquisar__campo }) %> 
 
-        <section class="section">
-            <div class="col">
-                <div class="title">
-                    <%= section1__title %>
-                </div>
-                <div class="content">
-                    <%= section1__content %>
-                        <br><br>
-                        <%= section1__hashtag %>
-                </div>
-            </div>
-            <div class="col">
-                <div class="quadro">
-                    <div id="glowscript1" class="glowscript"> </div>
-                </div>
-            </div>
-        </section>
+        <!-- Seção 1 - Introdução -->
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    title: section1__title,
+                    content: section1__content,
+                    hashtag: section1__hashtag, 
+                },
+                {
+                    quadro: 'glowscript1',    
+                }
+            ]
+        }) %> 
+        
 
-        <section class="section">
-            <div class="col">
-                <div class="card">
-                    <img src="/img/cubo.png" alt="">
-                    <h3>
-                        <%= section2__card1__title %>
-                    </h3>
-                    <p>
-                        <%= section2__card1__content %>
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/img/raiz.png" alt="">
-                    <h3>
-                        <%= section2__card2__title %>
-                    </h3>
-                    <p>
-                        <%= section2__card2__content %>
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/img/balao.png" alt="">
-                    <h3>
-                        <%= section2__card3__title %>
-                    </h3>
-                    <p>
-                        <%= section2__card3__content %>
-                    </p>
-                    <button id="send-email">
-                        <%= section2__card3__button %>
-                    </button>
-                </div>
-            </div>
-        </section>
+        <!-- Seção 2 - Recursos -->
+        <%- include('./components/templates/Sec__Recursos', {
+            cards: [
+                {
+                    icon: section2__card1__icon,
+                    title: section2__card1__title,
+                    content: section2__card1__content,
+                },{                                                                                    
+                    icon: section2__card2__icon,
+                    title: section2__card2__title,
+                    content: section2__card2__content,
+                },{
+                    icon: section2__card3__icon,
+                    title: section2__card3__title,
+                    content: section2__card3__content,
+                    btn_text: section2__card3__button,
+                },
+            ] 
+        }) %> 
 
-        <section class="section">
-            <div class="col">
-                <div class="quadro">
-                    <div id="glowscript2" class="glowscript"> </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="title">
-                    <%= section3__title %>
-                </div>
-                <div class="content">
-                    <%= section3__content %>
-                </div>
-                <div class="aparelhos">
-                    <div class="aparelho">
-                        <button id="celular"></button>
-                        <%= section3__aparelho1 %>
-                        <div class="<%= lang %>"></div>
-                    </div>
-                    <div class="aparelho">
-                        <button id="computador"></button>
-                        <%= section3__aparelho2 %>
-                        <div class="<%= lang %>"></div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
+        <!-- Seção 3 - Tutorial -->
+        <%- include('./components/templates/Sec__Tutorial', {
+            section3__title,
+            section3__content,
+            section3__aparelho1,
+            section3__aparelho2,
+            lang,
+        }) %> 
 
-        <footer>
-            Copyright © 2021 Jefferson Barros Vieira
-        </footer>
+        <%- include('./components/templates/Footer') %> 
         
     </main>
 
     <canvas id="wallpaper"></canvas>
 
-    <script src="/js/fecharMenu.js"></script>
-    <script src="/js/particleCanvas.js"></script>
-    <script src="/js/login.js"></script>
-    <script src="/js/sendEmail.js"></script>
-
-    <!-- Importando o VPython -->
-    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
-    <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/glow.3.0.min.js"></script>
-
-    <script src="js/vpython.js"></script>
-
-    <!-- Importando o MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <%- include('./components/templates/Scripts') %> 
 
 </body>
 

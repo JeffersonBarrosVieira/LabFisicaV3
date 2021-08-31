@@ -16,12 +16,15 @@ module.exports = {
     section1__content: `LabFisica is an academic development environment for students and teachers in the field of Physics. Solve physical problems, visualize, interact with it and perform an analysis of the complete mathematical modeling that will be made available!!!`,
     section1__hashtag: `#Let'sModel`,
 
+    section2__card1__icon: `/img/cubo.png`,
     section2__card1__title: `Physical Simulation`,
     section2__card1__content: `Often due to the impossibility of testing techniques and solving hypotheses directly in the real world. We are forced to solve problems through an analogy with reality: Simulation.`,
 
+    section2__card2__icon: `/img/raiz.png`,
     section2__card2__title: `Mathematical Model`,
     section2__card2__content: `Simulations use models in many cases if an analytical solution is possible. If these retain characteristics: PHYSICAL and LOGICAL of the imitated REAL SYSTEM, it will bring results close to reality.`,
 
+    section2__card3__icon: `/img/balao.png`,
     section2__card3__title: `Suggestions`,
     section2__card3__content: `Found a problem? Or do you have physical situations in mind that you want to suggest to be simulated here at LabFisica? Very cool!!! Well send a message now!! Explaining in detail.`,
     section2__card3__button: `To write`,
