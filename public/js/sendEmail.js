@@ -26,7 +26,7 @@ fechar.addEventListener('click', async () => {
 btn_formulario.addEventListener('click', (e) => {
     e.preventDefault();
     
-    if(assunto.value !== '' && mensagem.value !== ''){
+    if(assunto.value !== '' && mensagem.value !== '' && submitForm()){
 
         let xhr = new XMLHttpRequest();
         xhr.open('POST', '/send', true);
