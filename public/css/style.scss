@@ -16,6 +16,15 @@
     background-position:  center center;
     background-image: url('../img/loader.gif'), linear-gradient(to top,#171b21, #171b20);
     background-blend-mode: screen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        margin: 0;
+        margin-bottom: -150px;
+        font-size: 1.3rem;
+    }
 }
 
 body {

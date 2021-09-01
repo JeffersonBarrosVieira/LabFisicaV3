@@ -3,6 +3,8 @@ module.exports = {
     route: `/`,
     title: `LabFísica`,
 
+    preload__name: `Carregando...`,
+
     header__tutorial__button: `Tutorial`,
 
     header__topicos__topico1: `Mecânica Clássica`,
