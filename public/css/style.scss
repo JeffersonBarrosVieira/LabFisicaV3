@@ -7,6 +7,17 @@
     padding: 0;
 }
 
+#preload {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 200;
+    background-repeat: no-repeat;
+    background-position:  center center;
+    background-image: url('../img/loader2-unscreen.gif'), linear-gradient(to top,#171b21, #171b20);
+    background-blend-mode: screen;
+}
+
 body {
     background: rgb(5, 7, 7) !important;
 }
