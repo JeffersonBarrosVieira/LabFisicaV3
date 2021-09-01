@@ -14,3 +14,26 @@
 <!-- Importando o MathJax -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Importando o ReCaptcha -->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
+<script>
+    function submitForm() {
+        let response = grecaptcha.getResponse();
+
+        if(response.length == 0) {
+            document.getElementById('g-recaptcha-error').innerHTML = `
+            <span style="color: red;">
+                É necessário a verificação
+            </span>
+            `;
+            return false;
+        }
+        return true;
+    }
+
+    function verifyCaptcha() {
+        document.getElementById('g-recaptcha-error').innerHTML = '';
+    }
+</script>

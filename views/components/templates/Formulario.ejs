@@ -1,12 +1,15 @@
 <div id="formulario-content">
-    <form action="/send" id="formulario" method="POST">
+    <form action="/send" id="formulario" method="POST" onsubmit="return submitForm()">
         <!-- <i class="fas fa-times"></i> -->
         <label for="">Assunto:</label>
         <input name="assunto" type="text" id="assunto" placeholder="Insira o assunto">
         <label for="">Mensagem:</label>
         <textarea name="mensagem" id="mensagem"> </textarea>
+        
+        <div class="g-recaptcha" data-sitekey="6LefqzscAAAAADs5E587dRKaz8DZ53lhfqfLMQt0" data-callback="verifyCaptcha"></div>
+        <div id="g-recaptcha-error"></div>
+        
         <input class="btn-formulario" type="submit" value="Enviar">
-
         <div class="fechar" id="fechar"></div>
     </form>
 </div>
