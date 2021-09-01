@@ -8,7 +8,7 @@
 </head>
 <body>
     <% if (!log) { %>
-        <form action="/admin" method="POST">
+        <form action="/admin" method="POST" onsubmit="return submitForm()">
             <label for="">User:</label>
             <input name="user" type="text" id="user" placeholder="Insira o assunto">
             <br>
@@ -16,8 +16,10 @@
             <label for="">Password:</label>
             <input name="pass" type="password" id="pass" placeholder="Insira a senha">
             <br>
+            <div class="g-recaptcha" data-sitekey="6LefqzscAAAAADs5E587dRKaz8DZ53lhfqfLMQt0" data-callback="verifyCaptcha"></div>
+            <div id="g-recaptcha-error"></div>
             <hr>
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Entrar" id="btn-admin">
         </form>
     <% } %>
 
@@ -31,5 +33,28 @@
         <% }) %>
 
     <% } %>
+
+    <!-- Importando o ReCaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+        function submitForm() {
+            let response = grecaptcha.getResponse();
+            
+            if(response.length == 0) {
+                document.getElementById('g-recaptcha-error').innerHTML = `
+                <span style="color: red;">
+                    É necessário a verificação!
+                    </span>
+                `;
+                return false;
+            }
+            return true;
+        }
+        
+        function verifyCaptcha() {
+            document.getElementById('g-recaptcha-error').innerHTML = '';
+        }
+    </script>
 </body>
 </html>
