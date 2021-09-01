@@ -18,7 +18,7 @@ module.exports = async (req, res, MongoClient) => {
       .insertOne({
           assunto: `${assunto}`,
           mensagem: `${mensagem}`,
-          data: new Date().toLocaleString("pt-BR")
+          data: new Date().toLocaleString("pt-br", {timeZone: 'America/Sao_Paulo'})
       });
       // console.log(`Mensagem inserida com id: ${ result.insertedId }`);
         
