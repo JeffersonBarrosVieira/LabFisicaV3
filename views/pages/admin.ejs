@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabFísica - admin</title>
+</head>
+<body>
+    <% if (!log) { %>
+        <form action="/admin" method="POST">
+            <label for="">User:</label>
+            <input name="user" type="text" id="user" placeholder="Insira o assunto">
+            <label for="">Password:</label>
+            <input name="pass" type="password" id="pass" placeholder="Insira a senha">
+            <input type="submit" value="Enviar">
+        </form>
+    <% } %>
+
+    <% if (log) { %>
+        <h1>Sujestões:</h1>
+
+        <% result.forEach(elem => { %>
+            Assunto: <%= elem.assunto %> <br>
+            Mensagem: <%= elem.mensagem %> <br>
+            Data: <%= elem.data %> <hr>
+        <% }) %>
+
+    <% } %>
+</body>
+</html>
