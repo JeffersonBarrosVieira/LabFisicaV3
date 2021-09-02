@@ -39,8 +39,8 @@ window.addEventListener('mousemove', (event) => {
 // Desenho do Canvas 1
 ctx.fillStyle = 'white';
 ctx.font = '20px Roboto';
-ctx.fillText('Lab', 10, 16);
-ctx.fillText('Física', 0, 34);
+ctx.fillText('Lab', 16, 16);
+ctx.fillText('Física', 8, 34);
 
 const textCoordinates = ctx.getImageData(0, 0, 100, 110);
 
