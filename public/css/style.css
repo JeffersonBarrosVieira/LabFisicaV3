@@ -7,60 +7,39 @@
   padding: 0;
 }
 
-#preload {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  z-index: 200;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url("../img/loader.gif"), -webkit-gradient(linear, left bottom, left top, from(#171b21), to(#171b20));
-  background-image: url("../img/loader.gif"), linear-gradient(to top, #171b21, #171b20);
-  background-blend-mode: screen;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#preload h2 {
-  position: absolute;
-  margin: 0;
-  margin-top: -240px;
-  font-size: 4rem;
-}
-
-#preload h1 {
-  position: absolute;
-  margin: 0;
-  margin-bottom: -150px;
-  font-size: 1.2rem;
-  color: lightblue;
-}
-
-#preload h3 {
-  position: absolute;
-  margin: 0;
-  margin-bottom: -195px;
-  font-size: 1.2rem;
-  color: lightblue;
-}
-
 body {
   background: #050707 !important;
 }
 
 a {
   text-decoration: none !important;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#referencias {
+  padding: 5px 10px;
+  border-radius: 7px;
+  -webkit-transition: 0.3s all ease-out;
+  transition: 0.3s all ease-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#referencias:hover {
+  background-color: #000000c7;
 }
 
 li {
@@ -242,7 +221,7 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-bottom: 15px;
+  padding-left: 25px;
   scroll-snap-align: start;
 }
 
@@ -277,7 +256,7 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 180px;
+  width: 205px;
 }
 
 .main__topo__botoes__botao {
@@ -309,11 +288,37 @@ li {
   background-color: #4a5461;
 }
 
+#apple {
+  width: 100%;
+  border-radius: 5px;
+  top: 0;
+  height: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+#apple .sec {
+  position: relative;
+  max-width: 1200px;
+  height: 0;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+}
+
+#apple .sec .apple {
+  position: absolute;
+  width: 200px;
+  top: -200px;
+  right: 15px;
+  height: auto;
+  opacity: 0.8;
+}
+
 .section {
   max-width: 1200px;
   width: calc(100% - 30px);
   border-radius: 5px;
-  padding: 15px;
+  padding: 15px 15px 15px 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -337,6 +342,7 @@ li {
 .section .col .title {
   font-family: 'Concert One';
   font-size: 40px;
+  line-height: 40px;
   font-weight: 800;
 }
 
@@ -504,13 +510,68 @@ li {
   background-color: #15c3f7;
 }
 
+.section .col .imgs {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 330px;
+  width: 200px;
+  overflow: hidden;
+  border: 1px solid rgba(9, 66, 66, 0);
+  position: absolute;
+}
+
+.section .col .imgs .img {
+  width: 200px;
+  height: auto;
+}
+
+.section .col .imgs .img:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.section:nth-child(5) .col:nth-child(2) {
+  width: 200px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  min-width: 200px;
+  margin-left: auto;
+  z-index: -10;
+  opacity: 0.9;
+}
+
 footer {
   padding: 10px 40px;
-  width: 100%;
+  width: auto;
   background-color: #1c2027;
   margin-top: auto;
+  position: relative;
   font-size: 16px;
   scroll-snap-align: start;
+}
+
+footer ul:nth-child(1) {
+  width: 100%;
+  wrap: 5px;
+  min-width: 300px;
+}
+
+footer ul:nth-child(1) li:nth-child(1) {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+footer ul:nth-child(2) {
+  width: auto;
+  padding-top: 10px;
+  margin-top: 20px;
+  border-top: 3px solid #000;
+}
+
+footer ul:nth-child(2) li {
+  text-align: center;
 }
 
 #wallpaper {
@@ -532,8 +593,8 @@ footer {
   overflow: hidden;
 }
 
-#glowscript1 canvas,
-#glowscript2 canvas {
+#cubo canvas,
+#cilindro canvas {
   width: 100%;
   height: inherit;
 }

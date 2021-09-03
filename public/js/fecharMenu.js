@@ -9,7 +9,7 @@ conteudo.addEventListener('click', () => { osc < 0 ? fecharMenu() : false });
 
 function fecharMenu() {
     menu__lateral.style.transform = `translate(${osc < 0 ? '-208px' : '0px'})`;
-    conteudo.style.marginLeft = `${osc < 0 ? '30px' : '238px'}`;
+    conteudo.style.marginLeft = `${osc < 0 ? '20px' : '228px'}`;
     menu__lateral__seta.style.transform = `rotate(${osc < 0 ? '0deg' : '180deg'})`;
     osc *= -1;
 }

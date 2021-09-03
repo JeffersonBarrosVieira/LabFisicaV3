@@ -6,14 +6,10 @@
 </head>
 
 <body>
-    <!-- Preload -->
-    <div id="preload">
-        <h2 style="font-family: cursive !important;">LabFísica</h2>
-        <h3 style="font-family: cursive !important;">v3.28</h3>
-        <h1 style="font-family: cursive !important;"><%= preload__name %></h1>
-    </div>
+    <%# Preload %>
+    <%- include('./components/templates/Preload') %> 
 
-    <!-- Menu Lateral -->
+    <%# Menu Lateral %>
     <%- include('./components/templates/MenuLateral', {
         header__tutorial__button,
         header__topicos__topico1,
@@ -23,30 +19,30 @@
         lang
     }) %> 
 
-    <!-- Formulário Mensagem -->
+    <%# Formulário Mensagem %>
     <%- include('./components/templates/Formulario') %> 
 
     <main id="conteudo" class="main">
 
-        <!-- Topo Pesquisar/Login/Cadastro -->
+        <%# Topo Pesquisar/Login/Cadastro %>
         <%- include('./components/templates/Topo', { main__topo__pesquisar__campo }) %> 
 
-        <!-- Seção 1 - Introdução -->
+        <%# Seção 1 - Introdução %>
         <%- include('./components/templates/Sec__Intro', {
             infos: [
                 {
                     title: section1__title,
-                    content: section1__content,
+                    content: [section1__content],
                     hashtag: section1__hashtag, 
                 },
                 {
-                    quadro: 'glowscript1',    
+                    quadro: 'cubo',
                 }
             ]
         }) %> 
         
 
-        <!-- Seção 2 - Recursos -->
+        <%# Seção 2 - Recursos %>
         <%- include('./components/templates/Sec__Recursos', {
             cards: [
                 {
@@ -66,7 +62,7 @@
             ] 
         }) %> 
 
-        <!-- Seção 3 - Tutorial -->
+        <%# Seção 3 - Tutorial %>
         <%- include('./components/templates/Sec__Tutorial', {
             section3__title,
             section3__content,
@@ -75,10 +71,61 @@
             lang,
         }) %> 
 
-        <%- include('./components/templates/Footer') %> 
+        <%# Seção 4 - Mecânica Clássica %>
         
-    </main>
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    id: `mecanica-classica`,
+                    title: `1 MECÂNICA CLÁSSICA`,
+                    content: [`A ciência da mecânica busca fornecer uma descrição precisa e consistente da dinâmica das partículas e dos sistemas de partículas [1], sendo assim, uma representação matemática dos movimentos que utilizam leis físicas baseadas em fatos experimentais. Antes de nos desbravar das aplicações, é necessário saber alguns conceitos fundamentais, tais como:`,
+                            ` - Distância;`,
+                            ` - Tempo.`,
+                            `Com eles, é possível entender: velocidade e aceleração de um dado corpo. Portanto, nesta seção será tratado primeiramente movimentos sem suas causas, isto é, a geometria do movimento (cinemática). Depois, a implementação delas (dinâmica).`
+                            ],
+                    hashtag: false,
+                    quadro: false,
+                },
+                {
+                    imgs: [
+                        `/img/newton.png`,
+                    ]
+                }
+            ]
+        }) %> 
 
+        <%# Seção 5 - Mecânica Clássica - Cinemática %>
+
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    title: `1.1 Cinemática`,
+                    content: [
+                        `As simulações neste tópico irá envolver os seguintes assuntos:`,
+                        ` - Trajetória;`,
+                        ` - Espaço (módulo do comprimento da trajetória);`,
+                        ` - Velocidade;`,
+                        ` - Aceleração;`,
+                        ` - Tempo.`
+                    ],
+                    hashtag: false,
+                    quadro: false,
+                }
+            ]
+        }) %>
+        
+
+        <%# Rodapé %>
+        <%- include('./components/templates/Footer') %> 
+
+        <div id="apple">
+            <div class="sec">
+                <img class="apple" src="/img/apple.png">
+            </div>
+        </div>
+
+    </main>
+    
     <canvas id="wallpaper"></canvas>
 
     <%- include('./components/templates/Scripts') %> 

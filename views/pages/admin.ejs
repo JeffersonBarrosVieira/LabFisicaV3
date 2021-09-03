@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png" />
+    <link rel="preload" as="image" href="/img/loader.gif">
+
     <title>LabFísica - admin</title>
 </head>
-<body>
+<body style="margin: 0; padding: 0;">
+    
+    <!-- Preload -->
+    <%- include('../components/templates/Preload', {preload__name: 'Carregando...'}) %> 
+
     <% if (!log) { %>
         <form action="/admin" method="POST" onsubmit="return submitForm()">
             <label for="">User:</label>

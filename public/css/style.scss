@@ -7,51 +7,36 @@
     padding: 0;
 }
 
-#preload {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    z-index: 200;
-    background-repeat: no-repeat;
-    background-position:  center center;
-    background-image: url('../img/loader.gif'), linear-gradient(to top,#171b21, #171b20);
-    background-blend-mode: screen;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    h2 {
-        position: absolute;
-        margin: 0;
-        margin-top: -240px;
-        font-size: 4rem;
-    }
-
-    h1 {
-        position: absolute;
-        margin: 0;
-        margin-bottom: -150px;
-        font-size: 1.2rem;
-        color: lightblue;
-    }
-
-    h3 {
-        position: absolute;
-        margin: 0;
-        margin-bottom: -195px;
-        font-size: 1.2rem;
-        color: lightblue;
-    }
-    
-}
-
 body {
     background: rgb(5, 7, 7) !important;
 }
 
 a {
     text-decoration: none !important;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+#referencias {
+    padding: 5px 10px;
+    border-radius: 7px;
+    transition: 0.3s all ease-out;
+
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    &:hover{
+        background-color: #000000c7;
+    }
 }
 
 li {
@@ -227,7 +212,7 @@ li {
         width: 100%;
         display: flex;
         flex-direction: row;
-        margin-bottom: 15px;
+        padding-left: 25px;
         scroll-snap-align: start; // alinhar no começo
 
         &__pesquisar {
@@ -251,7 +236,7 @@ li {
         &__botoes {
             display: flex;
             align-items: center;
-            width: 180px;
+            width: 205px;
 
             &__botao {
                 height: 60%;
@@ -285,11 +270,41 @@ li {
     }
 }
 
+#apple {
+    width: 100%;
+    border-radius: 5px;
+
+    top: 0;
+    height: 0;
+    // background-color: #0a3742;
+    z-index: -1;
+    position: absolute;
+
+    .sec {
+        position: relative;
+        max-width: 1200px;
+        height: 0;
+        width: calc(100% - 30px);
+        margin: 0 auto;
+        // background-color: #0a4218;
+
+        .apple {
+            position: absolute;
+            // background-color: #648d6e;
+            width: 200px;
+            top: -200px;
+            right: 15px;
+            height: auto;
+            opacity: 0.8;
+        }
+    }
+}
+
 .section {
     max-width: 1200px;
     width: calc(100% - 30px);
     border-radius: 5px;
-    padding: 15px; 
+    padding: 15px 15px 15px 25px; 
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -307,6 +322,7 @@ li {
         .title {
             font-family: 'Concert One';
             font-size: 40px;
+            line-height: 40px;
             font-weight: 800;
         }
 
@@ -476,16 +492,85 @@ li {
                 }
             }
         }
+
+        .imgs {
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 10px;
+            height: 330px;
+            width:200px;
+            overflow: hidden;
+            // box-sizing: border-box;
+            border: 1px solid rgba(9, 66, 66, 0); //rgba(0, 255, 255, 0.801)
+            position: absolute;
+
+            .img {
+                width: 200px;
+                height: auto;
+
+                &:nth-child(1){
+                    position: absolute; 
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+
+// .section:nth-child(4),
+// .section:nth-child(2),
+// .section:nth-child(3) {
+//     .col:nth-child(2) {
+//         z-index: -10;
+//     }
+// }
+
+// Newton
+.section:nth-child(5) {
+    .col:nth-child(2) {
+        width: 200px;
+        flex: none;
+        min-width: 200px;
+        margin-left: auto;
+        z-index: -10;
+        opacity: 0.9;
     }
 }
 
 footer {
     padding: 10px 40px;
-    width: 100%;
+    width: auto;
     background-color: #1c2027;
     margin-top: auto;
+    position: relative;
     font-size: 16px;
     scroll-snap-align: start; // alinhar no começo
+
+    ul{
+        &:nth-child(1){
+            width: 100%;
+            wrap: 5px;
+            min-width: 300px;
+
+            li{
+                &:nth-child(1){
+                    font-size: 1.6rem;margin-bottom: 10px;
+                }
+            }
+        }
+
+        &:nth-child(2){
+            width: auto;
+            padding-top: 10px;
+            margin-top: 20px;
+            border-top: 3px solid #000;
+
+            li{
+                text-align: center;
+            }
+        }
+    }
 }
 
 #wallpaper {
@@ -507,8 +592,9 @@ footer {
     overflow: hidden;
 }
 
-#glowscript1 canvas,
-#glowscript2 canvas{
+//mudar toda vez que adicionar uma simulação
+#cubo canvas,
+#cilindro canvas{
     width: 100%;
     height: inherit;
 }

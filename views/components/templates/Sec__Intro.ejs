@@ -2,7 +2,7 @@
 
         <% infos.forEach(info => { %>
     
-            <div class="col">
+            <div class="col"  <% if (info.id) { %> id= <%= info.id %>  <% } %>>
                 <%# TITLE COL %>
                 <% if (info.title) { %>
                     <div class="title"> <%= info.title %> </div>
@@ -12,10 +12,14 @@
                 <% if (info.content) { %>
                  
                     <div class="content">
-                        <%=info.content %>
+                        <ul>
+                            <% info.content.forEach(content => { %>
+                                <li><p><%= content %></p></li>
+                            <% }) %>
+                        </ul>
 
                         <% if (info.hashtag) { %>
-                            <br><br>
+                            <br>
                             <%= info.hashtag %>
                         <% } %>
 
@@ -27,6 +31,15 @@
                 <% if (info.quadro) { %>
                     <div class="quadro">
                         <div id=<%= info.quadro %>  class="glowscript"> </div>
+                    </div>
+                <% } %>
+
+                <%# IMAGENS COL %>
+                <% if (info.imgs) { %>
+                    <div class="imgs">
+                        <% info.imgs.forEach(url => { %>
+                            <img class="img" src= "<%= url %>" >
+                        <% }) %>
                     </div>
                 <% } %>
     

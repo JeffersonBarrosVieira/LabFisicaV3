@@ -11,6 +11,7 @@ module.exports = {
     header__topicos__topico2: `Oscillations and Waves`,
     header__topicos__topico3: `Thermodynamics`,
     header__topicos__topico4: `Geometrical Optics`,
+    header__topicos__referencias: `References`,
 
     main__topo__pesquisar__campo: `Search`,
 

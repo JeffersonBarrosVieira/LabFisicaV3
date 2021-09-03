@@ -1,8 +1,8 @@
 <header id="menu__lateral" class="header">
-    <canvas id="canvas1" width=188></canvas>
+    <a href="#topo"><canvas id="canvas1" width=188></canvas></a>
     <hr class="header__hr">
 
-    <a href="#glowscript2" id="tutorial">
+    <a href="#cilindro" id="tutorial">
         <div class="header__tutorial">
             <button class="header__tutorial__button">
                 <%= header__tutorial__button %>
@@ -14,13 +14,13 @@
         <a href="#mecanica-classica" class="header__topicos__topico">
             <%= header__topicos__topico1 %>
         </a>
-        <a href="#" class="header__topicos__topico">
+        <a href="#oscilacao-ondas" class="header__topicos__topico">
             <%= header__topicos__topico2 %>
         </a>
-        <a href="#" class="header__topicos__topico">
+        <a href="#termodinamica" class="header__topicos__topico">
             <%= header__topicos__topico3 %>
         </a>
-        <a href="#" class="header__topicos__topico">
+        <a href="#optica-geometrica" class="header__topicos__topico">
             <%= header__topicos__topico4 %>
         </a>
     </div>
@@ -29,6 +29,10 @@
         <a class="header__langs__lang <%- lang === 'pt-Br' ? 'selec' : '' %> " href="/">Pt-Br</a>
         <a class="header__langs__lang <%- lang === 'en' ? 'selec' : '' %> " href="/en">En</a>
     </div>
+
+    <a href="#rodape" id="referencias">
+        <%= header__topicos__referencias %>
+    </a>
 
     <div id="menu__lateral__seta" class="header__seta"></div>
 </header>

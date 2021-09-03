@@ -1,8 +1,5 @@
 let state = true;
 
-window.__context = { glowscript_container: $("#glowscript1") }
-
-cubo()
 
 // document.getElementById('mudar').addEventListener('click', () => {
 //     state = !state;
@@ -45,44 +42,28 @@ async function cubo() {
     })
 }
 
-// async function cilindro() {
+async function cilindro() {
 
-//     var vector = vec
-//     let scene = canvas()
-//     // console.log(vec(0,1,1))
-//     scene.range = 2
-//     let b = cylinder({color:color.cyan, axis: vec(6,0,0), pos: vec(-2, 0, 0)})
-//     let a = arrow({color: vec(89/255, 189/255, 136/255)})
-//     b.rotate({angle: 0.8, axis: vec(1,1,0)})
-// }
+    var vector = vec;
+    let scene = canvas();
+    // console.log(vec(0,1,1))
+    scene.range = 2;
+    let b = cylinder({color:color.cyan, axis: vec(6,0,0), pos: vec(-2, 0, 0)});
+    let a = arrow({color: vec(89/255, 189/255, 136/255)});
+    b.rotate({angle: 0.8, axis: vec(1,1,0)});
+}
 
-// async function esfera() {
+async function esfera() {
 
-//     var vector = vec
-//     let scene = canvas()
-//     scene.range = 2
-//     let b = sphere({color:color.cyan})
-// }
+    var vector = vec
+    let scene = canvas()
+    scene.range = 2
+    let b = sphere({color:color.cyan})
+}
 
-// let cond = 1;
+window.__context = { glowscript_container: $("#cubo") };
+cubo();
 
-// window.addEventListener('scroll', () => {
-    
-//     let y0 = document.querySelector('#send-email').getBoundingClientRect().y;
+window.__context = { glowscript_container: $("#cilindro") };
+cilindro();
 
-//     if(y0 > 150 && cond == 0) {
-//         $('#glowscript2').empty();
-//         window.__context = { glowscript_container: $("#glowscript1") };
-//         cubo();
-        
-//         cond = 1;
-//     }
-
-//     if(y0 < 150 && cond == 1) {
-//         $('#glowscript1').empty();
-//         window.__context = { glowscript_container: $("#glowscript2") };
-//         cilindro();
-
-//         cond = 0;
-//     }
-// })
