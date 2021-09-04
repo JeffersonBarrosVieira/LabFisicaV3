@@ -36,4 +36,28 @@ module.exports = {
     section3__content: `These animations are interactive! It is possible to rotate the object and zoom in!!! :0 Very cool right?! ^^ So... let's go? To view the instructions, press and hold the option that corresponds to your device:`,
     section3__aparelho1: `Smartphone`,
     section3__aparelho2: `Computer`,
+
+    section4__title: `1 CLASSICAL MECHANICS`,
+    section4__content: [
+        `The science of mechanics seeks to provide an accurate and consistent description of the dynamics of particles and particle systems [1], thus, a mathematical representation of motion using physical laws based on experimental facts. Before breaking into the applications, it is necessary to know some fundamental concepts, such as:`,
+        ` - Distance;`,
+        ` - Time.`,
+        `With them, it is possible to understand: velocity and acceleration of a given body. Therefore, in this section we will first deal with movements without their causes, that is, the geometry of the movement (kinematics). Then their (dynamic) implementation.`
+    ],
+    
+    section5__title: `1.1 Kinematics`,
+    section5__content: [
+        `The simulations in this topic will involve the following subjects:`,
+        ` - Trajectory;`,
+        ` - Space (module of the length of the trajectory);`,
+        ` - Velocity;`,
+        ` - Acceleration;`,
+        ` - Time.`
+    ],
+
+    footer__reference__title: `References`,
+    footer__references: [
+        `[1] - J.B. Marion, S.T. Thornton, Classical Dynamics of Particles and Systems, 5th Edition (Brooks/Cole Thomson Learning, 2004), p.43;`
+    ]
+
 }
