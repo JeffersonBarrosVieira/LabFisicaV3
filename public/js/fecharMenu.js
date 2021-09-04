@@ -19,8 +19,39 @@ window.onload = async () => {
     conteudo.click();
 };
 
+let time = 300;
+
 document.getElementById('tutorial').addEventListener('click', async () => {
-    await new Promise(r => setTimeout(r, 300));
+    await new Promise(r => setTimeout(r, time));
     conteudo.click();
 })
 
+document.getElementById('canvas1').addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, time));
+    conteudo.click();
+})
+
+document.getElementById('m_c').addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, time));
+    conteudo.click();
+})
+
+document.getElementById('o_o').addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, time));
+    conteudo.click();
+})
+
+document.getElementById('t_d').addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, time));
+    conteudo.click();
+})
+
+document.getElementById('o_g').addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, time));
+    conteudo.click();
+})
+
+document.getElementById('referencias').addEventListener('click', async () => {
+    await new Promise(r => setTimeout(r, time));
+    conteudo.click();
+})
