@@ -35,7 +35,7 @@
                 <% } %>
 
                 <% if (info.controls) { %>
-                    <div class="quadro__interface" style="width: 100%">
+                    <div class="quadro__interface" style="width: 100%; position: relative;">
 
                         <% info.controls.forEach(element => { %>
                             <% if (element.btn) { %>
@@ -43,6 +43,9 @@
                                         onmouseover="this.style.backgroundColor= '#54a561'"
                                         onmouseout="this.style.backgroundColor= '#61bd71'"
                                         style=" background-color: #61bd71;
+                                                position: absolute;
+                                                top: -35px;
+                                                right: 55px;
                                                 border: none;
                                                 border-radius: 5px;
                                                 font-size: 15px;
@@ -61,11 +64,32 @@
                                                 border: none;
                                                 border-radius: 5px;
                                                 font-size: 15px;
+                                                position: absolute;
+                                                top: -35px;
+                                                right: 2px;
                                                 padding: 5px 10px;
                                                 color: white;
                                                 cursor: pointer;">
 
                                                 <%= element.reset.name %>
+                                </button>
+                            <% } %>
+                            <% if (element.follow) { %>
+                                <button id=<%= element.follow.id %>
+                                        onmouseover="this.style.backgroundColor= '#4a5461'"
+                                        onmouseout="this.style.backgroundColor= '#414a56'"
+                                        style=" background-color: #414a56;
+                                                border: none;
+                                                border-radius: 5px;
+                                                font-size: 15px;
+                                                position: absolute;
+                                                top: -35px;
+                                                left: 4px;
+                                                padding: 5px 10px;
+                                                color: white;
+                                                cursor: pointer;">
+
+                                                <%= element.follow.name %>
                                 </button>
                             <% } %>
                             <% if (element.input) { %>

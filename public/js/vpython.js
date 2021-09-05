@@ -73,6 +73,7 @@ async function trajetoria() {
     
     let btnStart = document.getElementById('btn-trajetoria');
     let btnReset = document.getElementById('reset-trajetoria');
+    let btnFollow = document.getElementById('follow-trajetoria');
 
     async function lancarObjeto(velocidade){
         particula.velocity = velocidade;
@@ -108,6 +109,13 @@ async function trajetoria() {
         lancarObjeto( vec(0, 0, 0) );
         particula.pos = vec(0,0,0);
         particula.clear_trail();
+    })
+
+
+    let follow = true;
+    btnFollow.addEventListener('click', async () => {
+        follow ? scene.camera.follow(particula) : scene.camera.follow(null);
+        follow = !follow;
     })
 
     return 0;
