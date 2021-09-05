@@ -115,6 +115,7 @@ async function trajetoria() {
     let follow = true;
     btnFollow.addEventListener('click', async () => {
         follow ? scene.camera.follow(particula) : scene.camera.follow(null);
+        follow ? btnFollow.style.backgroundColor = '#314761' : btnFollow.style.backgroundColor = '#414a56';
         follow = !follow;
     })
 
