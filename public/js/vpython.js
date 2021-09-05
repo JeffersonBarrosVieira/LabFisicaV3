@@ -1,6 +1,3 @@
-let state = true;
-
-
 /* - - - - - - -  CUBO  - - - - - - - */
 async function cubo() {
 
@@ -73,19 +70,19 @@ async function trajetoria() {
         velocity: vec(0, 0, 0),
     });
 
-    let eixoX = arrow({
+    arrow({ // Eixo X
         color: vec(200 / 255, 30 / 255, 50 / 255),
         pos: vec(0, 0, 0),
         axis: vec(4, 0, 0),
         shaftwidth: 0.1
     });
-    let eixoY = arrow({
+    arrow({ // Eixo Y
         color: vec(200 / 255, 30 / 255, 50 / 255),
         pos: vec(0, 0, 0),
         axis: vec(0, 4, 0),
         shaftwidth: 0.1
     });
-    let eixoZ = arrow({
+    arrow({ // Eixo Z
         color: vec(200 / 255, 30 / 255, 50 / 255),
         pos: vec(0, 0, 0),
         axis: vec(0, 0, 4),
@@ -102,9 +99,11 @@ async function trajetoria() {
 
         btnStart.addEventListener('click', () => {
             cond = false
+            return 0;
         });
         btnReset.addEventListener('click', () => {
             cond = false
+            return 0;
         });
 
 
