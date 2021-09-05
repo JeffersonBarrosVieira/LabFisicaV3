@@ -66,22 +66,33 @@ async function trajetoria() {
         color:color.cyan,
         radius: 0.5,
         make_trail: true,
-        retain: 100,
+        retain: 200,
         pos: vec(0, 0, 0),
         velocity: vec(0, 0, 0),
     });
     
+    let btnStart = document.getElementById('btn-trajetoria');
+    let btnReset = document.getElementById('reset-trajetoria');
 
     async function lancarObjeto(velocidade){
         particula.velocity = velocidade;
+        let cond = true;
 
-        while (true){
+        btnStart.addEventListener('click', () =>{
+            cond = false
+        });
+        btnReset.addEventListener('click', () =>{
+            cond = false
+        });
+
+
+        while (cond){
             await rate(100);
             particula.pos = somarVetor(particula.pos, multiplicarVetor(particula.velocity, dt));
         }
     }
 
-    document.getElementById('btn-trajetoria').addEventListener('click', async () => {
+    btnStart.addEventListener('click', async () => {
         let vx = document.getElementById('velx-tragetoria');
         let vy = document.getElementById('vely-tragetoria');
         let vz = document.getElementById('velz-tragetoria');
@@ -89,7 +100,7 @@ async function trajetoria() {
         lancarObjeto( vec(vx.value, vy.value, vz.value) );
     })
 
-    document.getElementById('reset-trajetoria').addEventListener('click', async () => {
+    btnReset.addEventListener('click', async () => {
         document.getElementById('velx-tragetoria').value = '';
         document.getElementById('vely-tragetoria').value = '';
         document.getElementById('velz-tragetoria').value = '';
