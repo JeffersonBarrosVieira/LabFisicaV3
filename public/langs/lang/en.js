@@ -7,7 +7,7 @@ module.exports = {
 
     header__tutorial__button: `Tutorial`,
 
-    header__topicos__topico1: `Classic Mechanics`,
+    header__topicos__topico1: `Classical Mechanics`,
     header__topicos__topico2: `Oscillations and Waves`,
     header__topicos__topico3: `Thermodynamics`,
     header__topicos__topico4: `Geometrical Optics`,

@@ -593,10 +593,13 @@ footer {
 }
 
 //mudar toda vez que adicionar uma simulação
-#cubo canvas,
-#cilindro canvas{
-    width: 100%;
-    height: inherit;
+#cubo ,
+#cilindro,
+#trajetoria {
+    canvas {
+        width: 100%;
+        height: inherit;
+    }
 }
 
 #canvas2 {

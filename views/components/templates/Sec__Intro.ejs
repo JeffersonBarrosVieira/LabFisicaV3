@@ -34,6 +34,57 @@
                     </div>
                 <% } %>
 
+                <% if (info.controls) { %>
+                    <div class="quadro__interface" style="width: 100%">
+
+                        <% info.controls.forEach(element => { %>
+                            <% if (element.btn) { %>
+                                <button id=<%= element.btn.id %>
+                                        onmouseover="this.style.backgroundColor= '#54a561'"
+                                        onmouseout="this.style.backgroundColor= '#61bd71'"
+                                        style=" background-color: #61bd71;
+                                                border: none;
+                                                border-radius: 5px;
+                                                font-size: 15px;
+                                                padding: 5px 10px;
+                                                color: #0b0d0f;
+                                                cursor: pointer;">
+
+                                                <%= element.btn.name %>
+                                </button>
+                            <% } %>
+                            <% if (element.reset) { %>
+                                <button id=<%= element.reset.id %>
+                                        onmouseover="this.style.backgroundColor= '#4a5461'"
+                                        onmouseout="this.style.backgroundColor= '#414a56'"
+                                        style=" background-color: #414a56;
+                                                border: none;
+                                                border-radius: 5px;
+                                                font-size: 15px;
+                                                padding: 5px 10px;
+                                                color: white;
+                                                cursor: pointer;">
+
+                                                <%= element.reset.name %>
+                                </button>
+                            <% } %>
+                            <% if (element.input) { %>
+                                <input  id=<%= element.input.id %> 
+                                        placeholder=<%= element.input.name %> 
+                                        type="number" 
+                                        style=" height: auto;
+                                                width: 70px;
+                                                background-color: #252830;
+                                                border-radius: 5px;
+                                                font-size: 15px;
+                                                border: none;
+                                                padding: 5px 10px;"/> 
+                            <% } %>
+                        <% }) %>
+
+                    </div>
+                <% } %>
+
                 <%# IMAGENS COL %>
                 <% if (info.imgs) { %>
                     <div class="imgs">
