@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+</head>
+<body>
+    <% if (tentativa) { %>
+        <%= sucesso ? 'Usuário cadastrado!!' : 'Usuário e senha incorretos'%> 
+    <% } %>
+    <form action="/entrar" method="POST" onsubmit="return verificar()">
+        <input id="user" name="user" type="text" placeholder="Usuário">
+        <input id="pass" name="pass" type="password" placeholder="Senha">
+        <input type="submit" value="Entrar"/>
+    </form>
+    <script>
+        function verificar(){
+            if (document.getElementById('user').value == '' || document.getElementById('pass').value == ''){
+                alert("Preencha o usuário e senha");
+                return false
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
