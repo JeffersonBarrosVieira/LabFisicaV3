@@ -7,6 +7,10 @@
     <title>Entrar</title>
 </head>
 <body>
+
+    <%# Preload %>
+    <%- include('../components/templates/Preload', {preload__name: 'Carregando...'}) %> 
+
     <% if (tentativa) { %>
         <%= sucesso ? 'Usuário cadastrado!!' : 'Usuário e senha incorretos'%> 
     <% } %>

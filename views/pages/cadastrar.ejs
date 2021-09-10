@@ -7,6 +7,10 @@
     <title>Cadastrar</title>
 </head>
 <body>
+
+    <%# Preload %>
+    <%- include('../components/templates/Preload', {preload__name: 'Carregando...'}) %> 
+
     <% if (tentativa) { %>
         <%= sucesso ? 'Preencha o usuário e senha' : 'Usuário já existente' %> 
     <% } %>
