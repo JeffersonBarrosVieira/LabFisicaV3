@@ -25,6 +25,8 @@ ul {
   border-radius: 7px;
   -webkit-transition: 0.3s all ease-out;
   transition: 0.3s all ease-out;
+  background-color: #252830;
+  border: 2px solid rgba(0, 0, 0, 0.24);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,6 +151,8 @@ li {
   -webkit-transition: 0.3s all ease-out;
   transition: 0.3s all ease-out;
   text-align: center;
+  background-color: #252830;
+  border: 2px solid rgba(0, 0, 0, 0.24);
 }
 
 .header__topicos__topico:hover {
@@ -171,6 +175,7 @@ li {
 }
 
 .header__langs__lang {
+  background-color: #252830;
   padding: 2px 10px;
   border-radius: 7px;
   -webkit-transition: 0.3s all ease-out;
