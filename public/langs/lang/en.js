@@ -7,10 +7,28 @@ module.exports = {
 
     header__tutorial__button: `Tutorial`,
 
-    header__topicos__topico1: `Classical Mechanics`,
-    header__topicos__topico2: `Oscillations and Waves`,
-    header__topicos__topico3: `Thermodynamics`,
-    header__topicos__topico4: `Geometrical Optics`,
+    header__topicos__btn: [
+        {
+            name: `Classical Mechanics`,
+            id: `m_c`,
+            href: `#mecanica-classica`,
+        },
+        // {
+        //     name: `Oscillations and Waves`,
+        //     id: `o_o`,
+        //     href: `#oscilacao-ondas`,
+        // },
+        // {
+        //     name: `Thermodynamics`,
+        //     id: `t_d`,
+        //     href: `#termodinamica`,
+        // },
+        // {
+        //     name: `Geometrical Optics`,
+        //     id: `o_g`,
+        //     href: `#optica-geometrica`
+        // }
+    ],
     header__topicos__referencias: `References`,
 
     main__topo__pesquisar__campo: `Search`,

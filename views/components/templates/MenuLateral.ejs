@@ -11,18 +11,11 @@
     </a>   
 
     <div class="header__topicos">
-        <a id="m_c" href="#mecanica-classica" class="header__topicos__topico">
-            <%= header__topicos__topico1 %>
-        </a>
-        <a id="o_o" href="#oscilacao-ondas" class="header__topicos__topico">
-            <%= header__topicos__topico2 %>
-        </a>
-        <a id="t_d" href="#termodinamica" class="header__topicos__topico">
-            <%= header__topicos__topico3 %>
-        </a>
-        <a id="o_g" href="#optica-geometrica" class="header__topicos__topico">
-            <%= header__topicos__topico4 %>
-        </a>
+        <% header__topicos__btn.forEach(topico => { %>
+            <a id="<%= topico.id %> " href="<%= topico.href %> " class="header__topicos__topico">
+                <%= topico.name %>
+            </a>
+        <% }) %>
     </div>
 
     <div class="header__langs">
