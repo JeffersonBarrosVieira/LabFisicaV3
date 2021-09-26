@@ -89,7 +89,42 @@
                     content: section5__content,
                 },
                 {
-                    quadro: `trajetoria`,
+                    quadro: `referencial`,
+                    controls: [
+                        {
+                            btn: {id: `btn-referencial`, name: `Iniciar`}
+                        },{
+                            follow: {id: `follow-referencial`, name: `Seguir`}
+                        },{
+                            input: {id: `vel-referencial`, name: `V`, preText: `Velocidade: `, posText: ` m/s`}
+                        }
+                    ]
+                }
+            ]
+        }) %>
+
+        <%# Seção 6 - Mecânica Clássica - Cinemática %>
+
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    content: section6__content1,
+                },
+                {
+                    content: section6__content2,
+                }
+            ]
+        }) %>
+
+
+        <%# Seção Controle Teste - Mecânica Clássica - Cinemática %>
+
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    title: sectionControl__title,
+                    
+                    quadro: `controles`,
                     controls: [
                         {
                             btn: {id: `btn-trajetoria`, name: `Iniciar`}

@@ -3,8 +3,8 @@ function multiplicarVetor(vetor, num) {
     return vec(vetor.x * num, vetor.y * num, vetor.z * num)
 }
 
-function somarVetor(vetor1, vetor2) {
-    return vec(vetor1.x + vetor2.x, vetor1.y + vetor2.y, vetor1.z + vetor2.z)
+function somarVetor(vetor1, vetor2, fator = 1) {
+    return vec(vetor1.x + fator * vetor2.x, vetor1.y + fator * vetor2.y, vetor1.z + fator * vetor2.z)
 }
 
 
@@ -55,8 +55,214 @@ window.__context = { glowscript_container: $("#cilindro") };
 cilindro();
 
 
+/* - - - - - - -  REFERENCIAL  - - - - - - - */
+async function arremesso() {
 
-/* - - - - - - -  TRAJETÓRIA  - - - - - - - */
+    let scene = canvas();
+    scene.forward = vec(-2, -3, -2);
+    scene.range = 8;
+    box({ pos: vec(0,-0.1,0), size: vec(1000, 0.1, 10) });
+
+
+    // Construção Avião
+    let vetor = vec(0, 5, 0);
+
+    let aviao = cylinder({
+        color: color.blue, axis: vec(2, 0, 0), pos: somarVetor(vec(-1, 0, 0), vetor), radius: 0.2, pos0: somarVetor(vec(-1, 0, 0), vetor),
+        velocity: vec(0, 0, 0),
+        acc: vec(0, 0, 0), make_trail: true,
+        retain: 1000
+    });
+    let frente = sphere({ color: color.blue, radius: 0.2, pos: somarVetor(aviao.pos, aviao.axis) })
+
+    let crista = box({ color: color.yellow, size: vec(2, 0.15, 0.1), pos: somarVetor(aviao.pos, vec(1, 0.15, 0)) })
+    crista.rotate({ angle: -0.03, axis: vec(0, 0, 1) })
+    let rabo = box({
+        color: color.yellow, size: vec(0.5, 0.3, 0.1), pos: somarVetor(aviao.pos, vec(0.27, 0.2, 0))
+    })
+    rabo.rotate({ angle: -0.52, axis: vec(0, 0, 1) })
+
+    let asaEsquerda = box({
+        color: color.blue, size: vec(1.5, 0.1, 0.6), pos: somarVetor(aviao.pos, vec(0.8, 0, 0.5))
+    });
+    asaEsquerda.rotate({ angle: 0.82, axis: vec(0, 1, 0) });
+
+    let asaDireita = box({
+        color: color.blue, size: vec(1.5, 0.1, 0.6), pos: somarVetor(aviao.pos, vec(0.8, 0, -0.5))
+    });
+    asaDireita.rotate({ angle: -0.82, axis: vec(0, 1, 0) });
+
+    function attPosicaoAviao() {
+        frente.pos = somarVetor(aviao.pos, aviao.axis);
+        crista.pos = somarVetor(aviao.pos, vec(1, 0.15, 0));
+        rabo.pos = somarVetor(aviao.pos, vec(0.27, 0.2, 0));
+        asaEsquerda.pos = somarVetor(aviao.pos, vec(0.8, 0, 0.5));
+        asaDireita.pos = somarVetor(aviao.pos, vec(0.8, 0, -0.5))
+    }
+
+    // Fim construção Avião
+
+    let dt = 0.001;
+    let particula = box({
+        color: color.cyan,
+        size: vec(0.2, 0.2, 0.2),
+        make_trail: true,
+        retain: 1000,
+        pos0: vec(0, 5 - aviao.radius, 0),
+        pos: vec(0, 5 - aviao.radius, 0),
+        velocity: vec(0, 0, 0),
+        acc: vec(0, 0, 0)
+    });
+
+    arrow({ // Eixo X
+        color: vec(200 / 255, 30 / 255, 50 / 255),
+        pos: vec(0, 0, 0),
+        axis: vec(4, 0, 0),
+        shaftwidth: 0.1
+    });
+    arrow({ // Eixo Y
+        color: vec(200 / 255, 30 / 255, 50 / 255),
+        pos: vec(0, 0, 0),
+        axis: vec(0, 4, 0),
+        shaftwidth: 0.1
+    });
+    // arrow({ // Eixo Z
+    //     color: vec(200 / 255, 30 / 255, 50 / 255),
+    //     pos: vec(0, 0, 0),
+    //     axis: vec(0, 0, 4),
+    //     shaftwidth: 0.1
+    // });
+
+    let r = arrow({
+        color: vec(20 / 255, 255 / 255, 50 / 255),
+        pos: vec(0, 0, 0),
+        axis: particula.pos,
+        shaftwidth: 0.05
+    })
+
+    let btnStart = document.getElementById('btn-referencial');
+    let btnFollow = document.getElementById('follow-referencial');
+
+    document.getElementById('vel-referencial').value = '10';
+
+    let follow = true;
+    btnFollow.addEventListener('click', async () => {
+
+        if (follow) {
+            scene.camera.follow(aviao);
+            btnFollow.style.backgroundColor = '#314761';
+            btnFollow.innerHTML = "Sair";
+        } else {
+            scene.camera.follow(null);
+            btnFollow.style.backgroundColor = '#414a56';
+            btnFollow.innerHTML = "Entrar";
+        }
+
+        follow = !follow;
+    })
+
+    
+    let angulo = 0;
+
+    async function lancarObjeto(velocidade = vec(0, 0, 0)) {
+        
+
+        particula.velocity = velocidade;
+        aviao.velocity = velocidade;
+
+        let cond = true;
+        let z = true;
+
+        btnStart.addEventListener('click', () => {
+            cond = false
+            return 0;
+        });
+
+
+        while (cond) {
+            await rate(100);
+
+            if (particula.pos.y > 0) {
+                particula.pos = somarVetor(particula.pos, multiplicarVetor(particula.velocity, dt));
+                particula.velocity = somarVetor(particula.velocity, multiplicarVetor(particula.acc, dt));
+
+                particula.rotate({ angle: angulo, axis: vec(0, 0, 1) });
+                angulo += angulo * dt * 4
+
+            } else {
+                if( aviao.pos.x - particula.pos.x > 5){
+                    return 0;
+                }
+            }
+
+            aviao.pos = somarVetor(aviao.pos, multiplicarVetor(aviao.velocity, dt));
+            aviao.velocity = somarVetor(aviao.velocity, multiplicarVetor(aviao.acc, dt));
+            attPosicaoAviao();
+
+            if (follow) {
+                r.pos = vec(0, 0, 0)
+                r.axis = particula.pos;
+            } else {
+                r.pos = somarVetor(aviao.pos, multiplicarVetor(aviao.axis, 0.5));
+                r.axis = somarVetor(particula.pos, r.pos, -1);
+            }
+
+            if (aviao.pos.x > 1000) {
+                return 0;
+            }
+
+        }
+    }
+
+    btnStart.innerHTML = 'Iniciar';
+    btnStart.addEventListener('click', async () => {
+        let v = document.getElementById('vel-referencial');
+
+        if (btnStart.innerHTML == 'Iniciar') {
+            btnStart.style.backgroundColor = "rgba(230, 20, 20, 0.7)"
+            lancarObjeto(vec(parseInt(v.value), 0, 0));
+            btnStart.innerHTML = "Soltar";
+            btnStart.style.color = "white";
+
+        } else if (btnStart.innerHTML == 'Soltar') {
+            btnStart.style.backgroundColor = "#414a56"
+
+            particula.acc = vec(0, -9.8, 0);
+            angulo = -0.001;
+            lancarObjeto(vec(parseInt(v.value), 0, 0));
+
+            btnStart.innerHTML = "Reset";
+            btnStart.style.color = "white";
+
+        } else if (btnStart.innerHTML == 'Reset') {
+            document.getElementById('vel-referencial').value = '5';
+            btnStart.style.backgroundColor = "#61bd71";
+
+            lancarObjeto(vec(0, 0, 0));
+            particula.pos = particula.pos0;
+            particula.acc = vec(0, 0, 0)
+            particula.clear_trail();
+
+            aviao.pos = aviao.pos0;
+            angulo = 0;
+            aviao.acc = vec(0, 0, 0)
+            aviao.clear_trail();
+
+            btnStart.innerHTML = "Iniciar";
+            btnStart.style.color = "rgb(11,13,15)";
+        }
+
+    })
+
+    return 0;
+
+}
+
+window.__context = { glowscript_container: $("#referencial") };
+arremesso();
+
+
+/* - - - - - - -  CONTROLES  - - - - - - - */
 async function trajetoria() {
 
     let scene = canvas();
@@ -145,7 +351,7 @@ async function trajetoria() {
     return 0;
 }
 
-window.__context = { glowscript_container: $("#trajetoria") };
+window.__context = { glowscript_container: $("#controles") };
 trajetoria();
 
 

@@ -5,7 +5,7 @@
             <div class="col"  <% if (info.id) { %> id= <%= info.id %>  <% } %>>
                 <%# TITLE COL %>
                 <% if (info.title) { %>
-                    <div class="title"> <%= info.title %> </div>
+                    <div class="title"  style="padding-bottom: 10px;"> <%= info.title %> </div>
                 <% } %>
     
                 <%# CONTENT COL %>
@@ -35,13 +35,13 @@
                 <% } %>
 
                 <% if (info.controls) { %>
-                    <div class="quadro__interface" style="width: 100%; position: relative;">
+                    <div class="quadro__interface" style="width: 100%; position: relative; font-size: 1.2rem;">
 
                         <% info.controls.forEach(element => { %>
                             <% if (element.btn) { %>
                                 <button id=<%= element.btn.id %>
-                                        onmouseover="this.style.backgroundColor= '#54a561'"
-                                        onmouseout="this.style.backgroundColor= '#61bd71'"
+                                        <%#onmouseover="this.style.backgroundColor= '#54a561'"
+                                        onmouseout="this.style.backgroundColor= '#61bd71'" %>
                                         style=" background-color: #61bd71;
                                                 position: absolute;
                                                 top: -35px;
@@ -91,16 +91,20 @@
                                 </button>
                             <% } %>
                             <% if (element.input) { %>
+                                
+                                <%- element.input.preText ? element.input.preText : '' %> 
                                 <input  id=<%= element.input.id %> 
                                         placeholder=<%= element.input.name %> 
                                         type="number" 
                                         style=" height: auto;
                                                 width: 70px;
                                                 background-color: #252830;
+                                                margin-top: 5px;
                                                 border-radius: 5px;
                                                 font-size: 15px;
                                                 border: none;
                                                 padding: 5px 10px;"/> 
+                                <%- element.input.posText ? element.input.posText : '' %> 
                             <% } %>
                         <% }) %>
 

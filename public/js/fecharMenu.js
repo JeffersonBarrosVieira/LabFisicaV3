@@ -31,25 +31,25 @@ document.getElementById('canvas1').addEventListener('click', async () => {
     conteudo.click();
 })
 
-document.getElementById('m_c').addEventListener('click', async () => {
-    await new Promise(r => setTimeout(r, time));
-    conteudo.click();
-})
+// document.getElementById('m_c').addEventListener('click', async () => {
+//     await new Promise(r => setTimeout(r, time));
+//     conteudo.click();
+// })
 
-document.getElementById('o_o').addEventListener('click', async () => {
-    await new Promise(r => setTimeout(r, time));
-    conteudo.click();
-})
+// document.getElementById('o_o').addEventListener('click', async () => {
+//     await new Promise(r => setTimeout(r, time));
+//     conteudo.click();
+// })
 
-document.getElementById('t_d').addEventListener('click', async () => {
-    await new Promise(r => setTimeout(r, time));
-    conteudo.click();
-})
+// document.getElementById('t_d').addEventListener('click', async () => {
+//     await new Promise(r => setTimeout(r, time));
+//     conteudo.click();
+// })
 
-document.getElementById('o_g').addEventListener('click', async () => {
-    await new Promise(r => setTimeout(r, time));
-    conteudo.click();
-})
+// document.getElementById('o_g').addEventListener('click', async () => {
+//     await new Promise(r => setTimeout(r, time));
+//     conteudo.click();
+// })
 
 document.getElementById('referencias').addEventListener('click', async () => {
     await new Promise(r => setTimeout(r, time));

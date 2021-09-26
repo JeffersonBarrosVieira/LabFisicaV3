@@ -600,6 +600,7 @@ footer ul:nth-child(2) li {
 
 #cubo canvas,
 #cilindro canvas,
+#referencial canvas,
 #trajetoria canvas {
   width: 100%;
   height: inherit;

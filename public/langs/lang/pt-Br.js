@@ -57,22 +57,40 @@ module.exports = {
 
     section4__title: `1 MECÂNICA CLÁSSICA`,
     section4__content: [
-        `A ciência da mecânica busca fornecer uma descrição precisa e consistente da dinâmica das partículas e dos sistemas de partículas [1], sendo assim, uma representação matemática dos movimentos que utilizam leis físicas baseadas em fatos experimentais. Antes de nos desbravar das aplicações, é necessário saber alguns conceitos fundamentais, tais como:`,
-        ` - Distância;`,
-        ` - Tempo.`,
-        `Com eles, é possível entender: velocidade e aceleração de um dado corpo. Portanto, nesta seção será tratado primeiramente movimentos sem suas causas, isto é, a geometria do movimento (cinemática). Depois, a implementação delas (dinâmica).`
+        `A ciência da mecânica busca fornecer uma descrição precisa e consistente da dinâmica das partículas e dos sistemas de partículas, é uma representação matemática dos movimentos que utilizam leis físicas baseadas em fatos experimentais.`,
+        `Antes de nos desbravar das aplicações, é necessário saber alguns conceitos fundamentais, tais como:`,
+        ` -> Distância;`,
+        ` -> Tempo.`,
+        `Com eles, é possível entender: velocidade e aceleração de um dado corpo. Portanto, nesta seção será tratado primeiramente movimentos sem suas causas, isto é, a geometria do movimento (cinemática). Depois, a implementação da causa (dinâmica).`
     ],
     
     section5__title: `1.1 Cinemática`,
     section5__content: [
-        `As simulações neste tópico irá envolver os seguintes assuntos:`,
-        ` - Trajetória;`,
-        ` - Espaço (módulo do comprimento da trajetória);`,
-        ` - Velocidade;`,
-        ` - Aceleração;`,
-        ` - Tempo.`
+        `A cinemática é a parte da mecânica que estuda e descreve os movimentos, sem se preocupar com as suas causas.`,
+        `Nela se encontram conceitos extremamente importantes, tais como:`,
+        ` -> Referencial: é todo ponto em relação ao qual se verifica a variação da posição de um outro corpo;`,
+        ` -> Movimento: Quando a posição de um corpo varia, em relação a um referencial, durante um intervalo de tempo qualquer;`,
+        ` -> Repouso: Quando a posição do corpo não varia, em relação a um referencial;`,
+        ` -> Trajetória: É caminho que ele percorreu durante sucessivos instantes de tempo, ao longo de seu movimento.`
     ],
 
+    section6__content1: [
+        `Insira um valor na simulação e aperte em INICIAR para movimentar o avião em uma velocidade constante. Em seguida clique em SOLTAR, para arremessar o pacote.`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` Alterne o ponto de vista clicando em SEGUIR, veja que a trajetória do pacote para os observadores: `,
+        ` -> Na Terra: Será parabólica;`,
+        ` -> No avião: Aproximadamente retilínea e vertical.`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        `Assim, os conceitos de movimento, repouso e trajetória dependem do referencial adotado`
+    ],
+    section6__content2: [
+        `...`,
+    ],
+
+
+    sectionControl__title: `Controles Teste`,
+
+    
     footer__reference__title: `Referências`,
     footer__references: [
         `[1] - J.B. Marion, S.T. Thornton, Classical Dynamics of Particles and Systems, 5th Edition (Brooks/Cole Thomson Learning, 2004), p.43;`,
