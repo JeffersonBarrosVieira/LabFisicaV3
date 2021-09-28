@@ -133,7 +133,7 @@ module.exports = {
         `$$ {2\\pi 3} = {18,84m}.$$`,
         `Para achar o deslocamento, basta calcular a posição final menos a inicial e chegará nos valores citado.`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
-        `Por enquanto apenas o entendimento de deslocamento é necessário, não realizaremos esse cálculo pois é necessário conceitos de vetores. Perceba na simulação que: se um corpo parte de um ponto e volta ao mesmo ponto, o deslocamento será zero! independente da distância percorrida!`
+        `Por enquanto apenas o entendimento de deslocamento é necessário, não realizaremos esse cálculo pois é necessário conceitos de vetores. Más perceba que: se um corpo parte de um ponto e volta ao mesmo ponto, o deslocamento será zero, independente da distância percorrida!`
     ],
 
 
