@@ -100,8 +100,8 @@ module.exports = {
     ],
     section7__content: [
         `onde:`,
-        `Dp -> Distância percorrida.`,
-        `Dd -> Distância deslocada (deslocamento);`,
+        `Dp- Distância percorrida.`,
+        `Dd- Distância deslocada (deslocamento);`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
         `Observe que, com o objeto centrado na origem temos:`,
         `# Distancia percorrida = 21,84m.`,
