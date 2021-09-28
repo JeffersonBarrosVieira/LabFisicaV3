@@ -34,7 +34,7 @@ module.exports = {
     main__topo__pesquisar__campo: `Pesquisar`,
 
     section1__title: `Um Laboratório de Física em suas mãos`,
-    section1__content: `LabFísica é um ambiente de desenvolvimento acadêmico para estudantes e professores da área da Física. Resolva problemas físicos, visualize, interaja com ele e realize uma análise da modelagem matemática completa que será disponibilizada!!!`,
+    section1__content: `LabFísica é uma plataforma virtual que traz um ambiente de desenvolvimento acadêmico para estudantes e professores da área da Física. Resolva problemas físicos, visualize, interaja com ele e realize uma análise da modelagem matemática completa que é disponibilizada!!!`,
     section1__hashtag: `#VamosModelar`,
 
     section2__card1__icon: `/img/cubo.png`,
