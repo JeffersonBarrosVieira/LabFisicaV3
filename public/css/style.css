@@ -48,6 +48,22 @@ li {
   list-style: none;
 }
 
+div .g-recaptcha {
+  width: 100%;
+}
+
+div .g-recaptcha div:nth-child(1) {
+  width: 100% !important;
+}
+
+div .g-recaptcha div:nth-child(1) div:nth-child(1) {
+  width: 100% !important;
+}
+
+div .g-recaptcha div:nth-child(1) div:nth-child(1) iframe {
+  width: 100% !important;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -349,10 +365,11 @@ li {
   font-size: 40px;
   line-height: 40px;
   font-weight: 800;
+  padding-bottom: 25px;
 }
 
 .section .col .content {
-  margin-top: 30px;
+  margin-top: 5px;
   font-size: 22px;
   text-align: justify;
 }
@@ -363,6 +380,7 @@ li {
   height: 330px;
   width: 100%;
   overflow: hidden;
+  margin-top: 10px;
   border: 1px solid rgba(0, 255, 255, 0.801);
 }
 
@@ -602,7 +620,8 @@ footer ul:nth-child(2) li {
 #cilindro canvas,
 #referencial canvas,
 #trajetoria canvas,
-#controles canvas {
+#controles canvas,
+#deslocamento canvas {
   width: 100%;
   height: inherit;
 }

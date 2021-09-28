@@ -7,6 +7,14 @@ function somarVetor(vetor1, vetor2, fator = 1) {
     return vec(vetor1.x + fator * vetor2.x, vetor1.y + fator * vetor2.y, vetor1.z + fator * vetor2.z)
 }
 
+function calcHipo(vetor1, vetor2) {
+    let x = (vetor1.x - vetor2.x) ** 2;
+    let y = (vetor1.y - vetor2.y) ** 2;
+    let z = (vetor1.z - vetor2.z) ** 2;
+
+    return (x + y + z) ** (1 / 2);
+}
+
 
 /* - - - - - - -  CUBO  - - - - - - - */
 async function cubo() {
@@ -61,7 +69,7 @@ async function arremesso() {
     let scene = canvas();
     scene.forward = vec(-2, -3, -2);
     scene.range = 8;
-    box({ pos: vec(0,-0.1,0), size: vec(1000, 0.1, 10) });
+    box({ pos: vec(0, -0.1, 0), size: vec(1000, 0.1, 10) });
 
 
     // Construção Avião
@@ -120,12 +128,14 @@ async function arremesso() {
         axis: vec(4, 0, 0),
         shaftwidth: 0.1
     });
+    label({ text: 'X', pos: vec(4, 0, 0), color: color.blue, box: false, opacity: 0, heigth: 18 });
     arrow({ // Eixo Y
         color: vec(200 / 255, 30 / 255, 50 / 255),
         pos: vec(0, 0, 0),
         axis: vec(0, 4, 0),
         shaftwidth: 0.1
     });
+    label({ text: 'Y', pos: vec(0, 4, 0), color: color.blue, box: false, opacity: 0, height: 18 });
     // arrow({ // Eixo Z
     //     color: vec(200 / 255, 30 / 255, 50 / 255),
     //     pos: vec(0, 0, 0),
@@ -161,11 +171,11 @@ async function arremesso() {
         follow = !follow;
     })
 
-    
+
     let angulo = 0;
 
     async function lancarObjeto(velocidade = vec(0, 0, 0)) {
-        
+
 
         particula.velocity = velocidade;
         aviao.velocity = velocidade;
@@ -190,7 +200,7 @@ async function arremesso() {
                 angulo += angulo * dt * 4
 
             } else {
-                if( aviao.pos.x - particula.pos.x > 5){
+                if (aviao.pos.x - particula.pos.x > 5) {
                     return 0;
                 }
             }
@@ -260,6 +270,210 @@ async function arremesso() {
 
 window.__context = { glowscript_container: $("#referencial") };
 arremesso();
+
+
+/* - - - - - - -  DESLOCAMENTO  - - - - - - - */
+async function deslocamento() {
+    let scene = canvas();
+    scene.forward = vec(-0.5, -1.5, -3);
+    scene.range = 4;
+
+    arrow({ // Eixo X
+        color: vec(200 / 255, 30 / 255, 50 / 255),
+        pos: vec(0, 0, 0),
+        axis: vec(4, 0, 0),
+        shaftwidth: 0.1
+    });
+    label({ text: 'X', pos: vec(4, 0, 0), color: color.blue, box: false, opacity: 0, heigth: 18 });
+    arrow({ // Eixo Z
+        color: vec(200 / 255, 30 / 255, 50 / 255),
+        pos: vec(0, 0, 0),
+        axis: vec(0, 0, 4),
+        shaftwidth: 0.1
+    });
+    label({ text: 'Z', pos: vec(0, 0, 4), color: color.blue, box: false, opacity: 0, heigth: 18 });
+
+    let particula = sphere({
+        radius: 0.2,
+
+        pos: vec(0, 0, 0),
+        pos0: vec(0, 0, 0),
+        velocity: vec(15, 0, 15),
+
+        color: color.cyan,
+        make_trail: true,
+        retain: 2050,
+    })
+
+    let r = arrow({
+        color: vec(20 / 255, 255 / 255, 50 / 255),
+        pos: particula.pos0,
+        axis: particula.pos,
+        shaftwidth: 0.05
+    })
+
+    let distanciaPercorrida = label({ text: 'Dp = 0 m', pos: particula.pos, color: color.cyan, box: false, opacity: 0, heigth: 18 });
+    let distanciaDeslocada = label({ text: 'Dd = 0 m', pos: vec(0, 0, 4), color: color.green, box: false, opacity: 0, heigth: 18 });
+
+    distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
+    distanciaDeslocada.pos = somarVetor(multiplicarVetor(particula.pos, 0.5), particula.pos0, -1);
+
+
+    let R = 3;
+    let theta0 = 0;
+    let theta = 0;
+    let w = 10;
+    let afastado = true;
+
+    let dt = 0.001;
+
+    async function deslocamento1() {
+
+        let cond = true;
+
+        btn.addEventListener('click', () => {
+            cond = false
+            return 0;
+        });
+        btnFollow.addEventListener('click', () => {
+            cond = false
+            return 0;
+        });
+
+        let reta = true;
+
+        while (cond) {
+            await rate(100);
+
+            if (calcHipo(vec(0, 0, 0), particula.pos) <= R && reta) {
+                particula.pos = somarVetor(particula.pos, particula.velocity, dt);
+
+                r.pos = particula.pos0;
+                r.axis = somarVetor(particula.pos, particula.pos0, -1);
+
+                distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
+                distanciaPercorrida.text = `Dp = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
+
+                distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
+                distanciaDeslocada.text = `Dd = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
+
+            } else if (theta <= 2 * Math.PI) {
+
+                if (reta) {
+                    theta0 = Math.atan(particula.pos.z / particula.pos.x);
+                    reta = false;
+                }
+
+                particula.pos.x = R * Math.cos(theta + theta0);
+                particula.pos.z = R * Math.sin(theta + theta0);
+
+                r.pos = particula.pos0;
+                r.axis = somarVetor(particula.pos, particula.pos0, -1);
+
+                distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
+                distanciaPercorrida.text = `Dp = ${(
+                    afastado ? calcHipo(particula.pos0, particula.pos) * (1 + theta) : 3 * theta
+                    ).toFixed(2)
+                } m`;
+
+                distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
+                distanciaDeslocada.text = `Dd = ${ (calcHipo(particula.pos0, particula.pos)).toFixed(2) } m`;
+
+                theta += w * dt;
+            } else {
+                return 0;
+            }
+
+        }
+    }
+
+
+    let btn = document.getElementById('btn-deslocamento');
+    let btnFollow = document.getElementById('follow-deslocamento');
+
+    btn.innerHTML = 'Iniciar';
+    btn.addEventListener('click', async () => {
+        if (btn.innerHTML == 'Iniciar') {
+            R = 3;
+            theta = 0;
+            deslocamento1();
+
+            btn.style.backgroundColor = "#414a56";
+            btn.style.color = "white";
+            btn.innerHTML = 'Reset';
+        } else {
+
+            if (afastado) {
+                R = 0;
+            } else {
+                R = 3;
+            }
+            particula.pos = particula.pos0;
+            theta = 0;
+            particula.clear_trail();
+
+            btn.style.backgroundColor = "#61bd71";
+            btn.style.color = "rgb(11,13,15)";
+            btn.innerHTML = 'Iniciar';
+        }
+
+        r.pos = particula.pos0;
+        r.axis = somarVetor(particula.pos, particula.pos0, -1);
+
+        distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
+        distanciaPercorrida.text = `Dp = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
+
+        distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
+        distanciaDeslocada.text = `Dd = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
+    })
+
+    btnFollow.addEventListener('click', async () => {
+
+        if (afastado) {
+            btnFollow.style.backgroundColor = '#314761';
+            btnFollow.innerHTML = "Voltar";
+
+            particula.pos0 = vec(3 * Math.cos(Math.PI * 45 / 180), 0, 3 * Math.sin(Math.PI * 45 / 180));
+            particula.pos = particula.pos0;
+            R = 3;
+            theta = 0;
+            particula.clear_trail();
+
+            btn.style.backgroundColor = "#61bd71";
+            btn.style.color = "rgb(11,13,15)";
+            btn.innerHTML = 'Iniciar';
+        } else {
+
+            btnFollow.style.backgroundColor = '#414a56';
+            btnFollow.innerHTML = "Deslocar";
+
+            particula.pos0 = vec(0, 0, 0);
+            particula.pos = particula.pos0;
+            R = 0;
+            theta = 0;
+            particula.clear_trail();
+
+            btn.style.backgroundColor = "#61bd71";
+            btn.style.color = "rgb(11,13,15)";
+            btn.innerHTML = 'Iniciar';
+        }
+
+        r.pos = particula.pos0;
+        r.axis = somarVetor(particula.pos, particula.pos0, -1);
+
+        distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
+        distanciaPercorrida.text = `Dp = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
+
+        distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
+        distanciaDeslocada.text = `Dd = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
+
+        afastado = !afastado;
+    })
+
+}
+
+window.__context = { glowscript_container: $("#deslocamento") };
+deslocamento();
 
 
 /* - - - - - - -  CONTROLES  - - - - - - - */

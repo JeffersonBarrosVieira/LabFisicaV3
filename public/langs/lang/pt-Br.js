@@ -68,32 +68,83 @@ module.exports = {
     section5__content: [
         `A cinemática é a parte da mecânica que estuda e descreve os movimentos, sem se preocupar com as suas causas.`,
         `Nela se encontram conceitos extremamente importantes, tais como:`,
-        ` -> Referencial: é todo ponto em relação ao qual se verifica a variação da posição de um outro corpo;`,
-        ` -> Movimento: Quando a posição de um corpo varia, em relação a um referencial, durante um intervalo de tempo qualquer;`,
+        ` -> Referencial: Um ponto em relação ao qual se verifica a variação da posição de um outro;`,
+        ` -> Movimento: Variação da posição de um corpo, em relação a um referencial, em um intervalo de tempo qualquer;`,
         ` -> Repouso: Quando a posição do corpo não varia, em relação a um referencial;`,
-        ` -> Trajetória: É caminho que ele percorreu durante sucessivos instantes de tempo, ao longo de seu movimento.`
+        ` -> Trajetória: É o caminho que ele percorreu durante sucessivos instantes de tempo, ao longo de seu movimento.`
     ],
 
     section6__content1: [
-        `Insira um valor na simulação e aperte em INICIAR para movimentar o avião em uma velocidade constante. Em seguida clique em SOLTAR, para arremessar o pacote.`,
+        `Insira um valor na simulação e aperte em INICIAR para movimentar o avião em uma velocidade constante.`,
+        `Alterne o ponto de vista clicando em Entrar/Sair, observe que o pacote que o avião carrega visto:`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
-        ` Alterne o ponto de vista clicando em SEGUIR, veja que a trajetória do pacote para os observadores: `,
-        ` -> Na Terra: Será parabólica;`,
-        ` -> No avião: Aproximadamente retilínea e vertical.`,
+        ` -> Da Terra: Descreve um movimento retilineo na horizontal;`,
+        ` -> Do Avião: Está em repouso (se movimenta junto com ele).`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
-        `Assim, os conceitos de movimento, repouso e trajetória dependem do referencial adotado`
+        `Agora clique em SOLTAR, para arremessar o pacote.`
+        
     ],
     section6__content2: [
-        `...`,
+        `Veja que a trajetória do pacote para os observadores vista: `,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` -> Na Terra: Será parabólica;`,
+        ` -> No Avião: É Retilínea na vertical.`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        `Perceba, os conceitos de movimento, repouso e trajetória dependem do referencial adotado.`,
+        `Além disso, é de extrema importância diferenciar deslocamento de distância percorrida, veja a simulação a seguir:`,
+        
+    ],
+
+    section7__dadosquadro: [
+        ``,
+    ],
+    section7__content: [
+        `onde:`,
+        `Dd -> Distância deslocada (deslocamento);`,
+        `Dp -> Distância percorrida.`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        `Observe que, com o objeto centrado na origem temos:`,
+        `# Deslocamento = 3m;`,
+        `# Distancia percorrida = 21,84m.`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        `Com o objeto deslocado (clique em Deslocar):`,
+        `# Deslocamento = 0m;`,
+        `# Distancia percorrida = 18,84m.`,
+        
+    ],
+
+
+    section8__content1: [
+        `Ambas situações tomam como referência o ponto de partida do objeto.`,
+        `Sendo assim:`,
+        `-> Deslocamento tem uma ligação direta entre o ponto inicial e final;`,
+        `-> Distância percorrida está ligado ao comprimento trajetória.`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        `Para calcular a distância percorrida na primeira situação, como o objeto parte da origem, foi feito a soma entre o raio da circunferência e o perímetro dela:`,
+        `$$Dp = {R + P} = {R + 2\\pi R}.$$`,
+        `Inserindo os valores temos:`,
+        `$$ {3 + 2\\pi 3} = {3+18,84}={21,84m}.$$`,
+        
+    ],
+    section8__content2: [
+        `Já a distância percorrida na segunda situação foi apenas uma trajetória circular, logo, basta cálcular o perímetro dela:`,
+        `$$ Dp = {P} = {2\\pi R}.$$`,
+        `Inserindo os valores temos:`,
+        `$$ {2\\pi 3} = {18,84m}.$$`,
+        `Para achar o deslocamento, basta calcular a posição final menos a inicial e chegará nos valores citado.`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        `Por enquanto apenas o entendimento de deslocamento é necessário, não realizaremos esse cálculo pois é necessário conceitos de vetores. Perceba na simulação que: se um corpo parte de um ponto e volta ao mesmo ponto, o deslocamento será zero! independente da distância percorrida!`
     ],
 
 
     sectionControl__title: `Controles Teste`,
 
     
-    footer__reference__title: `Referências`,
+    // footer__reference__title: `Referências`,
+    footer__reference__title: ``,
     footer__references: [
-        `[1] - J.B. Marion, S.T. Thornton, Classical Dynamics of Particles and Systems, 5th Edition (Brooks/Cole Thomson Learning, 2004), p.43;`,
+        // `[1] - J.B. Marion, S.T. Thornton, Classical Dynamics of Particles and Systems, 5th Edition (Brooks/Cole Thomson Learning, 2004), p.43;`,
+        ``,
     ]
 
 }

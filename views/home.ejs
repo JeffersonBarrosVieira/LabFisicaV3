@@ -94,7 +94,7 @@
                         {
                             btn: {id: `btn-referencial`, name: `Iniciar`}
                         },{
-                            follow: {id: `follow-referencial`, name: `Seguir`}
+                            follow: {id: `follow-referencial`, name: `Entrar`}
                         },{
                             input: {id: `vel-referencial`, name: `V`, preText: `Velocidade: `, posText: ` m/s`}
                         }
@@ -112,6 +112,38 @@
                 },
                 {
                     content: section6__content2,
+                }
+            ]
+        }) %>
+
+        <%# Seção 7 - Mecânica Clássica - Cinemática [FAZER AQUI O NEGOCIO DE DESLOCAMENTO X DISTANCIA PERCORRIDA] %>
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    quadro: `deslocamento`,
+                    dadosquadro: section7__dadosquadro,
+                    controls: [
+                        {
+                            btn: {id: `btn-deslocamento`, name: `Iniciar`}
+                        },{
+                            follow: {id: `follow-deslocamento`, name: `Deslocar`}
+                        }
+                    ]
+                },{
+                    content: section7__content,
+                }
+            ]
+        }) %> 
+
+        <%# Seção 8 - Mecânica Clássica - Cinemática cálculo da distancia percorrida %>
+
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    content: section8__content1,
+                },
+                {
+                    content: section8__content2,
                 }
             ]
         }) %>

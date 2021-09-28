@@ -5,7 +5,7 @@
             <div class="col"  <% if (info.id) { %> id= <%= info.id %>  <% } %>>
                 <%# TITLE COL %>
                 <% if (info.title) { %>
-                    <div class="title"  style="padding-bottom: 10px;"> <%= info.title %> </div>
+                    <div class="title" > <%= info.title %> </div>
                 <% } %>
     
                 <%# CONTENT COL %>
@@ -34,8 +34,9 @@
                     </div>
                 <% } %>
 
+                <%# CONTROLS QUADRO %> 
                 <% if (info.controls) { %>
-                    <div class="quadro__interface" style="width: 100%; position: relative; font-size: 1.2rem;">
+                    <div class="quadro__interface" style="width: 100%; position: relative; font-size: 1.25rem;">
 
                         <% info.controls.forEach(element => { %>
                             <% if (element.btn) { %>
@@ -109,6 +110,19 @@
                         <% }) %>
 
                     </div>
+                <% } %>
+                
+                <%# DADOS QUADRO %> 
+                <% if (info.dadosquadro) { %>
+                 
+                    <div style="margin: 0; padding: 0; font-size: 1.2rem;">
+                        <ul>
+                            <% info.dadosquadro.forEach(content => { %>
+                                <li><p><%= content %></p></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+    
                 <% } %>
 
                 <%# IMAGENS COL %>
