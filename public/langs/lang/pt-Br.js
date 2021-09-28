@@ -34,7 +34,7 @@ module.exports = {
     main__topo__pesquisar__campo: `Pesquisar`,
 
     section1__title: `Um Laboratório de Física em suas mãos`,
-    section1__content: `LabFísica é uma plataforma virtual que traz um ambiente de desenvolvimento acadêmico para estudantes e professores da área da Física. Resolva problemas físicos, visualize, interaja com ele e realize uma análise da modelagem matemática completa que é disponibilizada!!!`,
+    section1__content: `LabFísica é uma plataforma virtual que traz um ambiente de desenvolvimento acadêmico para estudantes e professores da área da Física. Resolva problemas físicos, visualize, interaja com eles e realize uma análise da modelagem matemática completa que é disponibilizada!!!`,
     section1__hashtag: `#VamosModelar`,
 
     section2__card1__icon: `/img/cubo.png`,
@@ -64,12 +64,12 @@ module.exports = {
         `Com eles, é possível entender: velocidade e aceleração de um dado corpo. Portanto, nesta seção será tratado primeiramente movimentos sem suas causas, isto é, a geometria do movimento (cinemática). Depois, a implementação da causa (dinâmica).`
     ],
     
-    section5__title: `1.1 Cinemática`,
+    section5__title: `1.1 CINEMÁTICA`,
     section5__content: [
         `A cinemática é a parte da mecânica que estuda e descreve os movimentos, sem se preocupar com as suas causas.`,
         `Nela se encontram conceitos extremamente importantes, tais como:`,
         ` -> Referencial: Um ponto em relação ao qual se verifica a variação da posição de um outro;`,
-        ` -> Movimento: Variação da posição de um corpo, em relação a um referencial, em um intervalo de tempo qualquer;`,
+        ` -> Movimento: Variação da posição de um corpo em relação a um referencial, em um intervalo de tempo qualquer;`,
         ` -> Repouso: Quando a posição do corpo não varia, em relação a um referencial;`,
         ` -> Trajetória: É o caminho que ele percorreu durante sucessivos instantes de tempo, ao longo de seu movimento.`
     ],
@@ -90,8 +90,7 @@ module.exports = {
         ` -> Na Terra: Será parabólica;`,
         ` -> No Avião: É Retilínea na vertical.`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
-        `Perceba, os conceitos de movimento, repouso e trajetória dependem do referencial adotado.`,
-        `Além disso, é de extrema importância diferenciar deslocamento de distância percorrida, veja a simulação a seguir:`,
+        `Perceba, os conceitos de movimento, repouso e trajetória dependem do referencial adotado. Sabendo disso, é de extrema importância diferenciar deslocamento de distância percorrida, veja a simulação a seguir:`,
         
     ],
 
@@ -100,16 +99,16 @@ module.exports = {
     ],
     section7__content: [
         `onde:`,
-        `Dp- Distância percorrida.`,
-        `Dd- Distância deslocada (deslocamento);`,
+        `Dp- Distância percorrida;`,
+        `Dd- Distância deslocada (deslocamento).`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
         `Observe que, com o objeto centrado na origem temos:`,
-        `# Distancia percorrida = 21,84m.`,
-        `# Deslocamento = 3m;`,
+        `# Distancia percorrida = 21,84m;`,
+        `# Deslocamento = 3m.`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
         `Com o objeto deslocado (clique em Deslocar):`,
-        `# Distancia percorrida = 18,84m.`,
-        `# Deslocamento = 0m;`,
+        `# Distancia percorrida = 18,84m;`,
+        `# Deslocamento = 0m.`,
         
     ],
 
@@ -117,8 +116,8 @@ module.exports = {
     section8__content1: [
         `Ambas situações tomam como referência o ponto de partida do objeto.`,
         `Sendo assim:`,
-        `-> Distância percorrida está ligado ao comprimento trajetória.`,
-        `-> Deslocamento tem uma ligação direta entre o ponto inicial e final;`,
+        `-> Distância percorrida está ligado ao comprimento trajetória;`,
+        `-> Deslocamento tem uma ligação direta entre o ponto inicial e final.`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
         `Para calcular a distância percorrida na primeira situação, como o objeto parte da origem, foi feito a soma entre o raio da circunferência e o perímetro dela:`,
         `$$Dp = {R + P} = {R + 2\\pi R}.$$`,
@@ -133,7 +132,17 @@ module.exports = {
         `$$ {2\\pi 3} = {18,84m}.$$`,
         `Para achar o deslocamento, basta calcular a posição final menos a inicial e chegará nos valores citado.`,
         ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
-        `Por enquanto apenas o entendimento de deslocamento é necessário, não realizaremos esse cálculo pois é necessário conceitos de vetores. Más perceba que: se um corpo parte de um ponto e volta ao mesmo ponto, o deslocamento será zero, independente da distância percorrida!`
+        `Por enquanto apenas o entendimento de deslocamento é necessário, não realizaremos esse cálculo pois necessita conceituar vetores. No entanto, perceba que: se um corpo parte de um ponto e volta ao mesmo ponto, o deslocamento será zero independente da distância percorrida!`
+    ],
+
+    section9__title: `1.1.1 Cinemática Escalar`,
+    section9__content: [
+        `A cinemática é a parte da mecânica que estuda e descreve os movimentos, sem se preocupar com as suas causas.`,
+        `Nela se encontram conceitos extremamente importantes, tais como:`,
+        ` -> Referencial: Um ponto em relação ao qual se verifica a variação da posição de um outro;`,
+        ` -> Movimento: Variação da posição de um corpo, em relação a um referencial, em um intervalo de tempo qualquer;`,
+        ` -> Repouso: Quando a posição do corpo não varia, em relação a um referencial;`,
+        ` -> Trajetória: É o caminho que ele percorreu durante sucessivos instantes de tempo, ao longo de seu movimento.`
     ],
 
 

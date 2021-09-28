@@ -628,5 +628,5 @@ async function planoInclinado() {
     deslisar();
 }
 
-// window.__context = { glowscript_container: $("#plano-inclinado") };
+// window.__context = { glowscript_container: $("#cubo") };
 // planoInclinado();
