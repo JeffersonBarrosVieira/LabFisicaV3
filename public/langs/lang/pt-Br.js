@@ -137,7 +137,7 @@ module.exports = {
 
     section9__title: `1.1.1 Cinemática Escalar`,
     section9__content: [
-        `A cinemática é a parte da mecânica que estuda e descreve os movimentos, sem se preocupar com as suas causas.`,
+        `&nbsp;A cinemática é a parte da mecânica que estuda e descreve os movimentos, sem se preocupar com as suas causas.`,
         `Nela se encontram conceitos extremamente importantes, tais como:`,
         ` -> Referencial: Um ponto em relação ao qual se verifica a variação da posição de um outro;`,
         ` -> Movimento: Variação da posição de um corpo, em relação a um referencial, em um intervalo de tempo qualquer;`,
@@ -155,5 +155,7 @@ module.exports = {
         // `[1] - J.B. Marion, S.T. Thornton, Classical Dynamics of Particles and Systems, 5th Edition (Brooks/Cole Thomson Learning, 2004), p.43;`,
         ``,
     ]
-
+    // &nbsp; adiciona 1 espaço
+    // &ensp; adiciona 2 espaços
+    // &emsp; adiciona 4 espaços
 }
