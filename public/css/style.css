@@ -339,7 +339,7 @@ div .g-recaptcha div:nth-child(1) div:nth-child(1) iframe {
   max-width: 1200px;
   width: calc(100% - 30px);
   border-radius: 5px;
-  padding: 15px 15px 15px 25px;
+  padding: 15px 15px 0 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -616,14 +616,35 @@ footer ul:nth-child(2) li {
   overflow: hidden;
 }
 
+#cubo,
+#cilindro,
+#referencial,
+#trajetoria,
+#controles,
+#deslocamento,
+#velocidade {
+  position: relative;
+}
+
 #cubo canvas,
 #cilindro canvas,
 #referencial canvas,
 #trajetoria canvas,
 #controles canvas,
-#deslocamento canvas {
+#deslocamento canvas,
+#velocidade canvas {
   width: 100%;
   height: inherit;
+}
+
+.glowscript-graph {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}
+
+#vel-velocidade-media {
+  pointer-events: none;
 }
 
 #canvas2 {

@@ -89,6 +89,7 @@
                     content: section5__content,
                 },
                 {
+                    quadro_title: `Simulação 1.1`,
                     quadro: `referencial`,
                     controls: [
                         {
@@ -120,6 +121,7 @@
         <%- include('./components/templates/Sec__Intro', {
             infos: [
                 {
+                    quadro_title: `Simulação 1.2`,
                     quadro: `deslocamento`,
                     dadosquadro: section7__dadosquadro,
                     controls: [
@@ -148,7 +150,47 @@
             ]
         }) %>
 
-        
+        <%# Seção 9 - Mecânica Clássica - Cinemática Escalar %>
+
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    title: section9__title,
+                    content: section9__content,
+                },
+                {
+                    quadro_title: `Simulação 1.3`,
+                    quadro: `velocidade`,
+                    controls: [
+                        {
+                            btn: {id: `btn-velocidade`, name: `Iniciar`}
+                        },{
+                            follow: {id: `follow-velocidade`, name: `Entrar`}
+                        },{
+                            reset: {id: `reset-velocidade`, name: `Reset`}
+                        },{
+                            input: {id: `vel-velocidade`, name: `V`, preText: `Vel: `, posText: ` m/s`}
+                        },{
+                            input: {id: `vel-velocidade-media`, name: `0`, preText: `VelMed: `, posText: ` m/s`}
+                        }
+                    ],
+                    dados_quadro: section9__dados__quadro,
+                }
+            ]
+        }) %>
+
+        <%# Seção 10 - Mecânica Clássica - velocidade média %>
+
+        <%- include('./components/templates/Sec__Intro', {
+            infos: [
+                {
+                    content: section10__content1,
+                },
+                {
+                    content: section10__content2,
+                }
+            ]
+        }) %>
         
 
         <%# Rodapé %>

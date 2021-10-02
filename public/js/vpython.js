@@ -67,9 +67,9 @@ cilindro();
 async function arremesso() {
 
     let scene = canvas();
-    scene.forward = vec(-2, -3, -2);
+    scene.forward = vec(-1, -2, -3);
     scene.range = 8;
-    box({ pos: vec(0, -0.1, 0), size: vec(1000, 0.1, 10) });
+    box({ pos: vec(0, -0.1, 0), size: vec(1000, 0.1, 5) });
 
 
     // Construção Avião
@@ -110,7 +110,7 @@ async function arremesso() {
 
     // Fim construção Avião
 
-    let dt = 0.001;
+    let dt = 0.01;
     let particula = box({
         color: color.cyan,
         size: vec(0.2, 0.2, 0.2),
@@ -153,7 +153,7 @@ async function arremesso() {
     let btnStart = document.getElementById('btn-referencial');
     let btnFollow = document.getElementById('follow-referencial');
 
-    document.getElementById('vel-referencial').value = '10';
+    document.getElementById('vel-referencial').value = 5;
 
     let follow = true;
     btnFollow.addEventListener('click', async () => {
@@ -235,18 +235,17 @@ async function arremesso() {
             btnStart.style.color = "white";
 
         } else if (btnStart.innerHTML == 'Soltar') {
-            btnStart.style.backgroundColor = "#414a56"
 
             particula.acc = vec(0, -9.8, 0);
             angulo = -0.001;
             lancarObjeto(vec(parseInt(v.value), 0, 0));
 
+            btnStart.style.backgroundColor = "#414a56"
             btnStart.innerHTML = "Reset";
             btnStart.style.color = "white";
 
         } else if (btnStart.innerHTML == 'Reset') {
             document.getElementById('vel-referencial').value = '5';
-            btnStart.style.backgroundColor = "#61bd71";
 
             lancarObjeto(vec(0, 0, 0));
             particula.pos = particula.pos0;
@@ -258,6 +257,7 @@ async function arremesso() {
             aviao.acc = vec(0, 0, 0)
             aviao.clear_trail();
 
+            btnStart.style.backgroundColor = "#61bd71";
             btnStart.innerHTML = "Iniciar";
             btnStart.style.color = "rgb(11,13,15)";
         }
@@ -354,7 +354,7 @@ async function deslocamento() {
                 distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
                 distanciaPercorrida.text = `Dp = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
 
-                distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
+                distanciaDeslocada.pos = somarVetor(multiplicarVetor(somarVetor(particula.pos, r.pos, -1), 0.5), r.pos);
                 distanciaDeslocada.text = `Dd = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
 
             } else if (theta <= 2 * Math.PI) {
@@ -373,11 +373,11 @@ async function deslocamento() {
                 distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
                 distanciaPercorrida.text = `Dp = ${(
                     afastado ? calcHipo(particula.pos0, particula.pos) * (1 + theta) : 3 * theta
-                    ).toFixed(2)
-                } m`;
+                ).toFixed(2)
+                    } m`;
 
-                distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
-                distanciaDeslocada.text = `Dd = ${ (calcHipo(particula.pos0, particula.pos)).toFixed(2) } m`;
+                distanciaDeslocada.pos = somarVetor(multiplicarVetor(somarVetor(particula.pos, r.pos, -1), 0.5), r.pos);
+                distanciaDeslocada.text = `Dd = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
 
                 theta += w * dt;
             } else {
@@ -423,7 +423,7 @@ async function deslocamento() {
         distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
         distanciaPercorrida.text = `Dp = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
 
-        distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
+        distanciaDeslocada.pos = somarVetor(multiplicarVetor(somarVetor(particula.pos, r.pos, -1), 0.5), r.pos);
         distanciaDeslocada.text = `Dd = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
     })
 
@@ -464,7 +464,7 @@ async function deslocamento() {
         distanciaPercorrida.pos = somarVetor(particula.pos, vec(0, 0.3, 0));
         distanciaPercorrida.text = `Dp = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
 
-        distanciaDeslocada.pos = somarVetor( multiplicarVetor( somarVetor(particula.pos, r.pos, -1), 0.5), r.pos) ;
+        distanciaDeslocada.pos = somarVetor(multiplicarVetor(somarVetor(particula.pos, r.pos, -1), 0.5), r.pos);
         distanciaDeslocada.text = `Dd = ${(calcHipo(particula.pos0, particula.pos)).toFixed(2)} m`;
 
         afastado = !afastado;
@@ -474,6 +474,239 @@ async function deslocamento() {
 
 window.__context = { glowscript_container: $("#deslocamento") };
 deslocamento();
+
+// let Ts = [textures.flower, textures.granite, textures.gravel, textures.metal, textures.rock, textures.rough, textures.rug, textures.stones, textures.stucco, textures.wood, textures.wood_old, textures.earth]
+
+/* - - - - - - -  VELOCIDADE  - - - - - - - */
+async function velocidade() {
+    let scene = canvas();
+    scene.forward = vec(-2, -1, -1);
+    scene.range = 3;
+
+    box({ pos: vec(0, -0.1, 0), size: vec(1000, 0.2, 5), color: vec(20 / 255, 20 / 255, 20 / 255) }); // Chão
+    for (let i = -500; i < 800; i += 10) {
+        box({ pos: vec(i + 1.5, -0.09, 0), size: vec(3, 0.2, 0.5) }); // faixa
+    }
+
+    let eixoX = arrow({ // Eixo X
+        color: vec(200 / 255, 30 / 255, 50 / 255),
+        pos: vec(0, 0, 0),
+        axis: vec(4, 0, 0),
+        shaftwidth: 0.1
+    });
+    label({ text: 'X', pos: somarVetor(eixoX.pos, eixoX.axis), color: color.blue, box: false, opacity: 0, heigth: 18 });
+    let eixoY = arrow({ // Eixo Y
+        color: vec(200 / 255, 30 / 255, 50 / 255),
+        pos: eixoX.pos,
+        axis: vec(0, 4, 0),
+        shaftwidth: 0.1
+    });
+    label({ text: 'Y', pos: somarVetor(eixoY.pos, eixoY.axis), color: color.blue, box: false, opacity: 0, heigth: 18 });
+
+    /* Construção do carro */
+
+    let carro = {
+        chassis: {
+            solo: box({ pos: vec(0, 0, 0), pos0: vec(0, 0, 0), size: vec(2.0, 0.2, 0.8), color: color.cyan, texture: textures.metal }),
+            meio: box({ pos: vec(-0.4, 0.4, 0), pos0: vec(-0.4, 0.4, 0), size: vec(0.8, 0.6, 0.8), color: color.cyan, texture: textures.metal }),
+            tras: box({ pos: vec(-0.82, 0.34, 0), pos0: vec(-0.82, 0.34, 0), size: vec(0.7, 0.2, 0.8), color: color.cyan, texture: textures.metal }),
+            frente: box({ pos: vec(0.02, 0.34, 0), pos0: vec(0.02, 0.34, 0), size: vec(0.7, 0.2, 0.8), color: color.cyan, texture: textures.metal }),
+            capo: box({ pos: vec(0.55, 0.15, 0), pos0: vec(0.55, 0.15, 0), size: vec(0.9, 0.2, 0.8), color: color.cyan, texture: textures.metal }),
+        },
+        roda: {
+            frente_direita: cylinder({ pos: vec(0.8, 0, 0.4), pos0: vec(0.8, 0, 0.4), radius: 0.3, axis: vec(0, 0, 0.4), color: color.white, texture: textures.stucco }),
+            frente_esquerda: cylinder({ pos: vec(0.8, 0, -0.4), pos0: vec(0.8, 0, -0.4), radius: 0.3, axis: vec(0, 0, -0.4), color: color.white, texture: textures.stucco }),
+            tras_direita: cylinder({ pos: vec(-0.8, 0, 0.4), pos0: vec(-0.8, 0, 0.4), radius: 0.3, axis: vec(0, 0, 0.4), color: color.white, texture: textures.stucco }),
+            tras_esquerda: cylinder({ pos: vec(-0.8, 0, -0.4), pos0: vec(-0.8, 0, -0.4), radius: 0.3, axis: vec(0, 0, -0.4), color: color.white, texture: textures.stucco }),
+        },
+        farol: {
+            frente_direita: cylinder({ pos: vec(1, 0.1, 0.3), pos0: vec(1, 0.1, 0.3), radius: 0.08, axis: vec(0.02, 0, 0), color: color.yellow }),
+            frente_esquerda: cylinder({ pos: vec(1, 0.1, -0.3), pos0: vec(1, 0.1, -0.3), radius: 0.08, axis: vec(0.02, 0, 0), color: color.yellow }),
+        }
+
+    }
+
+    // let lamp1 = local_light({pos: somarVetor(carro.farol.frente_direita.pos, vec(3, 0, 0)), color: color.white});
+    // let lamp2 = local_light({pos: somarVetor(carro.farol.frente_esquerda.pos, vec(3, 0, 0)), color: color.white});
+    let lamp = local_light({ pos: somarVetor(carro.chassis.solo.pos, vec(-1, 0, 0)), color: color.red });
+
+    carro.chassis.tras.rotate({ angle: 1.25, axis: vec(0, 0, 1) });
+    carro.chassis.frente.rotate({ angle: -1.25, axis: vec(0, 0, 1) });
+    carro.chassis.capo.rotate({ angle: 0.05, axis: vec(0, 0, 1) });
+
+    function attCarro(w = 0) {
+        for (var parte in carro) {
+            for (var pedaco in carro[parte]) {
+                if (pedaco !== "solo") {
+                    carro[parte][pedaco].pos = somarVetor(carro.chassis.solo.pos, carro[parte][pedaco].pos0);
+                }
+            };
+
+        }
+
+        for (var roda in carro.roda) {
+
+            carro.roda[roda].rotate({ angle: w * -0.001, axis: vec(0, 0, 1) });
+        }
+
+        lamp.pos = somarVetor(carro.chassis.solo.pos, vec(-1, 0, 0));
+    }
+
+    carro.chassis.solo.pos = vec(0, 0.3, 0);
+    carro.chassis.solo.pos0 = vec(0, 0.3, 0);
+    attCarro();
+
+    /* Fim Construção do Carro */
+
+
+    /* Construção gráfico */
+
+    let grafico = graph({
+        // title: "Coordenadas",
+        x: 0,
+        y: 0,
+        width: 150,
+        height: 150,
+        // xtitle: "t",
+        // ytitle: "x",
+        // align: "left",
+        foreground: color.black,
+        background: color.black,
+        // scroll: true,
+        // xmin: 0,
+        // xmax: 20,
+        // ymin: 0,
+        // ymax: 20,
+    })
+
+    let curva = gcurve({
+        graph: grafico,
+        color: color.cyan
+    })
+
+    curva.plot(0, 0);
+
+    /* Fim Construção gráfico */
+
+
+    document.getElementById('vel-velocidade').value = 5;
+
+    let dt = 0.01;
+    let t = 0;
+    let velocidade = vec(0, 0, 0);
+    let w = 0;
+
+    let btnAndar = document.getElementById('btn-velocidade');
+    let andar = false;
+    let velMed = document.getElementById('vel-velocidade-media');
+    let distPercorrida = 0;
+    let graphReset = true;
+    let x1 = 0;
+    let x2 = 0;
+    btnAndar.addEventListener('click', async () => {
+        let iniciar = true;
+
+        document.getElementById('reset-velocidade').addEventListener('click', () => {
+            iniciar = false;
+            return 0;
+        });
+        document.getElementById('btn-velocidade').addEventListener('click', () => {
+            if (graphReset) {
+                curva.data = []; // esvaziando os pontos do gráfico
+                curva.plot(0, 0);
+                graphReset = false;
+            }
+            iniciar = false;
+            return 0;
+        });
+
+        if (andar) {
+            // document.getElementById('vel-velocidade').value = 0;
+
+            velocidade = vec(0, 0, 0);
+            w = velocidade.x / carro.roda.frente_direita.radius;
+
+            btnAndar.style.backgroundColor = "#61bd71";
+            btnAndar.style.color = "rgb(11,13,15)";
+            btnAndar.innerHTML = "Andar";
+        } else {
+
+            velocidade = vec(document.getElementById('vel-velocidade').value, 0, 0);
+            w = velocidade.x / carro.roda.frente_direita.radius;
+
+            btnAndar.style.backgroundColor = "#414a56"
+            btnAndar.style.color = "white";
+            btnAndar.innerHTML = "Parar";
+
+        }
+        andar = !andar;
+
+        while (iniciar) {
+            velMed.value = ( distPercorrida / (t == 0 ? 1 : t)).toFixed(1);
+            distPercorrida += x2 - x1;
+            
+            x1 = carro.chassis.solo.pos.x;
+            carro.chassis.solo.pos = somarVetor(carro.chassis.solo.pos, multiplicarVetor(velocidade, dt));
+            x2 = carro.chassis.solo.pos.x;
+            
+            attCarro(w);
+
+            t += dt;
+            
+            curva.plot(t, carro.chassis.solo.pos.x);
+
+            await rate(100);
+        }
+
+    })
+
+    let btnReset = document.getElementById('reset-velocidade');
+    btnReset.addEventListener('click', async () => {
+        andar = false;
+        graphReset = true;
+        velocidade = vec(0, 0, 0);
+        w = 0;
+
+        await rate(100);
+
+        // velMed.value = ( distPercorrida / t).toFixed(1);
+        
+        distPercorrida = 0;
+        x1 = 0;
+        x2 = 0;
+        t = 0;
+        
+        carro.chassis.solo.pos = carro.chassis.solo.pos0;
+        attCarro();
+        
+        document.getElementById('vel-velocidade').value = 5;
+        btnAndar.style.backgroundColor = "#61bd71";
+        btnAndar.style.color = "rgb(11,13,15)";
+        btnAndar.innerHTML = "Andar";
+    })
+
+    let btnFollow = document.getElementById('follow-velocidade');
+    let follow = true;
+    btnFollow.addEventListener('click', async () => {
+
+        if (follow) {
+            scene.camera.follow(carro.chassis.solo);
+            btnFollow.style.backgroundColor = '#314761';
+            btnFollow.innerHTML = "Sair";
+        } else {
+            scene.camera.follow(null);
+            btnFollow.style.backgroundColor = '#414a56';
+            btnFollow.innerHTML = "Entrar";
+        }
+
+        follow = !follow;
+    })
+}
+
+window.__context = { glowscript_container: $("#velocidade") };
+velocidade();
+
+
 
 
 /* - - - - - - -  CONTROLES  - - - - - - - */
@@ -565,8 +798,8 @@ async function trajetoria() {
     return 0;
 }
 
-window.__context = { glowscript_container: $("#controles") };
-trajetoria();
+// window.__context = { glowscript_container: $("#controles") };
+// trajetoria();
 
 
 

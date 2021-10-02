@@ -75,22 +75,22 @@ module.exports = {
     ],
 
     section6__content1: [
-        `Insira um valor na simulação e aperte em INICIAR para movimentar o avião em uma velocidade constante.`,
+        `Insira um valor na Simulação 1.1 e aperte em INICIAR para movimentar o avião em uma velocidade constante.`,
         `Alterne o ponto de vista clicando em Entrar/Sair, observe que o pacote que o avião carrega visto:`,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
         ` -> Da Terra: Descreve um movimento retilineo na horizontal;`,
         ` -> Do Avião: Está em repouso (se movimenta junto com ele).`,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
         `Agora clique em SOLTAR, para arremessar o pacote.`
         
     ],
     section6__content2: [
         `Veja que a trajetória do pacote para os observadores vista: `,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
         ` -> Na Terra: Será parabólica;`,
         ` -> No Avião: É Retilínea na vertical.`,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
-        `Perceba, os conceitos de movimento, repouso e trajetória dependem do referencial adotado. Sabendo disso, é de extrema importância diferenciar deslocamento de distância percorrida, veja a simulação a seguir:`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
+        `Perceba, os conceitos de movimento, repouso e trajetória dependem do referencial adotado. Sabendo disso, é de extrema importância diferenciar deslocamento de distância percorrida, veja a Simulação 1.2:`,
         
     ],
 
@@ -101,11 +101,11 @@ module.exports = {
         `onde:`,
         `Dp- Distância percorrida;`,
         `Dd- Distância deslocada (deslocamento).`,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
         `Observe que, com o objeto centrado na origem temos:`,
         `# Distancia percorrida = 21,84m;`,
         `# Deslocamento = 3m.`,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
         `Com o objeto deslocado (clique em Deslocar):`,
         `# Distancia percorrida = 18,84m;`,
         `# Deslocamento = 0m.`,
@@ -118,8 +118,8 @@ module.exports = {
         `Sendo assim:`,
         `-> Distância percorrida está ligado ao comprimento trajetória;`,
         `-> Deslocamento tem uma ligação direta entre o ponto inicial e final.`,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
-        `Para calcular a distância percorrida na primeira situação, como o objeto parte da origem, foi feito a soma entre o raio da circunferência e o perímetro dela:`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
+        `Para calcular a distância percorrida na primeira situação, como o objeto parte da origem, basta fazer a soma entre o raio da circunferência e o perímetro dela:`,
         `$$Dp = {R + P} = {R + 2\\pi R}.$$`,
         `Inserindo os valores temos:`,
         `$$ {3 + 2\\pi 3} = {3+18,84}={21,84m}.$$`,
@@ -131,22 +131,40 @@ module.exports = {
         `Inserindo os valores temos:`,
         `$$ {2\\pi 3} = {18,84m}.$$`,
         `Para achar o deslocamento, basta calcular a posição final menos a inicial e chegará nos valores citado.`,
-        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
         `Por enquanto apenas o entendimento de deslocamento é necessário, não realizaremos esse cálculo pois necessita conceituar vetores. No entanto, perceba que: se um corpo parte de um ponto e volta ao mesmo ponto, o deslocamento será zero independente da distância percorrida!`
     ],
 
     section9__title: `1.1.1 Cinemática Escalar`,
     section9__content: [
-        `&nbsp;A cinemática é a parte da mecânica que estuda e descreve os movimentos, sem se preocupar com as suas causas.`,
-        `Nela se encontram conceitos extremamente importantes, tais como:`,
-        ` -> Referencial: Um ponto em relação ao qual se verifica a variação da posição de um outro;`,
-        ` -> Movimento: Variação da posição de um corpo, em relação a um referencial, em um intervalo de tempo qualquer;`,
-        ` -> Repouso: Quando a posição do corpo não varia, em relação a um referencial;`,
-        ` -> Trajetória: É o caminho que ele percorreu durante sucessivos instantes de tempo, ao longo de seu movimento.`
+        `Entendido os conceitos contido no movimento de um corpo, agora é possível compreender velocidade média. Matematicamente ela é expressa da seguinte forma:`,
+        `$$ {V} = { { \\Delta S } \\over { \\Delta t } }\\hspace10ex (1.1)$$`,
+        `Logo, quando a posição "S" de um corpo varia com o passar do tempo "t", dizemos que ele está em movimento, isto é, ele possui uma certa velocidade.`,
+    ],
+    section9__dados__quadro: [
+       ``
     ],
 
-
-    sectionControl__title: `Controles Teste`,
+    section10__content1: [
+        `Insira uma velocidade na Simulação 1.3 para movimentar o carrinho. Alterne o ponto de vista clicando em Entrar/Sair. Ao pressionar em Andar/Parar perceba que é gerado um gráfico, nele mostra a posição do carro em um determinado instante de tempo.`,
+        `Os números na vertical indica a posição em relação a origem (em metros), os números da horizonatal indica o tempo (em segundos).`,
+        `Observe que a inclinação da reta será:`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
+        ` -> Maior, se inserir uma velocidade maior;`,
+        ` -> Menor, se inserir uma velocidade menor;`,
+        ` -> Zero, se estiver em repouso;`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
+    ],
+    section10__content2: [
+        `Além disso, perceba que:`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
+        ` -> Se V > 0 (positiva), a reta é crescente (inclinada para cima);`,
+        ` -> Se V < 0 (negativa), a reta é decrescente (inclinada para baixo).`,
+        ` . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . `,
+        `O movimento visto na Simulação 1.3, onde a variação da posição em relação ao tempo é uniforme (velocidade constante), é denominado: Movimento Retilineo Uniforme - MRU.`,
+        `Nesse tipo de movimento é possível prever a posição de um dado corpo em movimento, desde que, conheça sua velocidade e sua posição inicial. Para isso basta utilizar a seguinte equação:`,
+        `$$ S(t) = S_0 + V.t \\hspace10ex (1.2)$$`
+    ],
 
     
     // footer__reference__title: `Referências`,

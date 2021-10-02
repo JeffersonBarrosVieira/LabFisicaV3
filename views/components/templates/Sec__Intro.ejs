@@ -14,7 +14,7 @@
                     <div class="content">
                         <ul>
                             <% info.content.forEach(content => { %>
-                                <li><p><%= content %></p></li>
+                                <li><p>&emsp;<%= content %></p></li>
                             <% }) %>
                         </ul>
 
@@ -26,7 +26,21 @@
                     </div>
     
                 <% } %>
+
                 
+                <%# TITLE QUADRO %>
+                <% if (info.quadro_title) { %>
+                    <h1 style=" font-size: 1.3rem;
+                                width: auto;
+                                top: 10px;
+                                left: 20px;
+                                position: absolute;
+                                z-index: 10;
+                                pointer-events: none;"> 
+                        <%= info.quadro_title %>
+                    </h1>
+                <% } %>
+
                 <%# QUADRO COL %>
                 <% if (info.quadro) { %>
                     <div class="quadro">
@@ -93,19 +107,23 @@
                             <% } %>
                             <% if (element.input) { %>
                                 
-                                <%- element.input.preText ? element.input.preText : '' %> 
-                                <input  id=<%= element.input.id %> 
-                                        placeholder=<%= element.input.name %> 
-                                        type="number" 
-                                        style=" height: auto;
-                                                width: 70px;
-                                                background-color: #252830;
-                                                margin-top: 5px;
-                                                border-radius: 5px;
-                                                font-size: 15px;
-                                                border: none;
-                                                padding: 5px 10px;"/> 
-                                <%- element.input.posText ? element.input.posText : '' %> 
+                                <%- element.input.preText ? element.input.preText : '' %>
+
+                                <% if (element.input.id) { %>
+                                    <input  id=<%= element.input.id %> 
+                                            placeholder=<%= element.input.name %> 
+                                            type="number" 
+                                            style=" height: auto;
+                                                    width: 40px;
+                                                    background-color: #252830;
+                                                    margin-top: 5px;
+                                                    border-radius: 5px;
+                                                    font-size: 15px;
+                                                    border: none;
+                                                    padding: 5px 10px;"/> 
+                                <% } %>
+
+                                <%- element.input.posText ? element.input.posText : '' %> &emsp;
                             <% } %>
                         <% }) %>
 
@@ -113,12 +131,14 @@
                 <% } %>
                 
                 <%# DADOS QUADRO %> 
-                <% if (info.dadosquadro) { %>
+                <% if (info.dados_quadro) { %>
                  
-                    <div style="margin: 0; padding: 0; font-size: 1.2rem;">
+                    <div style="margin-top: 5px;
+                                font-size: 22px;
+                                text-align: justify;">
                         <ul>
-                            <% info.dadosquadro.forEach(content => { %>
-                                <li><p><%= content %></p></li>
+                            <% info.dados_quadro.forEach(content => { %>
+                                <li><p>&emsp;<%= content %></p></li>
                             <% }) %>
                         </ul>
                     </div>
@@ -133,7 +153,7 @@
                         <% }) %>
                     </div>
                 <% } %>
-    
+
             </div>
     
         <% }) %>
