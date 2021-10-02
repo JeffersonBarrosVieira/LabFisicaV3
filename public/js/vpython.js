@@ -67,9 +67,9 @@ cilindro();
 async function arremesso() {
 
     let scene = canvas();
-    scene.forward = vec(-1, -2, -3);
-    scene.range = 8;
-    box({ pos: vec(0, -0.1, 0), size: vec(1000, 0.1, 5) });
+    scene.forward = vec(-2, -3, -2.5);
+    scene.range = 6.5;
+    box({ pos: vec(0, -0.1, 0), size: vec(1000, 0.1, 10) });
 
 
     // Construção Avião
