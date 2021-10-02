@@ -298,7 +298,7 @@ async function deslocamento() {
 
         pos: vec(0, 0, 0),
         pos0: vec(0, 0, 0),
-        velocity: vec(15, 0, 15),
+        velocity: vec(30, 0, 30),
 
         color: color.cyan,
         make_trail: true,
@@ -322,7 +322,7 @@ async function deslocamento() {
     let R = 3;
     let theta0 = 0;
     let theta = 0;
-    let w = 10;
+    let w = 40;
     let afastado = true;
 
     let dt = 0.001;
