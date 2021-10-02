@@ -167,11 +167,10 @@ module.exports = {
     ],
 
     
-    // footer__reference__title: `Referências`,
-    footer__reference__title: ``,
+    footer__reference__title: `Referências`,
     footer__references: [
         // `[1] - J.B. Marion, S.T. Thornton, Classical Dynamics of Particles and Systems, 5th Edition (Brooks/Cole Thomson Learning, 2004), p.43;`,
-        `[1] - HALLIDAY, David; RESNICK, Robert; WALKER, Jearl. Fundamentos de física. 8. ed. Rio de Janeiro, RJ: LTC, vol 1`,
+        `[1] - HALLIDAY, David; RESNICK, Robert; WALKER, Jearl. Fundamentos de física. 8. ed. Rio de Janeiro, RJ: LTC, vol 1;`,
     ]
     // &nbsp; adiciona 1 espaço
     // &ensp; adiciona 2 espaços
