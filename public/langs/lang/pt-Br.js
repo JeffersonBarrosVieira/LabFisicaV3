@@ -57,7 +57,7 @@ module.exports = {
 
     section4__title: `1 MECÂNICA CLÁSSICA`,
     section4__content: [
-        `A ciência da mecânica busca fornecer uma descrição precisa e consistente da dinâmica das partículas e dos sistemas de partículas, é uma representação matemática dos movimentos que utilizam leis físicas baseadas em fatos experimentais.`,
+        `A ciência da mecânica busca fornecer uma descrição precisa e consistente da dinâmica das partículas e dos sistemas de partículas [1], é uma representação matemática dos movimentos que utilizam leis físicas baseadas em fatos experimentais.`,
         `Antes de nos desbravar das aplicações, é necessário saber alguns conceitos fundamentais, tais como:`,
         ` -> Distância;`,
         ` -> Tempo.`,
@@ -171,7 +171,7 @@ module.exports = {
     footer__reference__title: ``,
     footer__references: [
         // `[1] - J.B. Marion, S.T. Thornton, Classical Dynamics of Particles and Systems, 5th Edition (Brooks/Cole Thomson Learning, 2004), p.43;`,
-        ``,
+        `[1] - HALLIDAY, David; RESNICK, Robert; WALKER, Jearl. Fundamentos de física. 8. ed. Rio de Janeiro, RJ: LTC, vol 1`,
     ]
     // &nbsp; adiciona 1 espaço
     // &ensp; adiciona 2 espaços
