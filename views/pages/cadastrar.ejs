@@ -46,13 +46,18 @@
             <input id="user" name="user" type="text" placeholder="Usuário">
             <input id="pass" name="pass" type="password" placeholder="Senha">
             <input id="pass2" name="pass2" type="password" placeholder="Confirme a Senha">
+            <div class="g-recaptcha" data-sitekey="6LefqzscAAAAADs5E587dRKaz8DZ53lhfqfLMQt0" data-callback="verifyCaptcha"></div>
+            <div id="g-recaptcha-error"></div>
             <input class="btn-formulario" type="submit" value="Cadastrar"/>
         </form>
 
     </main>
 
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <script>
         function verificar(){
+
             if (document.getElementById('user').value == '' || document.getElementById('pass').value == '' || document.getElementById('pass2').value == ''){
                 alert("Preencha o usuário e senha");
                 return false
@@ -62,9 +67,26 @@
                 alert("Confirme a senha corretamente");
                 return false
             }
+            
+            return submitForm();
+        }
 
-
+        function submitForm() {
+            let response = grecaptcha.getResponse();
+            
+            if(response.length == 0) {
+                document.getElementById('g-recaptcha-error').innerHTML = `
+                <span style="color: red;">
+                    É necessário a verificação!
+                    </span>
+                `;
+                return false;
+            }
             return true;
+        }
+        
+        function verifyCaptcha() {
+            document.getElementById('g-recaptcha-error').innerHTML = '';
         }
     </script>
 </body>

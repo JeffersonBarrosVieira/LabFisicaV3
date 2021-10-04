@@ -47,7 +47,7 @@ li {
 
 }
 
-div .g-recaptcha{
+.g-recaptcha{
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -772,6 +772,11 @@ footer {
 
     input[name="user"] {
         margin-top: 5px;
+    }
+
+    div[id="g-recaptcha-error"]{
+        font-size: 1.1rem;
+        text-align: center;
     }
 }
 

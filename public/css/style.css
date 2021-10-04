@@ -48,21 +48,21 @@ li {
   list-style: none;
 }
 
-div .g-recaptcha {
+.g-recaptcha {
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
 }
 
-div .g-recaptcha div:nth-child(1) {
+.g-recaptcha div:nth-child(1) {
   width: 100% !important;
 }
 
-div .g-recaptcha div:nth-child(1) div:nth-child(1) {
+.g-recaptcha div:nth-child(1) div:nth-child(1) {
   width: 100% !important;
 }
 
-div .g-recaptcha div:nth-child(1) div:nth-child(1) iframe {
+.g-recaptcha div:nth-child(1) div:nth-child(1) iframe {
   width: 100% !important;
 }
 
@@ -802,6 +802,11 @@ footer ul:nth-child(2) li {
 
 .entrar-content input[name="user"] {
   margin-top: 5px;
+}
+
+.entrar-content div[id="g-recaptcha-error"] {
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 .fundo {
