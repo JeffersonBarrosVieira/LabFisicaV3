@@ -815,10 +815,8 @@ footer ul:nth-child(2) li {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(37, 104, 104, 0.658)), to(#050707)), url("/img/fundo1.gif");
-  background-image: linear-gradient(to bottom, rgba(37, 104, 104, 0.658), #050707), url("/img/fundo1.gif");
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(37, 104, 104, 0.733)), to(#050707));
+  background-image: linear-gradient(to bottom, rgba(37, 104, 104, 0.733), #050707);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;

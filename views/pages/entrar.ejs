@@ -33,11 +33,13 @@
     <%# Preload %>
     <%- include('../components/templates/Preload', {preload__name: 'Carregando...'}) %> 
 
-    <div class="fundo"></div>
+    <div class="fundo">
+        <canvas id="wallpaper"></canvas>
+    </div>
     <main class="main entrar-content">
 
         <form action="/entrar" method="POST" id="formulario" onsubmit="return verificar()">
-            <h1>LabFísica</h1>
+            <a href="/"><h1>LabFísica</h1></a>
             <% if (tentativa) { %>
                 <li style=<%- sucesso ? `"color: #15c3f7;;"` : `"color: rgba(255, 0, 0, 0.9);"` %> >
                     <%= sucesso ? 'Usuário cadastrado!!' : 'Usuário e senha incorretos'%> 
@@ -45,10 +47,20 @@
             <% } %>
             <input id="user" name="user" type="text" placeholder="Usuário">
             <input id="pass" name="pass" type="password" placeholder="Senha">
+            <% if (tentativa) { %>
+                <li >
+                    <a href="/cadastrar"><%= sucesso ? '' : 'Cadastrar usuário'%> </a>
+                </li>
+            <% } %>
             <input class="btn-formulario" type="submit" value="Entrar"/>
+
         </form>
 
     </main>
+
+    
+
+    <script src="/js/fundo.js"></script>
 
     <script>
         function verificar(){

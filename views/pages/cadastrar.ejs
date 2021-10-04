@@ -33,11 +33,14 @@
     <%# Preload %>
     <%- include('../components/templates/Preload', {preload__name: 'Carregando...'}) %> 
 
-    <div class="fundo"></div>
+    <div class="fundo">
+        <canvas id="wallpaper"></canvas>
+    </div>
+
     <main class="main entrar-content">
         
         <form action="/cadastrar" method="POST" id="formulario" onsubmit="return verificar()">
-            <h1>LabFísica</h1>
+            <a href="/"><h1>LabFísica</h1></a>
             <% if (tentativa) { %>
                 <li style=<%- sucesso ? `"color: #15c3f7;;"` : `"color: rgba(255, 0, 0, 0.9);"` %> >
                     <%= sucesso ? 'Preencha o usuário e senha' : 'Usuário já existente' %> 
@@ -53,6 +56,7 @@
 
     </main>
 
+    <script src="/js/fundo.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <script>
