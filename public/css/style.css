@@ -50,6 +50,8 @@ li {
 
 div .g-recaptcha {
   width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 div .g-recaptcha div:nth-child(1) {
@@ -284,6 +286,9 @@ div .g-recaptcha div:nth-child(1) div:nth-child(1) iframe {
   height: 60%;
   width: 75px;
   margin-right: 15px;
+  font-size: 0.9rem;
+  line-height: 2.7rem;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -695,9 +700,10 @@ footer ul:nth-child(2) li {
 
 #formulario input {
   color: black;
-  padding: 5px;
+  padding: 5px 10px;
   font-size: 20px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 #formulario textarea {
@@ -705,6 +711,7 @@ footer ul:nth-child(2) li {
   padding: 5px;
   font-size: 20px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 #formulario .btn-formulario {
@@ -768,5 +775,48 @@ footer ul:nth-child(2) li {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.entrar-content {
+  margin: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: hidden;
+}
+
+.entrar-content h1 {
+  margin-bottom: 5px;
+  width: 100%;
+  border-bottom: 2px solid rgba(37, 104, 104, 0.658);
+}
+
+.entrar-content li {
+  text-align: center;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.entrar-content input[name="user"] {
+  margin-top: 5px;
+}
+
+.fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(37, 104, 104, 0.658)), to(#050707)), url("/img/fundo1.gif");
+  background-image: linear-gradient(to bottom, rgba(37, 104, 104, 0.658), #050707), url("/img/fundo1.gif");
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 /*# sourceMappingURL=style.css.map */

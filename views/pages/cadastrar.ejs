@@ -3,30 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="pt-br, en-US" />
 
-    <style> *{margin: 0; padding: 0;} </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Jefferson Barros Vieira">
+    <meta name="reply-to" content="[jefferson.negociom03@gmail.com]">
+    <meta name="description" content="LabFísica - Ambiente virtual para estudantes e professores da área da Física. Resolva problemas físicos, visualize simulações, interaja com elas e realize uma análise da modelagem matemática completa.">
+
+    <meta name="keywords" content="labf&iacute;sica, plataforma, ferramenta, metodo, aluno, alunos, professor, professores, estudante, estudantes, medio, m&eacute;dio, fundamental, imagina&ccedil;&atilde;o, criatividade, interacao, intera&ccedil;&atilde;o, intera&ccedil;&otilde;es, interativo, interativa, alternativa, ambiente, LabF&iacute;sica, laboratorio, laborat&oacute;rio, fisica, f&iacute;sica, virtual, simulacao, simula&ccedil;&atilde;o, desenvolvimento, experimentos, experi&ecirc;ncias, experi&ecirc;cia, ensino, resolu&ccedil;&atilde;o, resolucao, problemas, modelagem, matematica, matem&aacute;tica, mecanica, mec&acirc;nica, classica, cl&aacute;ssica, ondas, oscila&ccedil;&otilde;es, oscilacoes, termodinamica, termodin&acirc;mica, optica, otica, &oacute;ptica, &oacute;tica, geometrica, cinematica, cinem&aacute;tica, dinamica, din&acirc;mica, leis, newton, trabalho, energia, potencia, pot&ecirc;ncia, momento, gravitacao, gravita&ccedil;&atilde;o, hidrostatica, hideost&aacute;tica, hidrodinamica, hidrodin&acirc;mica pendulo, propagacao, propaga&ccedil;&atilde;o, reflex&atilde;o, reflexao, refraç&ccedil;&atilde;o, refracao, difracao, difra&ccedil;&atilde;o, interferencia, interfer&ecirc;ncia, termometria, escalas, dioptros, di&oacute;ptro, lentes, dilatacao, dilata&ccedil;&atilde;o, calor, vetor, vetorial, escalar, movimento, distancia, dist&acirc;ncia, trajet&oacute;ria, repouso, avi&acirc;o, referencial, deslocamento, c&aacute;lculo" />
+
+
+    <meta name="copyright" content="© 2021 Jefferson Barros Vieira" />
+    <meta name="revisit-after" content="7 days" /> 
+
+    <meta name="generator" content="Visual Studio Code" />
+
+    <link rel="canonical" href="https://www.labfisica.com/cadastrar" />
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png" />
+    <link rel="preload" as="image" href="/img/loader.gif" />
+
+    <title>LabFísica - Cadastro</title>
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 <body>
 
     <%# Preload %>
     <%- include('../components/templates/Preload', {preload__name: 'Carregando...'}) %> 
 
-    <% if (tentativa) { %>
-        <%= sucesso ? 'Preencha o usuário e senha' : 'Usuário já existente' %> 
-    <% } %>
-    <form action="/cadastrar" method="POST" onsubmit="return verificar()">
-        <input id="user" name="user" type="text" placeholder="Usuário">
-        <input id="pass" name="pass" type="password" placeholder="Senha">
-        <input type="submit" value="Cadastrar"/>
-    </form>
+    <div class="fundo"></div>
+    <main class="main entrar-content">
+        
+        <form action="/cadastrar" method="POST" id="formulario" onsubmit="return verificar()">
+            <h1>LabFísica</h1>
+            <% if (tentativa) { %>
+                <li style=<%- sucesso ? `"color: #15c3f7;;"` : `"color: rgba(255, 0, 0, 0.9);"` %> >
+                    <%= sucesso ? 'Preencha o usuário e senha' : 'Usuário já existente' %> 
+                </li>
+            <% } %>
+            <input id="user" name="user" type="text" placeholder="Usuário">
+            <input id="pass" name="pass" type="password" placeholder="Senha">
+            <input id="pass2" name="pass2" type="password" placeholder="Confirme a Senha">
+            <input class="btn-formulario" type="submit" value="Cadastrar"/>
+        </form>
+
+    </main>
+
     <script>
         function verificar(){
-            if (document.getElementById('user').value == '' || document.getElementById('pass').value == ''){
+            if (document.getElementById('user').value == '' || document.getElementById('pass').value == '' || document.getElementById('pass2').value == ''){
                 alert("Preencha o usuário e senha");
                 return false
             }
+
+            if (document.getElementById('pass').value !== document.getElementById('pass2').value) {
+                alert("Confirme a senha corretamente");
+                return false
+            }
+
 
             return true;
         }

@@ -49,6 +49,8 @@ li {
 
 div .g-recaptcha{
     width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
     div:nth-child(1) {
         width: 100% !important;
         div:nth-child(1) {
@@ -264,6 +266,9 @@ div .g-recaptcha{
                 height: 60%;
                 width: 75px;
                 margin-right: 15px;
+                font-size: 0.9rem;
+                line-height: 2.7rem;
+                text-align: center;
                 cursor: pointer;
 
                 &:nth-child(1) {
@@ -680,9 +685,10 @@ footer {
 
     input {
         color: black;
-        padding: 5px;
+        padding: 5px 10px;
         font-size: 20px;
         margin-bottom: 10px;
+        border-radius: 10px;
     }
 
     textarea {
@@ -690,6 +696,7 @@ footer {
         padding: 5px;
         font-size: 20px;
         margin-bottom: 10px;
+        border-radius: 10px;
     }
     
     .btn-formulario {
@@ -740,4 +747,46 @@ footer {
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+// TELA DE LOGIN
+
+.entrar-content {
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+
+    h1 {
+        margin-bottom: 5px;
+        width: 100%;
+        border-bottom: 2px solid rgba(37, 104, 104, 0.658);
+    }
+
+    li {
+        text-align: center;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    input[name="user"] {
+        margin-top: 5px;
+    }
+}
+
+.fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: linear-gradient(to bottom, rgba(37, 104, 104, 0.658), rgb(5, 7, 7)), url('/img/fundo1.gif');
+    filter: blur(10px);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
