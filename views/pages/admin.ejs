@@ -16,7 +16,7 @@
 <body>
     
     <%# Preload %>
-    <%- include('../components/templates/Preload', {preload__name: 'Carregando...'}) %> 
+    <%- include('../components/templates/Preload', {preload__name: 'Carregando...', user: null}) %> 
 
     <% if (!log) { %>
         <form action="/admin" method="POST" onsubmit="return submitForm()">
