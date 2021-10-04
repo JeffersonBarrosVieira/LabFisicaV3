@@ -39,16 +39,25 @@
 
     <main class="main entrar-content">
         
-        <form action="/cadastrar" method="POST" id="formulario" onsubmit="return verificar()">
-            <a href="/"><h1>LabFísica</h1></a>
+        <form action="/entrar" method="POST" id="formulario" onsubmit="return verificar()">
+            
+            <a href="/">
+                <h1>LabFísica</h1>
+            </a>
+            
+            <input id="nome" name="nome" type="text" placeholder="Nome">
+            <input id="sobrenome" name="sobrenome" type="text" placeholder="Sobrenome">
+            <input id="email" name="email" type="email" placeholder="Email">
+
             <% if (tentativa) { %>
                 <li style=<%- sucesso ? `"color: #15c3f7;;"` : `"color: rgba(255, 0, 0, 0.9);"` %> >
-                    <%= sucesso ? 'Preencha o usuário e senha' : 'Usuário já existente' %> 
+                    <%= sucesso ? 'Preencha todos os campos' : 'Usuário já existente' %> 
                 </li>
             <% } %>
+
             <input id="user" name="user" type="text" placeholder="Usuário">
-            <input id="pass" name="pass" type="password" placeholder="Senha">
-            <input id="pass2" name="pass2" type="password" placeholder="Confirme a Senha">
+            <input id="pass" class="pass" name="pass" type="password" placeholder="Senha">
+            <input id="pass2" name="pass2" type="password" placeholder="Confirma Senha">
             <div class="g-recaptcha" data-sitekey="6LefqzscAAAAADs5E587dRKaz8DZ53lhfqfLMQt0" data-callback="verifyCaptcha"></div>
             <div id="g-recaptcha-error"></div>
             <input class="btn-formulario" type="submit" value="Cadastrar"/>
@@ -62,8 +71,13 @@
     <script>
         function verificar(){
 
-            if (document.getElementById('user').value == '' || document.getElementById('pass').value == '' || document.getElementById('pass2').value == ''){
-                alert("Preencha o usuário e senha");
+            if (document.getElementById('nome').value == '' ||
+                document.getElementById('sobrenome').value == '' ||
+                document.getElementById('email').value == '' ||
+                document.getElementById('user').value == '' ||
+                document.getElementById('pass').value == '' ||
+                document.getElementById('pass2').value == ''){
+                alert("Preencha todos os campos");
                 return false
             }
 

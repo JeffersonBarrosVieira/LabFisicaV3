@@ -39,12 +39,12 @@ app.get(`/admin`, async (req, res) => {
 
 /* Rota cadastro */
 app.get(`/cadastrar`, async (req, res) => {
-    res.render(`pages/cadastrar`, { tentativa: false })
+    res.render(`pages/cadastrar`, { tentativa: false, user: null })
 })
 
 /* Rota para logar */
 app.get(`/entrar`, async (req, res) => {
-    res.render(`pages/entrar`, { tentativa: false })
+    res.render(`pages/entrar`, { tentativa: false, user: null })
 })
 
 
@@ -131,7 +131,10 @@ app.post(`/login`, async (req, res) => {
     res.send(JSON.stringify(result));
 })
 
-app.post(`/cadastrar`, async (req, res) => {
+app.post(`/entrar`, async (req, res) => { // método para pegar os dados e cadastrar
+    let nome = req.body.nome;
+    let sobrenome = req.body.sobrenome;
+    let email = req.body.email;
     let user = req.body.user;
     let pass = req.body.pass;
 
@@ -142,7 +145,11 @@ app.post(`/cadastrar`, async (req, res) => {
 
     let sucesso = false;
 
-    if (user !== '' || pass !== '') {
+    if (nome !== '' ||
+        sobrenome !== '' ||
+        email !== '' ||
+        user !== '' ||
+        pass !== '') {
         try {
             await client.connect();
 
@@ -154,6 +161,8 @@ app.post(`/cadastrar`, async (req, res) => {
                 result = await client.db('labfisica')
                     .collection('users')
                     .insertOne({
+                        nome: `${nome} ${sobrenome}`,
+                        email: `${email}`,
                         user: `${user}`,
                         pass: `${pass}`,
                         data: new Date().toLocaleString("pt-br", { timeZone: 'America/Sao_Paulo' })
@@ -176,14 +185,14 @@ app.post(`/cadastrar`, async (req, res) => {
 
 
     if (sucesso) {
-        res.render(`pages/entrar`, { sucesso: sucesso, tentativa: true });
+        res.render(`pages/entrar`, { sucesso: sucesso, tentativa: true, user: null });
     } else {
-        res.render(`pages/cadastrar`, { sucesso: sucesso, tentativa: true });
+        res.render(`pages/cadastrar`, { sucesso: sucesso, tentativa: true, user: null });
     }
 
 })
 
-app.post(`/entrar`, async (req, res) => {
+app.post(`/`, async (req, res) => { // método para pegar os dados e logar
     let user = req.body.user;
     let pass = req.body.pass;
 
@@ -201,8 +210,8 @@ app.post(`/entrar`, async (req, res) => {
             .collection('users')
             .findOne({ user: user, pass: pass });
 
-        // console.log(result)
-        sucesso = result ? true : false
+        // console.log(result);
+        sucesso = result ? true : false;
 
 
 
@@ -213,9 +222,9 @@ app.post(`/entrar`, async (req, res) => {
     }
 
     if (sucesso) {
-        res.render(`pages/areaRestrita`, { user: user })
+        res.render(`home`, { ...langs[0], user: result })
     } else {
-        res.render(`pages/entrar`, { sucesso: sucesso, tentativa: true })
+        res.render(`pages/entrar`, { sucesso: sucesso, tentativa: true, user: null })
     }
 
 })

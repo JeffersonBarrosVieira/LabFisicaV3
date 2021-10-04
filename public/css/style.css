@@ -688,10 +688,12 @@ footer ul:nth-child(2) li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   padding: 20px 25px;
   border-radius: 15px;
   -webkit-transition: all 0.5s ease-out;
@@ -701,9 +703,17 @@ footer ul:nth-child(2) li {
 #formulario input {
   color: black;
   padding: 5px 10px;
+  width: 100%;
   font-size: 20px;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+
+#formulario input[class="pass"],
+#formulario input[name="pass2"],
+#formulario input[name="nome"],
+#formulario input[name="sobrenome"] {
+  width: 42%;
 }
 
 #formulario textarea {

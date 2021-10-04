@@ -1,4 +1,6 @@
 module.exports = {
+    user: null,
+
     lang: `pt-Br`,
     route: `/`,
     title: `LabFísica`,
