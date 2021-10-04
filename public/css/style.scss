@@ -688,7 +688,8 @@ footer {
         color: black;
         padding: 5px 10px;
         width: 100%;
-        font-size: 20px;
+        min-height: 25px;
+        font-size: 0.95rem;
         margin-bottom: 10px;
         border-radius: 10px;
     }
@@ -697,7 +698,9 @@ footer {
     input[name="pass2"],
     input[name="nome"],
     input[name="sobrenome"] {
-        width: 42%;
+        display: flex;
+        flex: 1;
+        min-width: 35%;
     }
 
     textarea {

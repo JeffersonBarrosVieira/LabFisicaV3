@@ -704,7 +704,8 @@ footer ul:nth-child(2) li {
   color: black;
   padding: 5px 10px;
   width: 100%;
-  font-size: 20px;
+  min-height: 25px;
+  font-size: 0.95rem;
   margin-bottom: 10px;
   border-radius: 10px;
 }
@@ -713,7 +714,13 @@ footer ul:nth-child(2) li {
 #formulario input[name="pass2"],
 #formulario input[name="nome"],
 #formulario input[name="sobrenome"] {
-  width: 42%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 35%;
 }
 
 #formulario textarea {
