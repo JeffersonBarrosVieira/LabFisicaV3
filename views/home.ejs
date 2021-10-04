@@ -18,7 +18,12 @@
     <main id="conteudo" class="main">
 
         <%# Topo Pesquisar/Login/Cadastro %>
-        <%- include('./components/templates/Topo', { main__topo__pesquisar__campo }) %> 
+        <%- include('./components/templates/Topo', {
+            main__topo__pesquisar__campo,
+            main__topo__singUp,
+            main__topo__logIn
+        
+        }) %> 
 
         <%# Seção 1 - Introdução %>
         <%- include('./components/templates/Sec__Intro', {

@@ -723,6 +723,14 @@ footer ul:nth-child(2) li {
   min-width: 35%;
 }
 
+#formulario a[href="/"] {
+  width: 100%;
+}
+
+#formulario a[href="/"] h1 {
+  width: 100%;
+}
+
 #formulario textarea {
   color: black;
   padding: 5px;
@@ -770,6 +778,24 @@ footer ul:nth-child(2) li {
   width: 40px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
+}
+
+#formulario .voltar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("../img/seta.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  margin-left: -18px;
+  margin-top: -21px;
+  cursor: pointer;
+  z-index: 110;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 @-webkit-keyframes rotacionar360 {

@@ -32,6 +32,8 @@ module.exports = {
         // }
     ],
     header__topicos__referencias: `References`,
+    main__topo__singUp: `Sing Up`,
+    main__topo__logIn: `Log In`,
 
     main__topo__pesquisar__campo: `Search`,
 

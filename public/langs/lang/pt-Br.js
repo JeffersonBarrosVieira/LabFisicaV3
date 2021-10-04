@@ -34,6 +34,8 @@ module.exports = {
     header__topicos__referencias: `Referências`,
     
     main__topo__pesquisar__campo: `Pesquisar`,
+    main__topo__singUp: `Cadastrar`,
+    main__topo__logIn: `Entrar`,
 
     section1__title: `Um Laboratório de Física em suas mãos`,
     section1__content: `LabFísica é uma plataforma virtual que traz um ambiente de desenvolvimento acadêmico para estudantes e professores da área da Física. Resolva problemas físicos, visualize, interaja com eles e realize uma análise da modelagem matemática completa que é disponibilizada!!!`,

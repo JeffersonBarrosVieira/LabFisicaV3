@@ -702,6 +702,13 @@ footer {
         flex: 1;
         min-width: 35%;
     }
+    
+    a[href="/"] {
+        width: 100%;
+        h1{
+            width: 100%;
+        }
+    }
 
     textarea {
         color: black;
@@ -747,6 +754,27 @@ footer {
             width:40px;
             transform: rotate(45deg);
         }
+    }
+    .voltar {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        background-image: url('../img/seta.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+        width: 50px;
+        height: 50px;
+        margin-left: -18px;
+        margin-top: -21px;
+        
+        cursor: pointer;
+        z-index: 110;
+
+        transform: rotate(180deg);
+        // transition: all 0.3s ease-out;
     }
 }
 
