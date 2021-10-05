@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <meta name="google-site-verification" content="92FSmC8Iy0ILzcHYQP4W1rqplh1qALjqglWEHauiJVk" /> -->
+    <title>Login Google</title>
+
+    <style>
+        #btnLogar {
+            display: inline-block;
+            background: #4285f4;
+            color: white;
+            width: 220px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        #btnLogar:hover {
+            cursor: pointer;
+        }
+        span.icon {
+            background: url('https://www.shareicon.net/data/256x256/2015/10/04/111650_google-icon_512x512.png') transparent 5px 50% no-repeat;
+            background-size: 38px 38px;
+            display: inline-block;
+            vertical-align: middle;
+            width: 42px;
+            height: 45px;
+        }
+        span.buttonText {
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="box-login">
+        <h2>Login</h2>
+  
+        <!-- Código html do botão de login -->
+        <div id="gSignInWrapper">
+            <div id="btnLogar" class="customGPlusSignIn">
+                <span class="icon"></span>
+                <span class="buttonText">Entrar com o Google</span>
+            </div>
+        </div>
+        <div id="name"></div>
+        
+        <hr/>
+        <a href="javascript:void(0);" onclick="signOut();">Sign out</a>
+
+    </div>
+
+
+
+    <!-- Google api -->
+    <script src="https://apis.google.com/js/api:client.js"></script>
+
+    <script>
+        var startApp = function() {
+            gapi.load('auth2', function(){
+                auth2 = gapi.auth2.init({
+                client_id: '680773311170-8538oubn1svoaru3qhblpkqmmqmpi1ni.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin',
+                scope: 'profile email' // solicitando acesso ao profile e ao e-mail do usuário
+                });
+                auth2.attachClickHandler(document.getElementById('btnLogar'), {}, onSuccess, onFailure);
+            });
+        };
+
+        /**
+         Função executada quando o login é efetuado com sucesso
+        */
+        function onSuccess(googleUser) {
+            // Recuperando o profile do usuário
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log("Name: " + profile.getName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+
+            // Recuperando o token do usuario. Essa informação você necessita passar para seu backend
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+        }
+        /**
+         Função executada quando ocorrer falha no logn
+        */
+        function onFailure(error) {
+            console.log(error);
+        }
+
+        /**
+         Função de deslogar o usuario
+        */
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+
+  <script>startApp()</script>
+</body>
+</html>

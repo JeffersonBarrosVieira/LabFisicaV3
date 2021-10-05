@@ -47,6 +47,19 @@ app.get(`/entrar`, async (req, res) => {
     res.render(`pages/entrar`, { tentativa: false, user: null })
 })
 
+// Verificação zoho
+
+app.get(`/zohoverify/verifyforzoho.html`, async (req, res) => {
+    res.render(`pages/verifyforzoho`)
+})
+
+
+// LOGIN GOOGLE TESTE
+
+app.get(`/google`, async (req, res) => {
+    res.render(`pages/googleLogin`, {});
+})
+
 
 
 // Rotas de envios
