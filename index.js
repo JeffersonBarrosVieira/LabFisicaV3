@@ -49,6 +49,10 @@ app.get(`/entrar`, async (req, res) => {
 
 // Verificação zoho
 
+app.get(`/zohoverify/verifyforzoho`, async (req, res) => {
+    res.render(`pages/verifyforzoho`)
+})
+
 app.get(`/zohoverify/verifyforzoho.html`, async (req, res) => {
     res.render(`pages/verifyforzoho`)
 })
