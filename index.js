@@ -6,11 +6,60 @@ const app = express();
 const bodyParser = require('body-parser');
 const { MongoClient, ObjectId } = require('mongodb');
 
-const serverFunction = require('./public/api/serverFunction');
+const serverFunction = require('./api/serverFunction');
 require('dotenv/config')
 
 const langs = require('./public/langs/langs');
 const { json } = require('body-parser');
+
+const nodemailer = require('nodemailer');
+const config = require('./config/smtp')
+
+// Conexão nodemailer
+const transporter = nodemailer.createTransport(config);
+
+async function enviarCodigo(codigo, email){
+    try {
+            transporter.sendMail({
+                from:  'LabFísica <labfisica.system@outlook.com>',
+                to: `${email}`,
+                subject: `Verificação da Conta`,
+                html: `
+                    <h3>Seu código de cadastro é: <b>${codigo}</b></h3>
+                `
+            });
+        } catch ( error ) {
+            console.error(error)
+        }
+}
+// try {
+//     transporter.sendMail({
+//         from:  'LabFísica <labfisica.system@outlook.com>',
+//         bcc: ['b.boydjeff15@gmail.com', 'barrosjefferson@acad.ifma.edu.br', 'jefferson.negociom03@gmail.com'],
+//         subject: `Nova Mensagem nova`,
+//         html: `
+//             <h2> Links</h2>
+//             <ul>
+//                 <li>
+//                     <a href="https://labfisica.com/" style="text-decoration: none;">
+//                         LabFísica
+//                     </a>
+//                 </li>
+//                 <li>
+//                     teste 2
+//                 </li>
+//                 <li>
+//                     <a href="https://instagram.com/jefferson.barros.vieira/" style="text-decoration: none;">
+//                         Meu Instagram
+//                     </a>
+//                 </li>
+//             </ul>
+//         `
+//     });
+// } catch ( error ) {
+//     console.error(error)
+// }
+
 
 // Static Files:
 app.use(express.static(__dirname + '/public'));
@@ -109,38 +158,137 @@ app.post(`/admin`, async (req, res) => {
     res.render(`pages/admin`, { log, result });
 })
 
-app.post(`/login`, async (req, res) => {
-    let user = req.body.user;
-    let pass = req.body.pass;
+app.post(`/cadastrar`, async (req, res) => { // método para pegar os dados e cadastrar
+    let nome = req.body.nome;
+    let email = req.body.email;
+    let imagemUrl = req.body.imagemUrl;
+    let codigo = req.body.codigo;
 
+    // console.log(email)
+    let google = false;
+    if (nome || imagemUrl) {
+        google = true;
+    }
+
+    
     let result = null;
 
     let uri = process.env.MONGO_URI;
     let client = new MongoClient(uri);
 
-    let log = false;
+    let sucesso = false;
 
-    console.log('logado')
+    if (email !== '' && !google && codigo == undefined) {
+        try {
+            await client.connect();
 
-    try {
-        await client.connect();
+            result = await client.db('labfisica')
+                .collection('users')
+                .findOne({ email: `${email}` });
 
-        result = await client.db('labfisica')
-            .collection('users')
-            .findOne({ user: user, pass: pass });
-    } catch (error) {
-        console.error(error);
-    } finally {
-        await client.close();
+            codigo = Math.floor(Math.random() * (900000 - 400000 + 1)) + 400000;
+            
+            if (result == null) {
+
+                // cria novo email no BD
+                result = await client.db('labfisica')
+                    .collection('users')
+                    .insertOne({ 
+                        email: `${email}`,
+                        verificado: 'false',
+                        codigo: `${codigo}`
+                    });
+
+                sucesso = true;
+            } else {
+                result = await client.db('labfisica')
+                    .collection('users')
+                    .findOne({ email: `${email}`, verificado: 'false' });
+
+                if(result) {
+                
+                    // Atualiza o código no BD
+                    result = await client.db('labfisica')
+                        .collection('users')
+                        .findOneAndUpdate(
+                            {
+                                email: `${email}`
+                            },{
+                                $set: {
+                                    email: `${email}`,
+                                    verificado: 'false',
+                                    codigo: `${codigo}`
+                                } 
+                            }
+                        );
+
+                    sucesso = true;
+                }
+            }
+            //     console.log('Usuário já existente');
+            // }
+
+
+        } catch (error) {
+            console.error(error);
+        } finally {
+            await client.close();
+        }
+
+        if (sucesso) {
+            // Mandar para página de verificar código enviado no email
+            enviarCodigo(codigo, email);
+            res.render(`pages/verificacao`, { sucesso: sucesso, tentativa: false, user: null, email: email });
+        } else {
+            // Retornar a página pois o email já está cadastrado
+            res.render(`pages/cadastrar`, { sucesso: sucesso, tentativa: true, user: null });
+        }
+    } else {
+        try {
+            await client.connect();
+            result = await client.db('labfisica')
+                    .collection('users')
+                    .findOne({ email: `${email}`, verificado: `false`, codigo: `${codigo}` });
+            
+            if(result) {
+    
+                // result = await client.db('labfisica')
+                //             .collection('users')
+                //             .findOneAndUpdate(
+                //                 {
+                //                     verificado: `false`,
+                //                     codigo: `${codigo}`
+                //                 },{
+                //                     $set: {
+                //                         verificado: 'true',
+                //                         codigo: `0`
+                //                     } 
+                //                 }
+                //             );
+
+                sucesso = true;
+                
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            await client.close();
+        }
+
+        if(sucesso){
+            //mandar pra página de criar usuário
+            res.render(`pages/criarUsuario`, { sucesso: sucesso, tentativa: false, user: null, email: email });
+        } else {
+            // codigo invalido
+            res.render(`pages/verificacao`, { sucesso: sucesso, tentativa: true, user: null, email: email });
+        }
+
     }
 
-    console.log(result == !null ? 'Usuário Existe' : 'Usuário não existe')
-    res.send(JSON.stringify(result));
 })
 
-app.post(`/entrar`, async (req, res) => { // método para pegar os dados e cadastrar
-    let nome = req.body.nome;
-    let sobrenome = req.body.sobrenome;
+app.post(`/dados`, async (req, res) => {
+    let nome = `${req.body.nome} ${req.body.sobrenome}`;
     let email = req.body.email;
     let user = req.body.user;
     let pass = req.body.pass;
@@ -152,51 +300,59 @@ app.post(`/entrar`, async (req, res) => { // método para pegar os dados e cadas
 
     let sucesso = false;
 
-    if (nome !== '' ||
-        sobrenome !== '' ||
-        email !== '' ||
-        user !== '' ||
-        pass !== '') {
-        try {
+    if(nome && email && user && pass) {
+
+        try{
             await client.connect();
 
             result = await client.db('labfisica')
-                .collection('users')
-                .findOne({ user: user });
-
-            if (result == null) {
-                result = await client.db('labfisica')
                     .collection('users')
-                    .insertOne({
-                        nome: `${nome} ${sobrenome}`,
-                        email: `${email}`,
-                        user: `${user}`,
-                        pass: `${pass}`,
-                        data: new Date().toLocaleString("pt-br", { timeZone: 'America/Sao_Paulo' })
-                    })
+                    .findOne({ user: `${user}`});
 
-                // console.log('Usuário cadastrado');
-                sucesso = true;
-            } 
-            // else {
-            //     console.log('Usuário já existente');
-            // }
-
+            if(result == undefined){
+                result = await client.db('labfisica')
+                        .collection('users')
+                        .findOne({ email: `${email}`, verificado: `false` });
+                    
+                if(result) {
+                    result = await client.db('labfisica')
+                        .collection('users')
+                        .findOneAndUpdate(
+                            {
+                                email: `${email}`,
+                                verificado: `false`
+                            },{
+                                $set: {
+                                    nome: `${nome}`,
+                                    email: `${email}`,
+                                    verificado: `true`,
+                                    codigo: `0`,
+                                    user: `${user}`,
+                                    pass: `${pass}`,
+                                    data: new Date().toLocaleString("pt-br", { timeZone: 'America/Sao_Paulo' })
+                                }
+                            }
+                        )
+    
+                    // console.log('Usuário cadastrado');
+                    sucesso = true;
+                }
+            }
 
         } catch (error) {
             console.error(error);
         } finally {
             await client.close();
         }
+
+        if(sucesso){
+            //enviarCodigo(codigo, email); tem que enviar que a conta foi criada com sucesso
+            res.render(`pages/entrar`, { sucesso: sucesso, tentativa: true, user: null });
+        } else {
+            // Retornar a página pois o email já está cadastrado
+            res.render(`pages/criarUsuario`, { sucesso: sucesso, tentativa: true, user: null, email: email });
+        }
     }
-
-
-    if (sucesso) {
-        res.render(`pages/entrar`, { sucesso: sucesso, tentativa: true, user: null });
-    } else {
-        res.render(`pages/cadastrar`, { sucesso: sucesso, tentativa: true, user: null });
-    }
-
 })
 
 app.post(`/`, async (req, res) => { // método para pegar os dados e logar
@@ -214,8 +370,11 @@ app.post(`/`, async (req, res) => { // método para pegar os dados e logar
         await client.connect();
 
         result = await client.db('labfisica')
-            .collection('users')
-            .findOne({ user: user, pass: pass });
+                .collection('users')
+                .findOne({ user: user, pass: pass }) ||
+                await client.db('labfisica')
+                .collection('users')
+                .findOne({ email: user, pass: pass });
 
         // console.log(result);
         sucesso = result ? true : false;
@@ -235,6 +394,8 @@ app.post(`/`, async (req, res) => { // método para pegar os dados e logar
     }
 
 })
+
+
 
 
 // Running:

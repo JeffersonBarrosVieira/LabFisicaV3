@@ -46,12 +46,12 @@
             
             <a href="/"><h1>LabFísica</h1></a>
             <% if (tentativa) { %>
-                <li style=<%- sucesso ? `"color: #15c3f7;;"` : `"color: rgba(255, 0, 0, 0.9);"` %> >
-                    <%= sucesso ? 'Usuário cadastrado!!' : 'Usuário e senha incorretos'%> 
+                <li style=<%- sucesso ? `"color: #15c3f7; font-size: 0.9rem;"` : `"color: rgba(255, 0, 0, 0.9);  font-size: 0.9rem;"` %> >
+                    <%= sucesso ? 'Usuário cadastrado!!' : 'Usuário ou senha incorreto'%> 
                 </li>
             <% } %>
-            <input id="user" name="user" type="text" placeholder="Usuário">
-            <input id="pass" name="pass" type="password" placeholder="Senha">
+            <input id="user" name="user" type="text" placeholder="Usuário ou Email">
+            <input id="pass" name="pass" type="password" placeholder="Senha" minlength="8" required>
             <% if (tentativa) { %>
                 <li >
                     <a href="/cadastrar"><%= sucesso ? '' : 'Cadastrar usuário'%> </a>

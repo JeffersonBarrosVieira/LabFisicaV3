@@ -27,7 +27,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png" />
     <link rel="preload" as="image" href="/img/loader.gif" />
 
-    <title>LabFísica - Cadastro</title>
+    <title>LabFísica - Verificação</title>
     
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -49,52 +49,33 @@
             <a href="/">
                 <h1>LabFísica</h1>
             </a>
-            
+            <label style="font-size: 0.9rem; margin-bottom: 5px; color: #16c3f7; width: 100%;">
+                Um código de verificação foi enviado para o endereço:
+            </label>
+            <input  style="background: #53585e; color: white; pointer-events: none !important;" id="email" name="email" type="email" value="<%= email %> " readonly>
             <% if (tentativa) { %>
                 <li style="color: rgba(255, 0, 0, 0.9); font-size: 0.9rem;" >
-                    <%= sucesso ? 'Insira seu Email' : 'Email já está cadastrado' %> 
+                    <%= sucesso ? 'Insira o código de verificação' : 'Código de verificação incorreto' %> 
                 </li>
             <% } %>
-            <input id="email" name="email" type="email" placeholder="Email">
+            <input id="codigo" name="codigo" type="text" placeholder="Insira o código de verificação">
 
-
-            <div class="g-recaptcha" data-sitekey="6LefqzscAAAAADs5E587dRKaz8DZ53lhfqfLMQt0" data-callback="verifyCaptcha"></div>
-            <div id="g-recaptcha-error"></div>
-            <input class="btn-formulario" type="submit" value="Cadastrar"/>
+            <input class="btn-formulario" type="submit" value="Verificar"/>
         </form>
 
     </main>
 
     <script src="/js/fundo.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <script>
         function verificar(){
 
-            if (document.getElementById('email').value == ''){
-                alert("Insira seu Email");
+            if (document.getElementById('codigo').value == ''){
+                alert("Insira o código de verificação");
                 return false
             }
 
-            return submitForm();
-        }
-
-        function submitForm() {
-            let response = grecaptcha.getResponse();
-            
-            if(response.length == 0) {
-                document.getElementById('g-recaptcha-error').innerHTML = `
-                <span style="color: rgba(255, 0, 0, 0.9); font-size: 0.9rem;">
-                    É necessário a verificação!
-                    </span>
-                `;
-                return false;
-            }
             return true;
-        }
-        
-        function verifyCaptcha() {
-            document.getElementById('g-recaptcha-error').innerHTML = '';
         }
     </script>
 </body>
