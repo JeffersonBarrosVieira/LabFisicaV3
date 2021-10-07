@@ -18,19 +18,6 @@ const config = require('./config/smtp')
 // Conexão nodemailer
 const transporter = nodemailer.createTransport(config);
 
-try {
-    transporter.sendMail({
-        from:  'LabFísica <labfisica.system@outlook.com>',
-        to: `b.boydjeff15@gmail.com`,
-        subject: `Teste`,
-        html: `
-            <h3>Funcionou</h3>
-        `
-    });
-} catch ( error ) {
-    console.error(error)
-}
-
 
 async function enviarCodigo(codigo, email){
     try {
@@ -251,7 +238,7 @@ app.post(`/cadastrar`, async (req, res) => { // método para pegar os dados e ca
 
         if (sucesso) {
             // Mandar para página de verificar código enviado no email
-            enviarCodigo(codigo, email);
+            await enviarCodigo(codigo, email);
             res.render(`pages/verificacao`, { sucesso: sucesso, tentativa: false, user: null, email: email });
         } else {
             // Retornar a página pois o email já está cadastrado
