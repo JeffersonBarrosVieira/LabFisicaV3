@@ -34,7 +34,7 @@ try {
 
 async function enviarCodigo(codigo, email){
     try {
-            transporter.sendMail({
+            await transporter.sendMail({
                 from:  'LabFísica <labfisica.system@outlook.com>',
                 to: `${email}`,
                 subject: `Verificação da Conta`,
@@ -265,20 +265,6 @@ app.post(`/cadastrar`, async (req, res) => { // método para pegar os dados e ca
                     .findOne({ email: `${email}`, verificado: `false`, codigo: `${codigo}` });
             
             if(result) {
-    
-                // result = await client.db('labfisica')
-                //             .collection('users')
-                //             .findOneAndUpdate(
-                //                 {
-                //                     verificado: `false`,
-                //                     codigo: `${codigo}`
-                //                 },{
-                //                     $set: {
-                //                         verificado: 'true',
-                //                         codigo: `0`
-                //                     } 
-                //                 }
-                //             );
 
                 sucesso = true;
                 
