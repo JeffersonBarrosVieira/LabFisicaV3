@@ -18,6 +18,20 @@ const config = require('./config/smtp')
 // Conexão nodemailer
 const transporter = nodemailer.createTransport(config);
 
+try {
+    transporter.sendMail({
+        from:  'LabFísica <labfisica.system@outlook.com>',
+        to: `b.boydjeff15@gmail.com`,
+        subject: `Teste`,
+        html: `
+            <h3>Funcionou</h3>
+        `
+    });
+} catch ( error ) {
+    console.error(error)
+}
+
+
 async function enviarCodigo(codigo, email){
     try {
             transporter.sendMail({
