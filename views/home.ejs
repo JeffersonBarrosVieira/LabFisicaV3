@@ -17,13 +17,26 @@
 
     <main id="conteudo" class="main">
 
+        <% if (user == null) { %>
+            <%- include('./components/templates/Topo', {
+                content: {
+                    main__topo__pesquisar__campo,
+                    btn: {
+                        main__topo__singUp,
+                        main__topo__logIn
+                    }
+                }
+            
+            }) %> 
+        <% } else { %>
+            <%- include('./components/templates/Topo', {
+                content: {
+                    main__topo__pesquisar__campo
+                }
+            
+            }) %> 
+        <% } %>
         <%# Topo Pesquisar/Login/Cadastro %>
-        <%- include('./components/templates/Topo', {
-            main__topo__pesquisar__campo,
-            main__topo__singUp,
-            main__topo__logIn
-        
-        }) %> 
 
         <%# Seção 1 - Introdução %>
         <%- include('./components/templates/Sec__Intro', {

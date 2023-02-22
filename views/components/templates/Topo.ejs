@@ -1,14 +1,22 @@
 <section class="main__topo" id="topo">
     <div class="main__topo__pesquisar">
-        <input class="main__topo__pesquisar__campo" type="text"
-            placeholder="<%= main__topo__pesquisar__campo %> ">
+        <% if (content.main__topo__pesquisar__campo) { %>
+            <input class="main__topo__pesquisar__campo" type="text"
+                placeholder="<%= content.main__topo__pesquisar__campo %> ">
+        <% } %>
     </div>
-    <div class="main__topo__botoes">
-        <a href="/cadastrar" class="main__topo__botoes__botao" id="sign-up">
-            <%= main__topo__singUp %> 
-        </a>
-        <a href="/entrar" class="main__topo__botoes__botao" id="log-in">
-            <%= main__topo__logIn %> 
-        </a>
-    </div>
+    <% if (content.btn) { %>
+        <div class="main__topo__botoes">
+            <% if (content.btn.main__topo__singUp) { %>
+                <a href="/cadastrar" class="main__topo__botoes__botao" id="sign-up">
+                    <%= content.btn.main__topo__singUp %> 
+                </a>
+            <% } %>
+            <% if (content.btn.main__topo__logIn) { %>
+                <a href="/entrar" class="main__topo__botoes__botao" id="log-in">
+                    <%= content.btn.main__topo__logIn %> 
+                </a>
+            <% } %>
+        </div>
+    <% } %>
 </section>

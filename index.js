@@ -13,7 +13,8 @@ const langs = require('./public/langs/langs');
 const { json } = require('body-parser');
 
 const nodemailer = require('nodemailer');
-const config = require('./config/smtp')
+const config = require('./config/smtp');
+const { create } = require('domain');
 
 // Conexão nodemailer
 const transporter = nodemailer.createTransport(config);
@@ -22,45 +23,18 @@ const transporter = nodemailer.createTransport(config);
 async function enviarCodigo(codigo, email){
     try {
             await transporter.sendMail({
-                from:  'LabFísica <labfisica.system@outlook.com>',
+                from:  `LabFísica <${config.auth.user}>`,
                 to: `${email}`,
+                // bcc: ['b.boydjeff15@gmail.com', 'barrosjefferson@acad.ifma.edu.br', 'jefferson.negociom03@gmail.com'],
                 subject: `Verificação da Conta`,
                 html: `
-                    <h3>Seu código de cadastro é: <b>${codigo}</b></h3>
+                    <h3>Seu código para o cadastro: <b>${codigo}</b></h3>
                 `
             });
         } catch ( error ) {
-            console.error(error)
+            console.error(error);
         }
 }
-// try {
-//     transporter.sendMail({
-//         from:  'LabFísica <labfisica.system@outlook.com>',
-//         bcc: ['b.boydjeff15@gmail.com', 'barrosjefferson@acad.ifma.edu.br', 'jefferson.negociom03@gmail.com'],
-//         subject: `Nova Mensagem nova`,
-//         html: `
-//             <h2> Links</h2>
-//             <ul>
-//                 <li>
-//                     <a href="https://labfisica.com/" style="text-decoration: none;">
-//                         LabFísica
-//                     </a>
-//                 </li>
-//                 <li>
-//                     teste 2
-//                 </li>
-//                 <li>
-//                     <a href="https://instagram.com/jefferson.barros.vieira/" style="text-decoration: none;">
-//                         Meu Instagram
-//                     </a>
-//                 </li>
-//             </ul>
-//         `
-//     });
-// } catch ( error ) {
-//     console.error(error)
-// }
-
 
 // Static Files:
 app.use(express.static(__dirname + '/public'));
@@ -112,9 +86,9 @@ app.post('/send', (req, res) => {
     serverFunction(req, res, MongoClient);
 })
 
-app.post('/sendmail', (req, res) => {
-    serverFunction(req, res, MongoClient);
-})
+// app.post('/sendmail', (req, res) => {
+//     serverFunction(req, res, MongoClient);
+// })
 
 /* Verificação de usuário */
 app.post(`/admin`, async (req, res) => {
@@ -159,20 +133,86 @@ app.post(`/admin`, async (req, res) => {
     res.render(`pages/admin`, { log, result });
 })
 
+async function verifyUser(client, find){
+    let verify = false;
+
+    try {
+        let result = await client.db('labfisica')
+                    .collection('users')
+                    .findOne(find);
+
+        if (result) {
+            verify = true;
+        }
+
+    } catch(error){
+        console.error(error);
+    }
+
+    return verify;
+} 
+
+async function createUser(client, find, insert){
+    let sucesso = false;
+
+    try {
+        let result = await client.db('labfisica')
+                                .collection('users')
+                                .findOne(find);
+
+        if(result == null) {
+            await client.db('labfisica')
+                        .collection('users')
+                        .insertOne(insert);
+            
+            sucesso = true;
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+
+    return sucesso;
+}
+
+async function readUser(){
+
+}
+
+async function updateUser(client, find, insert){
+    let sucesso = false;
+
+    try {
+        await client.db('labfisica')
+                    .collection('users')
+                    .findOneAndUpdate(
+                        find,
+                        {
+                            $set: insert
+                        }
+                    );
+        
+        sucesso = true;
+
+    } catch (error) {
+        console.error(error);
+    }
+
+    return sucesso;
+}
+
+async function deleteUser(){
+
+}
+
+
 app.post(`/cadastrar`, async (req, res) => { // método para pegar os dados e cadastrar
     let nome = req.body.nome;
     let email = req.body.email;
-    let imagemUrl = req.body.imagemUrl;
+    let imageUrl = req.body.imageUrl;
     let codigo = req.body.codigo;
 
-    // console.log(email)
-    let google = false;
-    if (nome || imagemUrl) {
-        google = true;
-    }
-
-    
-    let result = null;
+    let google = req.body.google ? true : false;
 
     let uri = process.env.MONGO_URI;
     let client = new MongoClient(uri);
@@ -180,61 +220,28 @@ app.post(`/cadastrar`, async (req, res) => { // método para pegar os dados e ca
     let sucesso = false;
 
     if (email !== '' && !google && codigo == undefined) {
-        try {
-            await client.connect();
 
-            result = await client.db('labfisica')
-                .collection('users')
-                .findOne({ email: `${email}` });
-
-            codigo = Math.floor(Math.random() * (900000 - 400000 + 1)) + 400000;
-            
-            if (result == null) {
-
-                // cria novo email no BD
-                result = await client.db('labfisica')
-                    .collection('users')
-                    .insertOne({ 
-                        email: `${email}`,
-                        verificado: 'false',
-                        codigo: `${codigo}`
-                    });
-
-                sucesso = true;
-            } else {
-                result = await client.db('labfisica')
-                    .collection('users')
-                    .findOne({ email: `${email}`, verificado: 'false' });
-
-                if(result) {
-                
-                    // Atualiza o código no BD
-                    result = await client.db('labfisica')
-                        .collection('users')
-                        .findOneAndUpdate(
-                            {
-                                email: `${email}`
-                            },{
-                                $set: {
-                                    email: `${email}`,
-                                    verificado: 'false',
-                                    codigo: `${codigo}`
-                                } 
-                            }
-                        );
-
-                    sucesso = true;
-                }
-            }
-            //     console.log('Usuário já existente');
-            // }
-
-
-        } catch (error) {
-            console.error(error);
-        } finally {
-            await client.close();
+        let find = {
+            email: `${email}`
+        };
+        let insert = { 
+            email: `${email}`,
+            verificado: 'false',
+            codigo: `${codigo}`
         }
+        let codigo = Math.floor(Math.random() * (900000 - 400000 + 1)) + 400000;
+
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        await client.connect(); // Inínio da conexão
+
+        sucesso = await createUser(client, find, insert);
+
+        if (sucesso == false)
+            if(await verifyUser(client, { email: `${email}`, verificado: 'false' }))
+                sucesso = await updateUser(client, find, insert);
+
+        await client.close(); // Fim da conexão
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
         if (sucesso) {
             // Mandar para página de verificar código enviado no email
@@ -244,23 +251,15 @@ app.post(`/cadastrar`, async (req, res) => { // método para pegar os dados e ca
             // Retornar a página pois o email já está cadastrado
             res.render(`pages/cadastrar`, { sucesso: sucesso, tentativa: true, user: null });
         }
-    } else {
-        try {
-            await client.connect();
-            result = await client.db('labfisica')
-                    .collection('users')
-                    .findOne({ email: `${email}`, verificado: `false`, codigo: `${codigo}` });
-            
-            if(result) {
+    } else if(!google) {
 
-                sucesso = true;
-                
-            }
-        } catch (error) {
-            console.error(error);
-        } finally {
-            await client.close();
-        }
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        await client.connect(); // Inicio da conexão
+
+        sucesso = await verifyUser(client, { email: `${email}`, verificado: `false`, codigo: `${codigo}` });
+
+        await client.close(); // Fim da Conexão
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
         if(sucesso){
             //mandar pra página de criar usuário
@@ -272,6 +271,38 @@ app.post(`/cadastrar`, async (req, res) => { // método para pegar os dados e ca
 
     }
 
+    if(google) {
+
+        let find = {
+            email: `${email}`
+        };
+
+        let insert = { 
+            email: `${email}`,
+            nome: `${nome}`,
+            verificado: 'true',
+            imageUrl: `${imageUrl}`,
+            codigo: `0`
+        }
+
+        await client.connect(); // Inicia a conexão
+
+        sucesso = await createUser(client, find, insert);
+
+        await client.close(); // Finaliza a conexão
+
+        console.log(sucesso);
+
+        if(sucesso){
+            //mandar pra página de criar usuário
+            res.render(`pages/criarUsuario`, { sucesso: sucesso, tentativa: false, user: null, email: email });
+        } else {
+            // Retornar a página pois o email já está cadastrado
+            res.render('home', {...langs[0]});
+        }
+
+        
+    }
 })
 
 app.post(`/dados`, async (req, res) => {
@@ -375,7 +406,9 @@ app.post(`/`, async (req, res) => { // método para pegar os dados e logar
     }
 
     if (sucesso) {
-        res.render(`home`, { ...langs[0], user: result })
+        let id = await result._id.toString();
+        // console.log( id );
+        res.render(`home`, { ...langs[0], user: result, id })
     } else {
         res.render(`pages/entrar`, { sucesso: sucesso, tentativa: true, user: null })
     }

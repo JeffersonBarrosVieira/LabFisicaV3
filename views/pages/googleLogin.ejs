@@ -8,36 +8,6 @@
     <!-- <meta name="google-site-verification" content="92FSmC8Iy0ILzcHYQP4W1rqplh1qALjqglWEHauiJVk" /> -->
     <title>Login Google</title>
 
-    <style>
-        #btnLogar {
-            display: inline-block;
-            background: #4285f4;
-            color: white;
-            width: 220px;
-            border-radius: 5px;
-            white-space: nowrap;
-        }
-        #btnLogar:hover {
-            cursor: pointer;
-        }
-        span.icon {
-            background: url('https://www.shareicon.net/data/256x256/2015/10/04/111650_google-icon_512x512.png') transparent 5px 50% no-repeat;
-            background-size: 38px 38px;
-            display: inline-block;
-            vertical-align: middle;
-            width: 42px;
-            height: 45px;
-        }
-        span.buttonText {
-            display: inline-block;
-            vertical-align: middle;
-            padding-left: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
-
 </head>
 <body>
     
@@ -46,9 +16,31 @@
   
         <!-- Código html do botão de login -->
         <div id="gSignInWrapper">
-            <div id="btnLogar" class="customGPlusSignIn">
-                <span class="icon"></span>
-                <span class="buttonText">Entrar com o Google</span>
+            <div id="btnLogar"
+                class="customGPlusSignIn"
+                style="
+                        display: inline-block;
+                        background: #4285f4;
+                        color: white;
+                        width: 220px;
+                        border-radius: 5px;
+                        white-space: nowrap;
+                        cursor: pointer;">
+                <span   style="
+                                background: url('https://www.shareicon.net/data/256x256/2015/10/04/111650_google-icon_512x512.png') transparent 5px 50% no-repeat;
+                                background-size: 38px 38px;
+                                display: inline-block;
+                                vertical-align: middle;
+                                width: 42px;
+                                height: 45px;"> </span>
+                <span   style="
+                                display: inline-block;
+                                vertical-align: middle;
+                                padding-left: 10px;
+                                font-size: 14px;
+                                font-weight: bold;
+                                font-family: 'Roboto', sans-serif;
+                            "> Entrar com o Google </span>
             </div>
         </div>
         <div id="name"></div>
@@ -67,7 +59,7 @@
         var startApp = function() {
             gapi.load('auth2', function(){
                 auth2 = gapi.auth2.init({
-                client_id: '680773311170-8538oubn1svoaru3qhblpkqmmqmpi1ni.apps.googleusercontent.com',
+                client_id: `680773311170-8538oubn1svoaru3qhblpkqmmqmpi1ni.apps.googleusercontent.com`,
                 cookiepolicy: 'single_host_origin',
                 scope: 'profile email' // solicitando acesso ao profile e ao e-mail do usuário
                 });
